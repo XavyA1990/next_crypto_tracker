@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Perfil",
+    "href": "/perfil"
+  },
+  {
+    "name": "Portafolio",
+    "href": "/perfil/portafolio"
+  },
+  {
+    "name": "Cerrar sesión",
+    "href": "/cerrar-sesión"
+  }
+]

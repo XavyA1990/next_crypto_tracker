@@ -20,6 +20,162 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/*menu button*/
+.mobile-menu-button-base {
+  @apply relative inline-flex items-center justify-center rounded-md p-2 text-gray-400;
+}
+
+.mobile-menu-button.light {
+  @apply hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500;
+}
+
+.mobile-menu-button.dark {
+  @apply hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white;
+}
+
+/*navbar container*/
+.navbar-container.light {
+  @apply bg-white shadow;
+}
+
+.navbar-container.dark {
+  @apply bg-gray-800;
+}
+
+/*nav link*/
+.nav-link.light {
+  @apply text-gray-500 hover:border-gray-300 hover:text-gray-700;
+}
+
+.nav-link.dark {
+  @apply text-gray-300 hover:bg-gray-700 hover:text-white;
+}
+
+.nav-link.dark.is-active {
+  @apply bg-gray-900 text-white;
+}
+.nav-link.light.is-active {
+  @apply border-indigo-500 text-gray-900;
+}
+.nav-link-base.dark {
+  @apply  px-3 text-sm font-medium inline-flex items-center;
+}
+
+.nav-link-base.light {
+  @apply inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium;
+}
+
+/*mobile nav link*/
+.nav-link.dark.is-active.is-mobile {
+  @apply bg-gray-900 text-white;
+}
+.nav-link.light.is-active.is-mobile {
+  @apply border-indigo-500 text-gray-900;
+}
+.nav-link-base.dark.is-mobile {
+  @apply rounded-md px-3 py-2 text-sm font-medium;
+}
+
+.nav-link-base.light.is-mobile {
+  @apply inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium;
+}
+
+/*profile menu*/
+.profile-menu-item, .btn-secondary-base {
+  @apply block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100
+}
+
+.profile-menu-button.dark {
+  @apply bg-gray-800 focus:ring-white focus:ring-offset-gray-800
+}
+
+.profile-menu-button.light {
+  @apply bg-white focus:ring-indigo-500
+}
+
+.profile-menu-button-base {
+  @apply relative flex rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-offset-2
+}
+
+/*mobile nav link*/
+.mobile-nav-link.light.is-active {
+  @apply  border-indigo-500 bg-indigo-50 py-2 pl-3 pr-4 text-base font-medium text-indigo-700
+}
+
+.mobile-nav-link.dark.is-active {
+  @apply bg-gray-900 text-white
+}
+
+.mobile-nav-link.light {
+  @apply border-transparent text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 
+}
+
+.mobile-nav-link.dark {
+  @apply text-gray-300 hover:bg-gray-700 hover:text-white
+}
+
+.mobile-nav-link-base.dark {
+  @apply block px-3 py-2 text-base font-medium
+}
+
+.mobile-nav-link-base.light {
+  @apply block border-l-4 py-2 pl-3 pr-4 text-base font-medium sm:pl-5 sm:pr-6
+}
+
+/*user info*/
+.user-info-container.light {
+  @apply border-gray-200;
+}
+
+.user-info-container.dark {
+  @apply border-gray-700;
+}
+
+.user-info-container-base {
+  @apply border-t pb-3 pt-4
+}
+
+.user-name.light {
+  @apply text-base font-medium text-gray-800;
+}
+
+.user-email.light {
+  @apply text-sm font-medium text-gray-500;
+}
+
+.user-email-base.dark {
+  @apply text-sm font-medium ;
+}
+
+.user-name-base.dark {
+  @apply text-base font-medium;
+}
+
+/*profile mobile button*/
+.profile-mobile-button.light {
+  @apply text-gray-500 hover:bg-gray-100 hover:text-gray-800 sm:px-6
+}
+
+.profile-mobile-button.dark {
+  @apply text-gray-400 hover:bg-gray-700 hover:text-white
+}
+
+.profile-mobile-button-base {
+  @apply block px-3 py-2 text-base font-medium
+}
+
+/*button*/
+.btn-primary-base {
+  @apply relative inline-flex items-center gap-x-1.5 rounded-md px-3 py-2 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2;
+}
+
+.btn-primary.light {
+  @apply bg-indigo-600 hover:bg-indigo-500 focus-visible:outline-indigo-600;
+}
+
+.btn-primary.dark {
+  @apply bg-indigo-500 hover:bg-indigo-400 focus-visible:outline-indigo-500;
+}
 @layer utilities {
   .text-balance {
     text-wrap: balance;

@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Inicio",
+    "href": "/"
+  },
+  {
+    "name": "Noticias",
+    "href": "/noticias"
+  },
+  {
+    "name": "Criptomonedas",
+    "href": "/criptomonedas"
+  }
+]
