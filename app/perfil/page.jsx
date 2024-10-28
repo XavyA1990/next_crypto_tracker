@@ -1,10 +1,13 @@
+"use client";
+
+import ProtectedRoute from "@/components/ProtectedRoute/ProtectedRoute";
 
 
 const PerfilDeUsuario = () => {
   return (
-    <div>
-      
-    </div>
+      <ProtectedRoute>
+        Perfil
+      </ProtectedRoute>
   )
 }
 

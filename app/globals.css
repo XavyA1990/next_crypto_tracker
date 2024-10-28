@@ -176,6 +176,36 @@ body {
 .btn-primary.dark {
   @apply bg-indigo-500 hover:bg-indigo-400 focus-visible:outline-indigo-500;
 }
+
+/*modal container*/
+.modal-container-base {
+  @apply relative transform overflow-hidden rounded-lg px-4 pb-4 pt-5 text-left shadow-xl transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:my-8 sm:w-full sm:max-w-custom-modal sm:p-6 data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95
+}
+
+.modal-container.light {
+  @apply bg-white;
+}
+
+.modal-container.dark {
+  @apply bg-gray-800;
+}
+
+.text-modal-title.light {
+  @apply text-gray-900;
+}
+
+.text-modal-title.dark {
+  @apply text-gray-100;
+}
+
+.text-modal-description.light {
+  @apply text-gray-500;
+}
+
+.text-modal-description.dark {
+  @apply text-gray-300;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

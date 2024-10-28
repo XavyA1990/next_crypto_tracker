@@ -10,12 +10,32 @@ import NavLink from "./NavLink/NavLink";
 import ProfileMenu from "./ProfileMenu/ProfileMenu";
 import routes from "../../lib/routes/routes.json";
 import useTheme from "@/hooks/useTheme";
-import { getUser, signIn } from "@/services/signIn";
+import { getUser } from "@/services/auth";
+import { useEffect } from "react";
+import { useAuthStore, useMenuStore } from "@/store/globalStore";
+import LoginModal from "./LoginModal/LoginModal";
 
 const { login } = labels;
 
 const Navbar = () => {
   const { theme, mounted } = useTheme();
+
+  const setUser = useAuthStore((state) => state.setUser);
+  const user = useAuthStore((state) => state.user);
+  const toggleModalLogin = useMenuStore((state) => state.toggleModalLogin);
+
+  useEffect(() => {
+    getUser()
+      .then((res) => {
+        const user_data = {
+          avatarUrl: res.avatar_url,
+          email: res.email,
+          fullName: res.full_name,
+        };
+        setUser(user_data);
+      })
+      .catch((err) => console.error(err));
+  }, [setUser]);
 
   if (!mounted) {
     return null;
@@ -37,21 +57,22 @@ const Navbar = () => {
             </div>
           </div>
           <div className="flex items-center">
-            <div className="flex-shrink-0">
-              <Button
-                variant="primary"
-                onClick={() => signIn("facebook")}
-              >
-                {login}
-              </Button>
-            </div>
-            <div className="hidden md:ml-4 md:flex md:flex-shrink-0 md:items-center">
-              <ProfileMenu />
-            </div>
+            {(!user || !user.fullName) ? (
+              <div className="flex-shrink-0">
+                <Button variant="primary" onClick={() => toggleModalLogin()}>
+                  {login}
+                </Button>
+              </div>
+            ) : (
+              <div className="hidden md:ml-4 md:flex md:flex-shrink-0 md:items-center">
+                <ProfileMenu />
+              </div>
+            )}
           </div>
         </div>
       </div>
 
+      {(!user || !user.fullName) && <LoginModal />}
       <MobileMenu />
     </Disclosure>
   );

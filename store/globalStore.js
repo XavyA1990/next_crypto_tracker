@@ -12,8 +12,27 @@ export const useThemeStore = create()(
     }),
     {
       name: "theme-storage",
-      getStorage: () =>
-        typeof window !== "undefined" ? window.localStorage : undefined,
+    }
+  )
+);
+
+export const useMenuStore = create((set) => ({
+  isModalLoginOpen: false,
+  toggleModalLogin: () =>
+    set((state) => ({
+      isModalLoginOpen: !state.isModalLoginOpen,
+    })),
+}));
+  
+
+export const useAuthStore = create()(
+  persist(
+    (set) => ({
+      user: null,
+      setUser: (user) => set({ user }),
+    }),
+    {
+      name: "auth-storage",
     }
   )
 );

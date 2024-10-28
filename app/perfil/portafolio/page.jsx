@@ -1,10 +1,12 @@
+"use client";
 
+import ProtectedRoute from "@/components/ProtectedRoute/ProtectedRoute";
 
 const Portafolio = () => {
   return (
-    <div>
-      
-    </div>
+      <ProtectedRoute>
+        portafolio
+      </ProtectedRoute>
   )
 }
 

@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { Button as HeadlessUIButton } from "@headlessui/react";
 import useTheme from "@/hooks/useTheme";
 
-const Button = ({ variant, children, onClick, className, options }) => {
+const Button = ({ variant, children, onClick, className, options = false }) => {
   const { theme, mounted } = useTheme();
   const classes = `btn-${variant}-base btn-${variant} ${theme}`;
 
@@ -25,12 +25,5 @@ const Button = ({ variant, children, onClick, className, options }) => {
     </HeadlessUIButton>
   );
 };
-
-Button.defaultProps = {
-  variant: "primary",
-  options: {
-    withOutDefaultClass: false,
-  },
-}
 
 export default Button;
