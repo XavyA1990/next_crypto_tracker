@@ -23,6 +23,13 @@ export const useMenuStore = create((set) => ({
       isModalLoginOpen: !state.isModalLoginOpen,
     })),
 }));
+
+export const useNewsPaginationStore = create((set) => ({
+  currentPage: 1,
+  totalPages: 5,
+  setCurrentPage: (currentPage) => set({ currentPage }),
+  setTotalPages: (totalPages) => set({ totalPages }),
+}));
   
 
 export const useAuthStore = create()(

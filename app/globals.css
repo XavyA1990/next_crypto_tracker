@@ -206,6 +206,62 @@ body {
   @apply text-gray-300;
 }
 
+.background.light {
+  @apply bg-white;
+}
+
+.background.dark {
+  @apply bg-gray-800;
+}
+
+.background-border.light {
+  @apply border-gray-200;
+}
+
+.background-border.dark {
+  @apply border-gray-700;
+}
+
+.normal-text.light {
+  @apply text-gray-600;
+}
+
+.normal-text.dark {
+  @apply text-gray-400;
+}
+
+.background-page.light {
+  @apply bg-gray-200;
+}
+
+.background-page.dark {
+  @apply bg-gray-900;
+}
+
+.text-title.light {
+  @apply text-gray-900;
+}
+
+.text-title.dark {
+  @apply text-gray-100;
+}
+
+.btn-no-fill.light {
+  @apply text-gray-400 ring-gray-300 hover:bg-gray-50;
+}
+
+.btn-no-fill.dark {
+  @apply text-gray-300 ring-gray-700 hover:bg-gray-700;
+}
+
+.btn-with-border.light {
+  @apply text-gray-700 hover:bg-gray-50 border-gray-300 bg-white ring-gray-300;
+}
+
+.btn-with-border.dark {
+  @apply text-gray-300 hover:bg-gray-700 border-gray-700 bg-gray-800 ring-gray-600 ;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
