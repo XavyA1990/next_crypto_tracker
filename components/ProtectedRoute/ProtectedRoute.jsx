@@ -6,12 +6,12 @@ import {
   Dialog,
   DialogBackdrop,
   DialogPanel,
-  DialogTitle,
 } from "@headlessui/react";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import labels from "@/lib/labels/modals";
+import Text from "../Text/Text";
 
 const { login, unavailablePage, unavailablePageMessage, returnToHome } = labels;
 
@@ -60,16 +60,20 @@ const ProtectedRoute = ({ children }) => {
                   />
                 </div>
                 <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
-                  <DialogTitle
-                    as="h3"
-                    className={`text-base font-semibold leading-6 text-modal-title ${theme}`}
+                  <Text
+                    variant={"dialogTitle"}
+                    dialogTitleVariant={"h3"}
+                    weight={"font-semibold"}
+                    colorType={"text-modal-title"}
+                    customClasses={`text-base leading-6`}
+                    sizeVariant={"text-sm"}
                   >
                     {unavailablePage}
-                  </DialogTitle>
+                  </Text>
                   <div className="mt-2">
-                    <p className={`text-sm text-modal-description ${theme}`}>
+                    <Text variant={"p"} sizeVariant={"text-sm"} colorType={"text-modal-description"}>
                       {unavailablePageMessage}
-                    </p>
+                    </Text>
                   </div>
                 </div>
               </div>
@@ -95,7 +99,7 @@ const ProtectedRoute = ({ children }) => {
       </Dialog>
     );
   } else {
-    return <div>{children}</div>;
+    return <>{children}</>;
   }
 };
 

@@ -30,7 +30,6 @@ export const useNewsPaginationStore = create((set) => ({
   setCurrentPage: (currentPage) => set({ currentPage }),
   setTotalPages: (totalPages) => set({ totalPages }),
 }));
-  
 
 export const useAuthStore = create()(
   persist(
@@ -43,3 +42,62 @@ export const useAuthStore = create()(
     }
   )
 );
+
+export const useCryptoStore = create((set, get) => ({
+  currentPage: 1,
+  cryptocurrencies: [],
+  filteredCryptocurrencies: [],
+  paginatedCryptocurrencies: [],
+  totalPages: 1,
+  searchQuery: '',
+  setCryptocurrencies: (cryptocurrencies) => {
+    const { searchQuery } = get();
+    const filteredCryptocurrencies = cryptocurrencies.filter((crypto) =>
+      crypto.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      crypto.symbol.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    const totalPages = Math.ceil(filteredCryptocurrencies.length / 10);
+    const paginatedCryptocurrencies = filteredCryptocurrencies.slice(0, 10);
+
+    set({
+      cryptocurrencies,
+      filteredCryptocurrencies,
+      totalPages,
+      currentPage: 1,
+      paginatedCryptocurrencies,
+    });
+  },
+
+  setSearchQuery: (searchQuery) => {
+    const { cryptocurrencies } = get();
+    const filteredCryptocurrencies = cryptocurrencies.filter((crypto) =>
+      crypto.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      crypto.symbol.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    const totalPages = Math.ceil(filteredCryptocurrencies.length / 10);
+    const paginatedCryptocurrencies = filteredCryptocurrencies.slice(0, 10);
+
+    set({
+      searchQuery,
+      filteredCryptocurrencies,
+      totalPages,
+      currentPage: 1,
+      paginatedCryptocurrencies,
+    });
+  },
+  
+  setCurrentPage: (currentPage) => {
+    const { filteredCryptocurrencies, totalPages } = get();
+    // Asegurarse de que currentPage esté dentro de los límites
+    if (currentPage < 1) currentPage = 1;
+    if (currentPage > totalPages) currentPage = totalPages;
+
+    const startIndex = (currentPage - 1) * 10;
+    const paginatedCryptocurrencies = filteredCryptocurrencies.slice(
+      startIndex,
+      startIndex + 10
+    );
+
+    set({ currentPage, paginatedCryptocurrencies });
+  },
+}));

@@ -8,16 +8,26 @@ import {
 } from "@heroicons/react/24/outline";
 import React from "react";
 import labels from "@/lib/labels/news";
+import Text from "../Text/Text";
 
 const { seeMore } = labels;
 
-const Card = ({ imageSrc, title, text, newsUrl, sentiment, articleSource, date }) => {
-
-  const {mounted, theme } = useTheme();
+const Card = ({
+  imageSrc,
+  title,
+  text,
+  newsUrl,
+  sentiment,
+  articleSource,
+  date,
+}) => {
+  const { mounted, theme } = useTheme();
 
   if (!mounted) return null;
   return (
-    <div className={`overflow-hidden rounded-lg background ${theme} shadow h-[504px] flex flex-col`}>
+    <div
+      className={`overflow-hidden rounded-lg background ${theme} shadow h-[504px] flex flex-col`}
+    >
       <img src={imageSrc} alt={title} className="w-full h-48 object-cover" />
       <div className="px-4 py-5 flex-1 overflow-y-auto">
         <div className="grid grid-flow-row grid-cols-5 justify-center ">
@@ -26,11 +36,19 @@ const Card = ({ imageSrc, title, text, newsUrl, sentiment, articleSource, date }
           ) : (
             <ArrowTrendingDownIcon className="w-8 h-8 text-red-500 col-span-1" />
           )}
-          <h2 className={`text-xl font-semibold mb-2 text-title ${theme} col-span-4`}>{title}</h2>
+          <Text
+            variant={"h2"}
+            colorType={"text-title"}
+            sizeVariant={"text-xl"}
+            weight="font-semibold"
+            customClasses={`col-span-4 mb-2`}
+          >
+            {title}
+          </Text>
         </div>
-        <p className={`normal-text ${theme}`}>{text}</p>
-          <p className="text-gray-500 text-sm">{date}</p>
-          <p className="text-gray-500 text-sm">- {articleSource}</p>
+        <Text variant={"p"} colorType={"normal-text"}>{text}</Text>
+        <Text variant={"p"} colorType={"text-gray-500"} sizeVariant={"text-sm"}>{date}</Text>
+        <Text variant={"p"} colorType={"text-gray-500"} sizeVariant={"text-sm"}>{articleSource}</Text>
       </div>
       <div className="flex justify-end p-4">
         <Button

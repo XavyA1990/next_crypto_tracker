@@ -1,8 +1,8 @@
+import { translateText } from "@/services/translate";
 import axios from "axios";
 import { NextResponse } from "next/server";
 
 const CRYPTO_NEWS_API_KEY = process.env.CRYPTO_NEWS_API_KEY;
-const LIBRE_TRANSLATE_URL = "http://127.0.0.1:5000/translate";
 
 // Definir y exportar la función que maneja el método GET
 export async function GET(request) {
@@ -38,30 +38,6 @@ export async function GET(request) {
     return NextResponse.json({ error: error }, { status: 500 });
   }
 }
-
-const translateText = async (text) => {
-  try {
-    const response = await axios.post(
-      LIBRE_TRANSLATE_URL,
-      {
-        q: text,
-        source: "en",
-        target: "es",
-      },
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-
-    return response.data.translatedText;
-  } catch (error) {
-    console.error("🚀 ~ translateText ~ error", error);
-    return text;
-  }
-};
-
 
 const formatDate = (dateString) => {
   const date = new Date(dateString);

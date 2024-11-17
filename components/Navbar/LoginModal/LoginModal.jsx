@@ -4,7 +4,6 @@ import {
   Dialog,
   DialogBackdrop,
   DialogPanel,
-  DialogTitle,
 } from "@headlessui/react";
 import { signIn } from "@/services/auth";
 import { useMenuStore } from "@/store/globalStore";
@@ -14,6 +13,7 @@ import GoogleIcon from "@/assets/icons/GoogleIcon";
 import Logo from "@/components/Logo/Logo";
 import useTheme from "@/hooks/useTheme";
 import labels from "@/lib/labels/modals";
+import Text from "@/components/Text/Text";
 
 const { welcomeMessage, signInFacebook, signInGoogle, cancel, login } = labels;
 
@@ -48,16 +48,22 @@ const LoginModal = () => {
                 <Logo />
               </div>
               <div className="mt-3 text-center sm:mt-5">
-                <DialogTitle
-                  as="h3"
-                  className={`text-base font-semibold leading-6 ${theme}`}
+                <Text
+                  variant={"dialogTitle"}
+                  dialogTitleVariant={"h3"}
+                  weight="font-semibold"
+                  customClasses={`text-base leading-6`}
                 >
                   {login}
-                </DialogTitle>
+                </Text>
                 <div className="mt-2">
-                  <p className={`text-sm text-modal-description ${theme}`}>
+                  <Text
+                    variant={"p"}
+                    sizeVariant={"text-sm"}
+                    colorType={"text-modal-description"}
+                  >
                     {welcomeMessage}
-                  </p>
+                  </Text>
                 </div>
               </div>
             </div>

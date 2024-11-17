@@ -262,6 +262,14 @@ body {
   @apply text-gray-300 hover:bg-gray-700 border-gray-700 bg-gray-800 ring-gray-600 ;
 }
 
+.text-input.light {
+  @apply text-gray-700 bg-gray-100 focus:ring-gray-300;
+}
+
+.text-input.dark {
+  @apply text-gray-300 bg-gray-800 focus:ring-gray-600;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
