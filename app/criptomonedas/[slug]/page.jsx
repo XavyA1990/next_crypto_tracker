@@ -64,6 +64,7 @@ const Criptomoneda = () => {
               </div>
             )}
           </div>
+          <CandleStickChart symbol={cryptoInfo.symbol} />
         </>
       )}
     </Page>
