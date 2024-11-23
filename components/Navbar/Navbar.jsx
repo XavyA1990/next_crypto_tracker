@@ -29,6 +29,7 @@ const Navbar = () => {
     getUser()
       .then((res) => {
         const user_data = {
+          id: res.id,
           avatarUrl: res.avatar_url,
           email: res.email,
           fullName: res.full_name,

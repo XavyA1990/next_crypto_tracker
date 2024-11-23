@@ -31,8 +31,15 @@ export const getUser = async () => {
       user,
     },
   } = await supabase.auth.getUser();
+  
+  const userInformation = {
+    id: user?.id,
+    email: user?.user_metadata?.email,
+    full_name: user?.user_metadata?.full_name,
+    avatar_url: user?.user_metadata?.avatar_url,
+  }
 
-  return user?.user_metadata || {};
+  return userInformation || {};
 };
 
 export const signOut = async () => {

@@ -20,13 +20,16 @@ const CryptoCard = ({
   slug,
   imageSrc,
   fullWidth = false,
+  customButtons = [],
 }) => {
   const { mounted, theme } = useTheme();
 
   if (!mounted) return null;
   return (
     <div
-      className={`overflow-hidden rounded-lg background ${theme} shadow h-auto flex flex-col ${fullWidth && "md:col-span-2"}`}
+      className={`overflow-hidden rounded-lg background ${theme} shadow h-auto flex flex-col ${
+        fullWidth && "md:col-span-2"
+      }`}
     >
       <img src={imageSrc} alt={name} className="w-16 h-16 mx-4 mt-4" />
       <div className="px-4 py-5 flex-1">
@@ -36,7 +39,13 @@ const CryptoCard = ({
           ) : (
             <ArrowTrendingDownIcon className="w-6 h-6 text-red-500" />
           )}
-          <Text variant={"h2"} sizeVariant={"text-xl"} weight="font-semibold" colorType={"text-title"} customClasses={"ml-2"}>
+          <Text
+            variant={"h2"}
+            sizeVariant={"text-xl"}
+            weight="font-semibold"
+            colorType={"text-title"}
+            customClasses={"ml-2"}
+          >
             {name} ({symbol})
           </Text>
         </div>
@@ -63,7 +72,12 @@ const CryptoCard = ({
           Última actualización: {new Date(lastUpdated).toLocaleString()}
         </Text>
       </div>
-      <div className="flex justify-end p-4">
+      <div
+        className={`flex ${
+          customButtons.length === 0 ? "justify-end" : "justify-between"
+        } p-4`}
+      >
+        {customButtons.map((button) => button)}
         <Link
           href={`/criptomonedas/${slug}/`}
           className={`btn-primary ${theme} inline-flex items-center px-3 py-2 rounded-md font-bold`}

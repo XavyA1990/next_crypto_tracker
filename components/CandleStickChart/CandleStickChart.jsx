@@ -140,7 +140,7 @@ useEffect(() => {
     };
   }, []);
 
-  return <div ref={chartContainerRef} className="max-w-full mt-6"></div>;
+  return <div ref={chartContainerRef} className="w-full mt-6"></div>;
 };
 
 export default CandleStickChart;
