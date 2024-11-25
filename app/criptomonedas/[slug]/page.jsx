@@ -190,7 +190,7 @@ const Criptomoneda = () => {
               </div>
             )}
           </div>
-          {showVotes && (
+          {showVotes && user?.id && (
             <div className="w-full flex mt-4 gap-4 flex-col">
               <Text variant={"h3"} colorType={"normal-text"}>
                 Votos de la comunidad
