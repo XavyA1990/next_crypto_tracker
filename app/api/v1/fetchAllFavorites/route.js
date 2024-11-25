@@ -1,4 +1,4 @@
-import { processCryptoData } from "@/utils/procesData/crypto";
+import { processCryptoData } from "@/utils/processData/crypto";
 import { createClient } from "@/utils/supabase/client";
 import { NextResponse } from "next/server";
 
@@ -63,7 +63,6 @@ export async function POST(req) {
     const responseData = await response.json();
 
     const cryptocurrenciesArray = Object.values(responseData.data);
-    console.log("🚀 ~ POST ~ cryptocurrenciesArray:", cryptocurrenciesArray)
 
     const cryptocurrenciesForFavorites = processCryptoData(cryptocurrenciesArray);
 

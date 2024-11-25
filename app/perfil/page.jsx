@@ -9,7 +9,7 @@ import PageTitle from "@/components/PageTitle/PageTitle";
 import ProtectedRoute from "@/components/ProtectedRoute/ProtectedRoute";
 import Spinner from "@/components/Spinner/Spinner";
 import Text from "@/components/Text/Text";
-import { fetchAllFavorites } from "@/services/user";
+import { fetchAllFavorites } from "@/services/crypto";
 import { useAuthStore } from "@/store/globalStore";
 import { ChartBarSquareIcon } from "@heroicons/react/24/outline";
 import { ChartBarSquareIcon as ChartBarSquareIconSolid } from "@heroicons/react/20/solid";

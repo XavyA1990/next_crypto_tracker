@@ -12,6 +12,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import labels from "@/lib/labels/modals";
 import Text from "../Text/Text";
+import Page from "../Page/Page";
 
 const { login, unavailablePage, unavailablePageMessage, returnToHome } = labels;
 
@@ -40,6 +41,7 @@ const ProtectedRoute = ({ children }) => {
   }
   if (!user || !user.fullName) {
     return (
+      <>
       <Dialog open={open} onClose={setOpen} className="relative z-10">
         <DialogBackdrop
           transition
@@ -97,6 +99,8 @@ const ProtectedRoute = ({ children }) => {
           </div>
         </div>
       </Dialog>
+      <Page></Page>
+      </>
     );
   } else {
     return <>{children}</>;
