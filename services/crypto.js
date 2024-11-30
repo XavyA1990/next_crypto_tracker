@@ -123,3 +123,12 @@ export const fetchAllFavorites = async (userId) => {
 
   return data;
 };
+
+export const fetchFearGreedStats = async () => {
+  const url = `/fetchLatestFearAndGreed`;
+  const res = await localAPIFetcher(url);
+
+  const data = await res.json();
+
+  return data;
+};

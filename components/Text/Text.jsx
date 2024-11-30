@@ -82,7 +82,7 @@ const Text = ({
         <p
           className={`${colorType} ${theme} ${
             sizeVariant ? sizeVariant : ""
-          } ${customClasses}`}
+          } ${customClasses} ${weight}`}
         >
           {children}
         </p>
@@ -97,6 +97,16 @@ const Text = ({
         >
           {children}
         </DialogTitle>
+      );
+    case "span":
+      return (
+        <span
+          className={`${colorType} ${theme} ${
+            sizeVariant ? sizeVariant : ""
+          } ${customClasses}`}
+        >
+          {children}
+        </span>
       );
     default:
       return (

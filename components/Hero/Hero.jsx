@@ -5,8 +5,8 @@ import Link from "next/link";
 
 const Hero = () => {
   return (
-    <Container customClasses="relative isolate overflow-hidden">
-      <div className="py-24 lg:px-8">
+    <Container customClasses="relative isolate overflow-hidden ">
+      <div className="py-24 lg:px-8 ">
         <div className="mx-auto max-w-2xl text-center">
           <Text
             variant={"h2"}
@@ -18,11 +18,13 @@ const Hero = () => {
             Encuentra tu proxima inversión
           </Text>
           <Text
-            variant={"p"}
             colorType={"text-title"}
-            customClasses={"mx-auto mt-6 max-w-xl text-pretty text-lg/8 px-2 md:px-0"}
+            customClasses={
+              "mx-auto mt-6 max-w-xl text-pretty text-lg/8 px-2 md:px-0"
+            }
           >
-            Conoce las criptomonedas más populares y las últimas noticias del mercado.
+            Conoce las criptomonedas más populares y las últimas noticias del
+            mercado.
           </Text>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <Link
@@ -35,7 +37,9 @@ const Hero = () => {
               href="/noticias"
               className="text-sm/6 font-semibold text-white"
             >
-              Últimas Noticias <span aria-hidden="true">→</span>
+              <Text variant={"span"} colorType={"text-title"}>
+                Últimas Noticias <span aria-hidden="true">→</span>
+              </Text>
             </Link>
           </div>
         </div>

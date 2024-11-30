@@ -18,10 +18,10 @@ const UserInfo = ({ children }) => {
           />
         </div>
         <div className="ml-3">
-          <Text variant={"p"} colorType={"user-name"} customClasses={`user-name-base`}>
+          <Text colorType={"user-name"} customClasses={`user-name-base`}>
             {user.fullName}
           </Text>
-          <Text variant={"p"} colorType={"user-email"} customClasses={`user-email-base`}>
+          <Text colorType={"user-email"} customClasses={`user-email-base`}>
             {user.email}
           </Text>
         </div>

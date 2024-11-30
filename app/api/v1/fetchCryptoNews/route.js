@@ -2,12 +2,11 @@ import { translateText } from "@/services/translate";
 import { cryptoNewsFetcher } from "@/utils/fetchers/fetcher";
 import { NextResponse } from "next/server";
 
-const CRYPTO_NEWS_API_KEY = process.env.CRYPTO_NEWS_API_KEY;
 
 export async function GET(request) {
   const page = request.nextUrl.searchParams.get("page") || 1;
   try {
-    const url = `/category?section=general&items=10&page=${page}&token=${CRYPTO_NEWS_API_KEY}`;
+    const url = `/category?section=general&items=10&page=${page}`;
     const response = await cryptoNewsFetcher(url);
     const result = await response.json();
     let { data } = result;

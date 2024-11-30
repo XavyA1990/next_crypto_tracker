@@ -14,7 +14,6 @@ const Footer = () => {
     <Container type={"footer"} colorVariant={"primary"}>
       <div className="mx-auto max-w-7xl px-6 py-3 md:flex-col md:items-center md:justify-between lg:px-8">
         <Text
-          variant="p"
           colorType="text-white"
           customClasses="mt-8 normal-text md:order-1 md:mt-0"
           sizeVariant={"text-sm/6"}
@@ -22,7 +21,6 @@ const Footer = () => {
           {disclaimer}
         </Text>
         <Text
-          variant="p"
           colorType="text-white"
           customClasses="mt-8 normal-text md:order-1 md:mt-0"
           sizeVariant={"text-sm/6"}

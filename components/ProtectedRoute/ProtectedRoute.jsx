@@ -67,7 +67,7 @@ const ProtectedRoute = ({ children }) => {
                     </Text>
                     <div className="mt-2">
                       <Text
-                        variant={"p"}
+
                         sizeVariant={"text-sm"}
                         colorType={"text-modal-description"}
                       >

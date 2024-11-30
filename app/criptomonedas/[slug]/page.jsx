@@ -127,7 +127,7 @@ const Criptomoneda = () => {
             <Text variant={"h2"} colorType={"normal-text"}>
               {cryptoInfo.symbol}
             </Text>
-            <Text variant={"p"} colorType={"normal-text"}>
+            <Text colorType={"normal-text"}>
               {cryptoInfo.description}
             </Text>
             {cryptoInfo.website && (
@@ -215,7 +215,7 @@ const Criptomoneda = () => {
                     : `${voteStats.percentages?.bearish}%`}
                 </div>
               </div>
-              <Text variant={"p"} colorType={"normal-text"}>
+              <Text colorType={"normal-text"}>
                 De acuerdo al{" "}
                 {voteStats.percentages?.bullish > voteStats.percentages?.bearish
                   ? voteStats.percentages?.bullish

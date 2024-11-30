@@ -27,11 +27,7 @@ export const binanceFetcher = async (path) => {
 };
 
 export const cryptoNewsFetcher = async (path) => {
-  const response = await fetch(CRYPTO_NEWS_API_URL + path, {
-    headers: {
-      token: CRYPTO_NEWS_API_KEY,
-    },
-  });
+  const response = await fetch(CRYPTO_NEWS_API_URL + path + `&token=${CRYPTO_NEWS_API_KEY}`);
   return response;
 };
 

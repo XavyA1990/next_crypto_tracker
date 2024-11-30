@@ -48,9 +48,9 @@ const Card = ({
             {title}
           </Text>
         </div>
-        <Text variant={"p"} colorType={"normal-text"}>{text}</Text>
-        <Text variant={"p"} colorType={"text-gray-500"} sizeVariant={"text-sm"}>{date}</Text>
-        <Text variant={"p"} colorType={"text-gray-500"} sizeVariant={"text-sm"}>{articleSource}</Text>
+        <Text colorType={"normal-text"}>{text}</Text>
+        <Text colorType={"text-gray-500"} sizeVariant={"text-sm"}>{date}</Text>
+        <Text colorType={"text-gray-500"} sizeVariant={"text-sm"}>{articleSource}</Text>
       </div>
       <div className="flex justify-end p-4">
         <Button

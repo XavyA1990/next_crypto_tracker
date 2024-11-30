@@ -51,10 +51,10 @@ const CryptoCard = ({
             {name} ({symbol})
           </Text>
         </div>
-        <Text variant={"p"} colorType={"normal-text"}>
+        <Text colorType={"normal-text"}>
           Precio actual: ${price?.toFixed(2)}
         </Text>
-        <Text variant={"p"} colorType={"normal-text"}>
+        <Text colorType={"normal-text"}>
           Cambio 24h:{" "}
           <span
             className={
@@ -64,13 +64,13 @@ const CryptoCard = ({
             {percentChange24h.toFixed(2)}%
           </span>
         </Text>
-        <Text variant={"p"} colorType={"normal-text"}>
+        <Text colorType={"normal-text"}>
           Capitalización de mercado: ${marketCap.toLocaleString()}
         </Text>
-        <Text variant={"p"} colorType={"normal-text"}>
+        <Text colorType={"normal-text"}>
           Volumen 24h: ${volume24h.toLocaleString()}
         </Text>
-        <Text colorType={"text-gray-500"} sizeVariant={"text-sm"} variant={"p"}>
+        <Text colorType={"text-gray-500"} sizeVariant={"text-sm"}>
           Última actualización: {new Date(lastUpdated).toLocaleString()}
         </Text>
       </div>
