@@ -18,6 +18,9 @@ const Container = ({ customClasses, children, type, colorVariant }) => {
     case "pagination":
       color = "background background-border";
       break;
+    case "none":
+      color = "";
+      break;
     default:
       color = "container-background";
       break;

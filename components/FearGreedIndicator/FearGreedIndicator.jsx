@@ -38,13 +38,14 @@ const FearGreedIndicator = () => {
   }
   return (
     <Container
-      customClasses={"flex-col flex mt-4 items-center"}
+      colorVariant={"none"}
+      customClasses={"flex-col flex mt-4 items-center relative isolate"}
     >
-      <div className="flex gap-16 justify-center items-center">
+      <div className="flex gap-16 justify-center items-center flex-col md:flex-row">
         <Text variant={"h3"} colorType={"text-title"}>
           Indice de Miedo y Codicia
         </Text>
-        <div className="w-1/3 flex-col items-center flex justify-center">
+        <div className="md:w-1/3 flex-col items-center flex justify-center">
           <GaugeChart
             id="fear-greed-chart"
             levels={4}
@@ -63,8 +64,12 @@ const FearGreedIndicator = () => {
           </Text>
         </div>
       </div>
-      <Text colorType={"normal-text"} customClasses={"mt-4"} sizeVariant={"text-xl"}>
-        "{fearGreedStats?.advice}" -- Generado con IA
+      <Text
+        colorType={"normal-text"}
+        customClasses={"mt-4 px-4 md:px-0"}
+        sizeVariant={"text-xl"}
+      >
+        "{fearGreedStats?.advice}" <br/> -- Generado con IA
       </Text>
     </Container>
   );
