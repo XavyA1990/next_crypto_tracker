@@ -1,17 +1,16 @@
 import { translateText } from "@/services/translate";
-import axios from "axios";
 import { NextResponse } from "next/server";
 
 const CRYPTO_NEWS_API_KEY = process.env.CRYPTO_NEWS_API_KEY;
 
-// Definir y exportar la función que maneja el método GET
 export async function GET(request) {
   const page = request.nextUrl.searchParams.get("page") || 1;
   try {
-    const response = await axios.get(
+    const response = await fetch(
       `https://cryptonews-api.com/api/v1/category?section=general&items=10&page=${page}&token=${CRYPTO_NEWS_API_KEY}`
     );
-    let { data } = response.data;
+    const result = await response.json();
+    let { data } = result;
     
     if (data && Array.isArray(data)) {
       const translatedData = await Promise.all(
