@@ -1,27 +1,42 @@
 import React from "react";
+import Container from "../Container/Container";
+import Text from "../Text/Text";
+import Link from "next/link";
 
 const Hero = () => {
   return (
-    <div className="relative isolate overflow-hidden bg-gray-900">
-      <div className="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
+    <Container customClasses="relative isolate overflow-hidden">
+      <div className="py-24 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-balance text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-            Boost your productivity. Start using our app today.
-          </h2>
-          <p className="mx-auto mt-6 max-w-xl text-pretty text-lg/8 text-gray-300">
-            Incididunt sint fugiat pariatur cupidatat consectetur sit cillum
-            anim id veniam aliqua proident excepteur commodo do ea.
-          </p>
+          <Text
+            variant={"h2"}
+            colorType={"text-title"}
+            weight="font-semibold"
+            sizeVariant={"text-4xl sm:text-5xl"}
+            customClasses={"text-balance tracking-tight"}
+          >
+            Encuentra tu proxima inversión
+          </Text>
+          <Text
+            variant={"p"}
+            colorType={"title-text"}
+            customClasses={"mx-auto mt-6 max-w-xl text-pretty text-lg/8 "}
+          >
+            Conoce las criptomonedas más populares y las últimas noticias del mercado.
+          </Text>
           <div className="mt-10 flex items-center justify-center gap-x-6">
-            <a
-              href="#"
+            <Link
+              href="/criptomonedas"
               className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
-              Get started
-            </a>
-            <a href="#" className="text-sm/6 font-semibold text-white">
-              Learn more <span aria-hidden="true">→</span>
-            </a>
+              Empecemos
+            </Link>
+            <Link
+              href="/noticias"
+              className="text-sm/6 font-semibold text-white"
+            >
+              Últimas Noticias <span aria-hidden="true">→</span>
+            </Link>
           </div>
         </div>
       </div>
@@ -44,7 +59,7 @@ const Hero = () => {
           </radialGradient>
         </defs>
       </svg>
-    </div>
+    </Container>
   );
 };
 

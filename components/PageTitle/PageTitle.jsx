@@ -5,7 +5,7 @@ import Text from "../Text/Text";
 
 const PageTitle = ({ title, imgSrc }) => {
   return (
-    <div className="flex items-baseline gap-8">
+    <div className="flex items-baseline gap-8 px-3 md:px-0">
       <Text variant={"h1"} colorType={"text-title"}>
         {title}
       </Text>

@@ -58,7 +58,7 @@ const Criptomonedas = () => {
       <PageTitle title="Listado de Cryptos" />
       {!loading ? (
         <>
-          <div className="mb-4">
+          <div className="mb-4 px-6 md:px-0">
             <input
               type="text"
               placeholder="Buscar..."

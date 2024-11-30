@@ -270,6 +270,14 @@ body {
   @apply text-gray-300 bg-gray-800 focus:ring-gray-600;
 }
 
+.container-background.light {
+  @apply bg-gray-200;
+}
+
+.container-background.dark {
+  @apply bg-gray-900;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
