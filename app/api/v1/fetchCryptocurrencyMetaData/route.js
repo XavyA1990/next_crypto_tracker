@@ -1,18 +1,14 @@
 import { translateText } from "@/services/translate";
+import { cmcFetcher } from "@/utils/fetchers/fetcher";
 import { NextResponse } from "next/server";
 
 const apiKey = process.env.CMC_API_KEY;
 
 export async function GET(request) {
   const slug = request.nextUrl.searchParams.get("slug");
-  const url = `https://pro-api.coinmarketcap.com/v2/cryptocurrency/info?slug=${slug}`;
+  const url = `/v2/cryptocurrency/info?slug=${slug}`;
   try {
-    const response = await fetch(url, {
-      headers: {
-        "X-CMC_PRO_API_KEY": apiKey,
-        Accept: "application/json",
-      },
-    });
+    const response = await cmcFetcher(url);
 
     const data = await response.json();
 

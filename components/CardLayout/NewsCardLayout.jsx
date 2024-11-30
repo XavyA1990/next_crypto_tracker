@@ -4,7 +4,7 @@ import Card from "../Card/NewsCard";
 const NewsCardLayout = ({ data }) => {
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-auto gap-4 px-6 md:px-0">
+    <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-auto gap-4 px-3 md:px-0">
       {data?.map((item, index) => {
         if (index === 0 || index === 9) {
           return (

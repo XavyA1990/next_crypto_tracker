@@ -1,12 +1,14 @@
 "use server";
 
+import { localAPIFetcher } from "@/utils/fetchers/fetcher";
+
 
 export const fetchCryptoCurrencies = async () => {
 
-  const url = `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/fetchCryptoCurrencies`;
+  const url = `/fetchCryptoCurrencies`;
 
   try {
-    const response = await fetch(url);
+    const response = await localAPIFetcher(url);
     if (!response.ok) {
       throw new Error(`API request failed with status ${response.status}`);
     }
@@ -23,10 +25,10 @@ export const fetchCryptoCurrencies = async () => {
 
 export const fetchCryptoCurrency = async (slug) => {
 
-  const url = `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/fetchCryptoCurrency?slug=${slug}`;
+  const url = `/fetchCryptoCurrency?slug=${slug}`;
 
   try {
-    const response = await fetch(url);
+    const response = await localAPIFetcher(url);
     if (!response.ok) {
       throw new Error(`API request failed with status ${response.status}`);
     }
@@ -44,10 +46,10 @@ export const fetchCryptoCurrency = async (slug) => {
 
 export const fetchCryptocurrencyInfo  = async (slug) => {
 
-  const url = `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/fetchCryptocurrencyMetaData?slug=${slug}`;
+  const url = `/fetchCryptocurrencyMetaData?slug=${slug}`;
 
   try {
-    const response = await fetch(url);
+    const response = await localAPIFetcher(url);
     if (!response.ok) {
       throw new Error(`API request failed with status ${response.status}`);
     }
@@ -66,10 +68,10 @@ export const fetchCryptocurrencyInfo  = async (slug) => {
 
 export const fetchHistoricalData = async (symbol) => {
 
-  const url = `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/fetchCryptocurrencyHistoricalData?symbol=${symbol}`;
+  const url = `/fetchCryptocurrencyHistoricalData?symbol=${symbol}`;
 
   try {
-    const response = await fetch(url);
+    const response = await localAPIFetcher(url);
     if (!response.ok) {
       throw new Error(`API request failed with status ${response.status}`);
     }
@@ -87,16 +89,8 @@ export const fetchHistoricalData = async (symbol) => {
 };
 
 export const postFavorites = async (body) => {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/toggleFavorites`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(body),
-    }
-  );
+  const url = `/toggleFavorites`;
+  const res = await localAPIFetcher(url, "POST", body);
 
   const data = await res.json();
 
@@ -104,16 +98,8 @@ export const postFavorites = async (body) => {
 };
 
 export const postVotes = async (body) => {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/insertVotes`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(body),
-    }
-  );
+  const url = `/insertVotes`;
+  const res = await localAPIFetcher(url, "POST", body);
 
   const data = await res.json();
 
@@ -121,16 +107,8 @@ export const postVotes = async (body) => {
 };
 
 export const fetchUserCryptoPreference = async (userId, slug) => {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/fetchUserCryptoPreference`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ userId, slug }),
-    }
-  );
+  const url = `/fetchUserCryptoPreference`;
+  const res = await localAPIFetcher(url, "POST", { userId, slug });
 
   const data = await res.json();
 
@@ -138,16 +116,8 @@ export const fetchUserCryptoPreference = async (userId, slug) => {
 };
 
 export const fetchAllFavorites = async (userId) => {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/fetchAllFavorites`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ userId }),
-    }
-  );
+  const url = `/fetchAllFavorites`;
+  const res = await localAPIFetcher(url, "POST", { userId });
 
   const data = await res.json();
 

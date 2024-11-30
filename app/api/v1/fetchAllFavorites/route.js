@@ -1,8 +1,7 @@
+import { cmcFetcher } from "@/utils/fetchers/fetcher";
 import { processCryptoData } from "@/utils/processData/crypto";
 import { createClient } from "@/utils/supabase/client";
 import { NextResponse } from "next/server";
-
-const apiKey = process.env.CMC_API_KEY;
 
 export async function POST(req) {
   try {
@@ -45,15 +44,11 @@ export async function POST(req) {
       fetchApiSymbols.push(crypto.cryptocurrencies.slug);
     });
 
-    const url = `https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest?slug=${fetchApiSymbols.join(
+    const url = `/v1/cryptocurrency/quotes/latest?slug=${fetchApiSymbols.join(
       ","
     )}`;
 
-    const response = await fetch(url, {
-      headers: {
-        "X-CMC_PRO_API_KEY": apiKey,
-      },
-    });
+    const response = await cmcFetcher(url);
 
     if (!response.ok) {
       console.log("🚀 ~ POST ~ response:", response)
