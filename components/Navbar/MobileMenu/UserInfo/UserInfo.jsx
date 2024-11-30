@@ -1,17 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import useTheme from "@/hooks/useTheme";
+import Container from "@/components/Container/Container";
+import Text from "@/components/Text/Text";
 import { useAuthStore } from "@/store/globalStore";
 
 const UserInfo = ({ children }) => {
-  const { theme, mounted } = useTheme();
   const user = useAuthStore((state) => state.user);
-  if (!mounted) {
-    return null;
-  }
   return (
-    <div className={`user-info-container-base user-info-container ${theme}`}>
+    <Container colorVariant={"secondary"} customClasses={`user-info-container-base`}>
       <div className="flex items-center px-4 sm:px-6">
         <div className="flex-shrink-0">
           <img
@@ -21,16 +18,16 @@ const UserInfo = ({ children }) => {
           />
         </div>
         <div className="ml-3">
-          <div className={`user-name user-name-base ${theme}`}>
+          <Text variant={"p"} colorType={"user-name"} customClasses={`user-name-base`}>
             {user.fullName}
-          </div>
-          <div className={`user-email user-email-base ${theme}`}>
+          </Text>
+          <Text variant={"p"} colorType={"user-email"} customClasses={`user-email-base`}>
             {user.email}
-          </div>
+          </Text>
         </div>
       </div>
       {children}
-    </div>
+    </Container>
   );
 };
 

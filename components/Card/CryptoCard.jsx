@@ -8,6 +8,7 @@ import {
 } from "@heroicons/react/24/outline";
 import React from "react";
 import Text from "../Text/Text";
+import Container from "../Container/Container";
 
 const CryptoCard = ({
   name,
@@ -26,8 +27,9 @@ const CryptoCard = ({
 
   if (!mounted) return null;
   return (
-    <div
-      className={`overflow-hidden rounded-lg background ${theme} shadow h-auto flex flex-col ${
+    <Container
+      colorVariant={"primary"}
+      customClasses={`overflow-hidden rounded-lg shadow h-auto flex flex-col ${
         fullWidth && "md:col-span-2"
       }`}
     >
@@ -85,7 +87,7 @@ const CryptoCard = ({
           Más información
         </Link>
       </div>
-    </div>
+    </Container>
   );
 };
 

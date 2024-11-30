@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import CryptoCard from "../Card/CryptoCard";
 
 const CryptoCardLayout = ({ cryptocurrencies }) => {

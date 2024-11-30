@@ -19,7 +19,7 @@ const Hero = () => {
           </Text>
           <Text
             variant={"p"}
-            colorType={"title-text"}
+            colorType={"text-title"}
             customClasses={"mx-auto mt-6 max-w-xl text-pretty text-lg/8 "}
           >
             Conoce las criptomonedas más populares y las últimas noticias del mercado.

@@ -33,15 +33,6 @@ body {
   @apply hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white;
 }
 
-/*navbar container*/
-.navbar-container.light {
-  @apply bg-white shadow;
-}
-
-.navbar-container.dark {
-  @apply bg-gray-800;
-}
-
 /*nav link*/
 .nav-link.light {
   @apply text-gray-500 hover:border-gray-300 hover:text-gray-700;
@@ -123,13 +114,6 @@ body {
 }
 
 /*user info*/
-.user-info-container.light {
-  @apply border-gray-200;
-}
-
-.user-info-container.dark {
-  @apply border-gray-700;
-}
 
 .user-info-container-base {
   @apply border-t pb-3 pt-4
@@ -182,14 +166,6 @@ body {
   @apply relative transform overflow-hidden rounded-lg px-4 pb-4 pt-5 text-left shadow-xl transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:my-8 sm:w-full sm:max-w-custom-modal sm:p-6 data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95
 }
 
-.modal-container.light {
-  @apply bg-white;
-}
-
-.modal-container.dark {
-  @apply bg-gray-800;
-}
-
 .text-modal-title.light {
   @apply text-gray-900;
 }
@@ -212,6 +188,14 @@ body {
 
 .background.dark {
   @apply bg-gray-800;
+}
+
+.background-secondary.light {
+  @apply border-gray-200;
+}
+
+.background-secondary.dark {
+  @apply border-gray-700;
 }
 
 .background-border.light {

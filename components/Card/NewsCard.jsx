@@ -9,6 +9,7 @@ import {
 import React from "react";
 import labels from "@/lib/labels/news";
 import Text from "../Text/Text";
+import Container from "../Container/Container";
 
 const { seeMore } = labels;
 
@@ -25,8 +26,9 @@ const Card = ({
 
   if (!mounted) return null;
   return (
-    <div
-      className={`overflow-hidden rounded-lg background ${theme} shadow h-[504px] flex flex-col`}
+    <Container
+    colorVariant={"primary"}
+    customClasses={"overflow-hidden rounded-lg shadow h-[504px] flex flex-col"}
     >
       <img src={imageSrc} alt={title} className="w-full h-48 object-cover" />
       <div className="px-4 py-5 flex-1 overflow-y-auto">
@@ -60,7 +62,7 @@ const Card = ({
           {seeMore}
         </Button>
       </div>
-    </div>
+    </Container>
   );
 };
 

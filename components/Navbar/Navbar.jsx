@@ -1,6 +1,5 @@
 "use client";
 
-import { Disclosure } from "@headlessui/react";
 import Button from "../Button/Button";
 import labels from "../../lib/labels/navbar";
 import Logo from "../Logo/Logo";
@@ -15,11 +14,12 @@ import { useEffect } from "react";
 import { useAuthStore, useMenuStore } from "@/store/globalStore";
 import LoginModal from "./LoginModal/LoginModal";
 import { MoonIcon, SunIcon } from "@heroicons/react/24/outline";
+import Container from "../Container/Container";
 
 const { login, lightMode, darkMode } = labels;
 
 const Navbar = () => {
-  const { theme, mounted, toggleTheme, isDarkMode } = useTheme();
+  const { toggleTheme, isDarkMode } = useTheme();
 
   const setUser = useAuthStore((state) => state.setUser);
   const user = useAuthStore((state) => state.user);
@@ -39,12 +39,8 @@ const Navbar = () => {
       .catch((err) => console.error(err));
   }, [setUser]);
 
-  if (!mounted) {
-    return null;
-  }
-
   return (
-    <Disclosure as="nav" className={`navbar-container ${theme}`}>
+    <Container type={"nav"} colorVariant={"primary"}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 justify-between">
           <div className="flex">
@@ -71,14 +67,14 @@ const Navbar = () => {
                     className="profile-menu-item w-full"
                     onClick={toggleTheme}
                   >
-                    <div className={`flex gap-2 w-full items-center normal-text ${theme}`}>
+                    <Container customClasses={`flex gap-2 w-full items-center normal-text`}>
                       {isDarkMode ? (
                         <SunIcon className="h-6 w-6" />
                       ) : (
                         <MoonIcon className="h-6 w-6" />
                       )}
                       <span>{isDarkMode ? lightMode : darkMode}</span>
-                    </div>
+                    </Container>
                   </Button>
                 </div>
               </>
@@ -93,7 +89,7 @@ const Navbar = () => {
 
       {(!user || !user.fullName) && <LoginModal />}
       <MobileMenu />
-    </Disclosure>
+    </Container>
   );
 };
 

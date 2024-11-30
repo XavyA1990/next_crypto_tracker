@@ -1,10 +1,6 @@
 "use client";
 
-import {
-  Dialog,
-  DialogBackdrop,
-  DialogPanel,
-} from "@headlessui/react";
+import { Dialog, DialogBackdrop } from "@headlessui/react";
 import { signIn } from "@/services/auth";
 import { useMenuStore } from "@/store/globalStore";
 import Button from "@/components/Button/Button";
@@ -14,17 +10,13 @@ import Logo from "@/components/Logo/Logo";
 import useTheme from "@/hooks/useTheme";
 import labels from "@/lib/labels/modals";
 import Text from "@/components/Text/Text";
+import Container from "@/components/Container/Container";
 
 const { welcomeMessage, signInFacebook, signInGoogle, cancel, login } = labels;
 
 const LoginModal = () => {
   const isModalLoginOpen = useMenuStore((state) => state.isModalLoginOpen);
   const toggleModalLogin = useMenuStore((state) => state.toggleModalLogin);
-  const { mounted, theme } = useTheme();
-
-  if (!mounted) {
-    return null;
-  }
 
   return (
     <Dialog
@@ -39,9 +31,9 @@ const LoginModal = () => {
 
       <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
         <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-          <DialogPanel
-            transition
-            className={`modal-container-base modal-container ${theme}`}
+          <Container
+            colorVariant={"primary"}
+            customClasses={`modal-container-base`}
           >
             <div>
               <div className="mx-auto flex h-12 w-12 items-center justify-center">
@@ -90,7 +82,7 @@ const LoginModal = () => {
                 {cancel}
               </Button>
             </div>
-          </DialogPanel>
+          </Container>
         </div>
       </div>
     </Dialog>

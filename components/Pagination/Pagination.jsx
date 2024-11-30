@@ -5,6 +5,7 @@ import useTheme from "@/hooks/useTheme";
 import labels from "@/lib/labels/pagination";
 import usePageNumbers from "@/hooks/usePageNumbers";
 import Text from "../Text/Text";
+import Container from "../Container/Container";
 
 const { of, prev, next, showingPage } = labels;
 
@@ -27,8 +28,11 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   if (!mounted) return null;
 
   return (
-    <div
-      className={`flex items-center justify-between border-t background background-border ${theme} px-4 py-3 mt-3 sm:px-6 rounded-md shadow`}
+    <Container
+      customClasses={
+        "flex items-center justify-between border-t px-4 py-3 mt-3 sm:px-6 rounded-md shadow"
+      }
+      colorVariant={"pagination"}
     >
       <div className="flex flex-1 justify-between sm:hidden">
         <button
@@ -67,19 +71,19 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
               <ChevronLeftIcon aria-hidden="true" className="h-5 w-5" />
             </button>
             {pageNumbers.map((page, index) => {
-                return (
-                  <button
-                    key={page}
-                    onClick={() => onPageChange(page)}
-                    className={`relative inline-flex items-center px-4 py-2 text-sm font-semibold ${
-                      page === currentPage
-                        ? `z-10 btn-primary ${theme} `
-                        : `ring-1 ring-inset btn-with-border ${theme}`
-                    } focus:z-20 focus:outline-offset-0`}
-                  >
-                    {page}
-                  </button>
-                );
+              return (
+                <button
+                  key={page}
+                  onClick={() => onPageChange(page)}
+                  className={`relative inline-flex items-center px-4 py-2 text-sm font-semibold ${
+                    page === currentPage
+                      ? `z-10 btn-primary ${theme} `
+                      : `ring-1 ring-inset btn-with-border ${theme}`
+                  } focus:z-20 focus:outline-offset-0`}
+                >
+                  {page}
+                </button>
+              );
             })}
             <button
               onClick={handleNext}
@@ -92,7 +96,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
           </nav>
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
 
