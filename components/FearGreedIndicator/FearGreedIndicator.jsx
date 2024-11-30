@@ -64,7 +64,7 @@ const FearGreedIndicator = () => {
         </div>
       </div>
       <Text colorType={"normal-text"} customClasses={"mt-4"} sizeVariant={"text-xl"}>
-        "{fearGreedStats?.advice}" --Generado con IA
+        "{fearGreedStats?.advice}" -- Generado con IA
       </Text>
     </Container>
   );
