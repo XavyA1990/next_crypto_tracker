@@ -132,3 +132,12 @@ export const fetchFearGreedStats = async () => {
 
   return data;
 };
+
+export const fetchCryptoNewsRanking = async () => {
+  const url = `/fetchCryptoNewsRanking`;
+  const res = await localAPIFetcher(url);
+
+  const data = await res.json();
+
+  return data;
+};

@@ -8,7 +8,7 @@ export async function GET(request) {
   const slug = request.nextUrl.searchParams.get("slug");
   const url = `/v2/cryptocurrency/info?slug=${slug}`;
   try {
-    const response = await cmcFetcher(url);
+    const response = await cmcFetcher(url, true);
 
     const data = await response.json();
 

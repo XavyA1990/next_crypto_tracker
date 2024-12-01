@@ -12,11 +12,12 @@ const CRYPTO_NEWS_API_URL = "https://cryptonews-api.com/api/v1";
 
 const LOCAL_API_URL = `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1`;
 
-export const cmcFetcher = async (path) => {
+export const cmcFetcher = async (path, forceCache) => {
   const response = await fetch(CMS_API_URL + path, {
     headers: {
       "X-CMC_PRO_API_KEY": CMC_API_KEY,
     },
+    cache: forceCache ? "force-cache" : "no-store",
   });
   return response;
 };

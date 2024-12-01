@@ -1,5 +1,6 @@
 import { translateText } from "@/services/translate";
 import { cryptoNewsFetcher } from "@/utils/fetchers/fetcher";
+import { formatDate } from "@/utils/processData/date";
 import { NextResponse } from "next/server";
 
 
@@ -36,16 +37,3 @@ export async function GET(request) {
     return NextResponse.json({ error: error }, { status: 500 });
   }
 }
-
-const formatDate = (dateString) => {
-  const date = new Date(dateString);
-  const options = {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
-  };
-  return date.toLocaleDateString("es-ES", options);
-};

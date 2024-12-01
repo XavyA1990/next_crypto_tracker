@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 export async function GET(request) {
   try {
     const url = "/v3/fear-and-greed/latest";
-    const response = await cmcFetcher(url);
+    const response = await cmcFetcher(url, true);
 
     const data = await response.json();
 

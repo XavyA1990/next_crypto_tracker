@@ -6,7 +6,7 @@ import { NextResponse } from "next/server";
     const url = "/v1/cryptocurrency/listings/latest?cryptocurrency_type=coins";
   
     try {
-      const response = await cmcFetcher(url);
+      const response = await cmcFetcher(url, true);
   
       if (!response.ok) {
         throw new Error(`API request failed with status ${response.status}`);
