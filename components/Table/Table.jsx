@@ -2,9 +2,9 @@ import React from "react";
 import Text from "../Text/Text";
 import { ArrowTrendingUpIcon, MinusIcon } from "@heroicons/react/24/outline";
 import { ArrowTrendingDownIcon } from "@heroicons/react/20/solid";
+import Spinner from "../Spinner/Spinner";
 
 const Table = ({ headers, data, description, title }) => {
-  console.log("🚀 ~ Table ~ data:", data);
   return (
     <div className="px-3 sm:px-0 mt-8">
       <div className="sm:flex sm:items-center">
@@ -46,6 +46,11 @@ const Table = ({ headers, data, description, title }) => {
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-500">
+                {(!data || data.length === 0) && (
+                  <div className="flex items-center w-full justify-center">
+                    <Spinner />
+                  </div>
+                )}
                 {data.map((row, index) => (
                   <tr key={row.openTime}>
                     <Text
