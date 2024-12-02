@@ -53,7 +53,6 @@ export async function GET(request) {
 
       news = translatedData.sort((a, b) => a.bestRank - b.bestRank);
     }
-    console.log("🚀 ~ GET ~ news:", news);
     return NextResponse.json({ data: news }, { status: 200 });
   } catch (error) {
     console.log("🚀 ~ GET ~ error:", error.message);
