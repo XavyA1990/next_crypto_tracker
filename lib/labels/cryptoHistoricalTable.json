@@ -1,0 +1,12 @@
+{
+  "headers": [
+    { "key": "openTime", "label": "Hora de Apertura" },
+    { "key": "openPrice", "label": "Precio de Apertura" },
+    { "key": "highPrice", "label": "Precio Máximo" },
+    { "key": "lowPrice", "label": "Precio Mínimo" },
+    { "key": "closePrice", "label": "Precio de Cierre" },
+    { "key": "volume", "label": "Volumen" },
+    { "key": "closeTime", "label": "Hora de Cierre" },
+    { "key": "priceIsHigh", "label": "Estado" }
+  ]
+}

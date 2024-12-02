@@ -108,6 +108,27 @@ const Text = ({
           {children}
         </span>
       );
+    case "th":
+      return (
+        <th
+          scope="col"
+          className={`${colorType} ${theme} ${
+            sizeVariant ? sizeVariant : ""
+          } ${customClasses} ${weight}`}
+        >
+          {children}
+        </th>
+      );
+    case "td":
+      return (
+        <td
+          className={`${colorType} ${theme} ${
+            sizeVariant ? sizeVariant : ""
+          } ${customClasses} ${weight}`}
+        >
+          {children}
+        </td>
+      );
     default:
       return (
         <p

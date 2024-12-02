@@ -3,9 +3,7 @@ import { NextResponse } from "next/server";
 
 export async function GET(request) {
   const symbol = request.nextUrl.searchParams.get("symbol");
-  const url = `/v3/klines?symbol=${
-    symbol !== "USDT" ? symbol : "BTC"
-  }USDT&interval=1m&limit=500`;
+  const url = `/v3/klines?symbol=${symbol}USDT&interval=1m&limit=500`;
 
   try {
     const response = await binanceFetcher(url);

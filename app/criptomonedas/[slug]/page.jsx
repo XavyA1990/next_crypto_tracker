@@ -10,6 +10,7 @@ import Text from "@/components/Text/Text";
 import useTheme from "@/hooks/useTheme";
 import {
   fetchCryptocurrencyInfo,
+  fetchOneMonthData,
   fetchUserCryptoPreference,
   postFavorites,
   postVotes,
@@ -28,16 +29,20 @@ import {
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import Table from "@/components/Table/Table";
+import labels from "@/lib/labels/cryptoHistoricalTable.json";
+
+const { headers } = labels;
 
 const Criptomoneda = () => {
   const [cryptoInfo, setCryptoInfo] = useState({});
-  const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const user = useAuthStore((state) => state.user);
   const [isFavorite, setIsFavorite] = useState(false);
   const [userVote, setUserVote] = useState("");
   const [voteStats, setVoteStats] = useState({});
   const [showVotes, setShowVotes] = useState(false);
+  const [oneMonthData, setOneMonthData] = useState([]);
   const path = usePathname();
   const { theme, mounted } = useTheme();
   const slug = path.split("/")[2];
@@ -48,7 +53,7 @@ const Criptomoneda = () => {
         setCryptoInfo(data);
       })
       .catch((error) => {
-        setError(error);
+        console.error("Error fetching crypto info", error);
       })
       .finally(() => {
         setLoading(false);
@@ -67,6 +72,14 @@ const Criptomoneda = () => {
       });
     }
   }, [user, slug]);
+
+  useEffect(() => {
+    if (cryptoInfo?.symbol) {
+      fetchOneMonthData(cryptoInfo.symbol).then((data) => {
+        setOneMonthData(data.data);
+      });
+    }
+  }, [cryptoInfo]);
 
   const handleFavorite = async () => {
     const body = {
@@ -127,9 +140,7 @@ const Criptomoneda = () => {
             <Text variant={"h2"} colorType={"normal-text"}>
               {cryptoInfo.symbol}
             </Text>
-            <Text colorType={"normal-text"}>
-              {cryptoInfo.description}
-            </Text>
+            <Text colorType={"normal-text"}>{cryptoInfo.description}</Text>
             {cryptoInfo.website && (
               <div
                 className={`flex ${
@@ -243,6 +254,12 @@ const Criptomoneda = () => {
             </div>
           )}
           <CandleStickChart symbol={cryptoInfo.symbol} />
+          <Table
+            title={`Histórico mensual de ${cryptoInfo.name}`}
+            description={`La evolución de ${cryptoInfo.name}`}
+            headers={headers}
+            data={oneMonthData}
+          />
         </>
       )}
     </Page>

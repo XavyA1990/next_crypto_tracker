@@ -141,3 +141,12 @@ export const fetchCryptoNewsRanking = async () => {
 
   return data;
 };
+
+export const fetchOneMonthData = async (symbol) => {
+  const url = `/fetchCryptocurrencyOneMonthData?symbol=${symbol}`;
+  const res = await localAPIFetcher(url);
+
+  const data = await res.json();
+
+  return data;
+}
