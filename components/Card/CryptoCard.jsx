@@ -1,5 +1,4 @@
 "use client";
-/* eslint-disable @next/next/no-img-element */
 import useTheme from "@/hooks/useTheme";
 import Link from "next/link";
 import {

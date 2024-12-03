@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import { MenuButton } from "@headlessui/react";
 import labels from "../../../../lib/labels/navbar";
 import useTheme from "@/hooks/useTheme";

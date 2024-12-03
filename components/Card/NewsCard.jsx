@@ -1,6 +1,5 @@
 "use client";
 import useTheme from "@/hooks/useTheme";
-/* eslint-disable @next/next/no-img-element */
 import { Button } from "@headlessui/react";
 import {
   ArrowTrendingDownIcon,

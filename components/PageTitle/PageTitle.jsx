@@ -1,5 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
-
 import React from "react";
 import Text from "../Text/Text";
 import Image from "../Image/Image";
