@@ -2,6 +2,7 @@
 "use client";
 
 import Container from "@/components/Container/Container";
+import Image from "@/components/Image/Image";
 import Text from "@/components/Text/Text";
 import { useAuthStore } from "@/store/globalStore";
 
@@ -11,7 +12,9 @@ const UserInfo = ({ children }) => {
     <Container colorVariant={"secondary"} customClasses={`user-info-container-base`}>
       <div className="flex items-center px-4 sm:px-6">
         <div className="flex-shrink-0">
-          <img
+          <Image
+            height={40}
+            width={40}
             alt={`${user.fullName} profile picture`}
             src={user.avatarUrl}
             className="h-10 w-10 rounded-full"

@@ -17,6 +17,7 @@ const NewsCardLayout = ({ data }) => {
                 text={item.text}
                 articleSource={item.source_name}
                 date={item.date}
+                fullWidth
               />
             </div>
           );

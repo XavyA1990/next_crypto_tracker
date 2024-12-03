@@ -10,6 +10,7 @@ import React from "react";
 import labels from "@/lib/labels/news";
 import Text from "../Text/Text";
 import Container from "../Container/Container";
+import Image from "../Image/Image";
 
 const { seeMore } = labels;
 
@@ -21,6 +22,7 @@ const Card = ({
   sentiment,
   articleSource,
   date,
+  fullWidth = false,
 }) => {
   const { mounted, theme } = useTheme();
 
@@ -30,7 +32,7 @@ const Card = ({
     colorVariant={"primary"}
     customClasses={"overflow-hidden rounded-lg shadow h-[504px] flex flex-col"}
     >
-      <img src={imageSrc} alt={title} className="w-full h-48 object-cover" />
+      <Image height={192} width={fullWidth ? 800 : 400} src={imageSrc} alt={title} className="w-full h-48 object-cover" />
       <div className="px-4 py-5 flex-1 overflow-y-auto">
         <div className="grid grid-flow-row grid-cols-5 justify-center ">
           {sentiment.toLowerCase() === "positive" ? (

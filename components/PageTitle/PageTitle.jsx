@@ -2,6 +2,7 @@
 
 import React from "react";
 import Text from "../Text/Text";
+import Image from "../Image/Image";
 
 const PageTitle = ({ title, imgSrc }) => {
   return (
@@ -9,7 +10,7 @@ const PageTitle = ({ title, imgSrc }) => {
       <Text variant={"h1"} colorType={"text-title"}>
         {title}
       </Text>
-      {imgSrc && <img src={imgSrc} alt={title}  className="w-14 h-14"/>}
+      {imgSrc && <Image width={56} height={56} src={imgSrc} alt={title}  className="w-14 h-14"/>}
     </div>
   );
 };

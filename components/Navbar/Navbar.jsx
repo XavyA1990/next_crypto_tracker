@@ -67,7 +67,7 @@ const Navbar = () => {
                     className="profile-menu-item w-full"
                     onClick={toggleTheme}
                   >
-                    <Container customClasses={`flex gap-2 w-full items-center normal-text`}>
+                    <Container colorVariant={"none"} customClasses={`flex gap-2 w-full items-center normal-text`}>
                       {isDarkMode ? (
                         <SunIcon className="h-6 w-6" />
                       ) : (

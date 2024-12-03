@@ -9,6 +9,7 @@ import {
 import React from "react";
 import Text from "../Text/Text";
 import Container from "../Container/Container";
+import Image from "../Image/Image";
 
 const CryptoCard = ({
   name,
@@ -33,7 +34,7 @@ const CryptoCard = ({
         fullWidth && "md:col-span-2"
       }`}
     >
-      <img src={imageSrc} alt={name} className="w-16 h-16 mx-4 mt-4" />
+      <Image width={64} height={64} src={imageSrc} alt={name} className="w-16 h-16 mx-4 mt-4" />
       <div className="px-4 py-5 flex-1">
         <div className="flex items-center mb-2">
           {percentChange24h >= 0 ? (
