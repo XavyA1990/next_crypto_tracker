@@ -1,11 +1,7 @@
-
+import Page from "@/components/Page/Page";
 
 const NotFound = () => {
-  return (
-    <div>
-      Not Found
-    </div>
-  )
-}
+  return <Page>Not Found</Page>;
+};
 
 export default NotFound;

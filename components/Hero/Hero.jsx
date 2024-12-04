@@ -2,6 +2,9 @@ import React from "react";
 import Container from "../Container/Container";
 import Text from "../Text/Text";
 import Link from "next/link";
+import labels from "@/lib/labels/hero.json";
+
+const { cta, heroTitle, heroSubtitle, latestNews } = labels;
 
 const Hero = () => {
   return (
@@ -15,7 +18,7 @@ const Hero = () => {
             sizeVariant={"text-4xl sm:text-5xl"}
             customClasses={"text-balance tracking-tight"}
           >
-            Encuentra tu proxima inversión
+            {heroTitle}
           </Text>
           <Text
             colorType={"text-title"}
@@ -23,22 +26,21 @@ const Hero = () => {
               "mx-auto mt-6 max-w-xl text-pretty text-lg/8 px-2 md:px-0"
             }
           >
-            Conoce las criptomonedas más populares y las últimas noticias del
-            mercado.
+            {heroSubtitle}
           </Text>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <Link
               href="/criptomonedas"
               className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
-              Empecemos
+              {cta}
             </Link>
             <Link
               href="/noticias"
               className="text-sm/6 font-semibold text-white"
             >
               <Text variant={"span"} colorType={"text-title"}>
-                Últimas Noticias <span aria-hidden="true">→</span>
+                {latestNews} <span aria-hidden="true">→</span>
               </Text>
             </Link>
           </div>

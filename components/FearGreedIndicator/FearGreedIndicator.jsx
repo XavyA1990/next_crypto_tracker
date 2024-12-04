@@ -5,7 +5,9 @@ import { useEffect, useState } from "react";
 import Container from "../Container/Container";
 import Text from "../Text/Text";
 import GaugeChart from "../GaugeChart/GaugeChart";
+import labels from "@/lib/labels/fearAndGreed.json";
 
+const { title, aiGenerated } = labels;
 
 const FearGreedIndicator = () => {
   const [loading, setLoading] = useState(true);
@@ -37,7 +39,7 @@ const FearGreedIndicator = () => {
               colorType={"text-title"}
               sizeVariant={"text-5xl"}
             >
-              Indice de Miedo y Codicia
+              {title}
             </Text>
             <div className=" flex-col items-center flex justify-center">
               <GaugeChart
@@ -63,7 +65,7 @@ const FearGreedIndicator = () => {
             customClasses={"mt-4 px-4 md:px-0"}
             sizeVariant={"text-xl"}
           >
-            &quot;{fearGreedStats?.advice}&quot; <br /> -- Generado con IA
+            &quot;{fearGreedStats?.advice}&quot; <br /> {aiGenerated}
           </Text>
         </>
       )}

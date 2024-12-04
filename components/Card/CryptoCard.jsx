@@ -9,6 +9,16 @@ import React from "react";
 import Text from "../Text/Text";
 import Container from "../Container/Container";
 import Image from "../Image/Image";
+import labels from "@/lib/labels/cryptoCard.json";
+
+const {
+  moreInformation,
+  currentPrice,
+  marketCap: marketCapLabel,
+  change24h,
+  volume24h: volume24hLabel,
+  lastUpdate,
+} = labels;
 
 const CryptoCard = ({
   name,
@@ -33,7 +43,13 @@ const CryptoCard = ({
         fullWidth && "md:col-span-2"
       }`}
     >
-      <Image width={64} height={64} src={imageSrc} alt={name} className="w-16 h-16 mx-4 mt-4" />
+      <Image
+        width={64}
+        height={64}
+        src={imageSrc}
+        alt={name}
+        className="w-16 h-16 mx-4 mt-4"
+      />
       <div className="px-4 py-5 flex-1">
         <div className="flex items-center mb-2">
           {percentChange24h >= 0 ? (
@@ -52,10 +68,10 @@ const CryptoCard = ({
           </Text>
         </div>
         <Text colorType={"normal-text"}>
-          Precio actual: ${price?.toFixed(2)}
+          {currentPrice} ${price?.toFixed(2)}
         </Text>
         <Text colorType={"normal-text"}>
-          Cambio 24h:{" "}
+          {change24h} {" "}
           <span
             className={
               percentChange24h >= 0 ? "text-green-500" : "text-red-500"
@@ -65,13 +81,13 @@ const CryptoCard = ({
           </span>
         </Text>
         <Text colorType={"normal-text"}>
-          Capitalización de mercado: ${marketCap.toLocaleString()}
+          {marketCapLabel} ${marketCap.toLocaleString()}
         </Text>
         <Text colorType={"normal-text"}>
-          Volumen 24h: ${volume24h.toLocaleString()}
+          {volume24hLabel} ${volume24h.toLocaleString()}
         </Text>
         <Text colorType={"text-gray-500"} sizeVariant={"text-sm"}>
-          Última actualización: {new Date(lastUpdated).toLocaleString()}
+          {lastUpdate} {new Date(lastUpdated).toLocaleString()}
         </Text>
       </div>
       <div
@@ -84,7 +100,7 @@ const CryptoCard = ({
           href={`/criptomonedas/${slug}/`}
           className={`btn-primary ${theme} inline-flex items-center px-3 py-2 rounded-md font-bold`}
         >
-          Más información
+          {moreInformation}
         </Link>
       </div>
     </Container>
