@@ -70,5 +70,8 @@
       "% de los votantes,",
       "tiene una tendencia"
     ]
-  }
+  },
+  "profile": {
+    "favoritesTitle": "Tus Favoritos"
+  } 
 }

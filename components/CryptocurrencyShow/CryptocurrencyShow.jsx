@@ -19,7 +19,7 @@ import { usePathname } from "next/navigation";
 import { useAuthStore } from "@/store/globalStore";
 import labels from "@/lib/labels/labels";
 
-const { seeMore } = labels.commons
+const { seeMore } = labels.commons;
 
 const CryptocurrencyShow = () => {
   const [cryptoInfo, setCryptoInfo] = useState({});

@@ -47,9 +47,13 @@ const Table = ({ headers, data, description, title }) => {
               </thead>
               <tbody className="divide-y divide-gray-500">
                 {(!data || data.length === 0) && (
-                  <div className="flex items-center w-full justify-center">
-                    <Spinner />
-                  </div>
+                  <tr>
+                    <td colSpan={headers.length} className="text-center py-4">
+                      <div className="flex items-center w-full justify-center">
+                        <Spinner />
+                      </div>
+                    </td>
+                  </tr>
                 )}
                 {data.map((row, index) => (
                   <tr key={row.openTime}>
