@@ -3,9 +3,9 @@
 import useTheme from "@/hooks/useTheme";
 import { DisclosureButton } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import labels from "@/lib/labels/navbar";
+import labels from "@/lib/labels/labels.json";
 
-const { openMainMenu } = labels;
+const { openMainMenu } = labels.navbar;
 
 const MobileMenuButton = () => {
   const { theme, mounted } = useTheme();

@@ -1,10 +1,10 @@
 import { MenuButton } from "@headlessui/react";
-import labels from "../../../../lib/labels/navbar";
+import labels from "@/lib/labels/labels.json";
 import useTheme from "@/hooks/useTheme";
 import { useAuthStore } from "@/store/globalStore";
 import Image from "@/components/Image/Image";
 
-const { openUserMenu } = labels;
+const { openUserMenu } = labels.navbar;
 
 const ProfileMenuButton = () => {
   const { theme, mounted } = useTheme();

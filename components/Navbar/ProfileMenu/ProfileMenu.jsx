@@ -5,10 +5,10 @@ import privateRoutes from "../../../lib/routes/privateRoutes";
 import ProfileMenuItem from "./ProfileMenuItem/ProfileMenuItem";
 import ProfileMenuButton from "./ProfileMenuButton/ProfileMenuButton";
 import { MoonIcon, SunIcon } from "@heroicons/react/24/outline";
-import labels from "@/lib/labels/navbar";
+import labels from "@/lib/labels/labels.json";
 import useTheme from "@/hooks/useTheme";
 
-const { darkMode, lightMode } = labels;
+const { darkMode, lightMode } = labels.navbar;
 
 const ProfileMenu = () => {
   const { isDarkMode, toggleTheme } = useTheme();
