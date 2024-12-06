@@ -1,6 +1,4 @@
-"use client";
-import useTheme from "@/hooks/useTheme";
-import Link from "next/link";
+import Link from "../Link/Link";
 import {
   ArrowTrendingDownIcon,
   ArrowTrendingUpIcon,
@@ -9,16 +7,17 @@ import React from "react";
 import Text from "../Text/Text";
 import Container from "../Container/Container";
 import Image from "../Image/Image";
-import labels from "@/lib/labels/cryptoCard.json";
+import labels from "@/lib/labels/labels.json";
 
 const {
-  moreInformation,
   currentPrice,
   marketCap: marketCapLabel,
   change24h,
   volume24h: volume24hLabel,
   lastUpdate,
-} = labels;
+} = labels.cryptoCard;
+
+const { moreInformation } = labels.commons
 
 const CryptoCard = ({
   name,
@@ -33,9 +32,7 @@ const CryptoCard = ({
   fullWidth = false,
   customButtons = [],
 }) => {
-  const { mounted, theme } = useTheme();
 
-  if (!mounted) return null;
   return (
     <Container
       colorVariant={"primary"}
@@ -98,7 +95,7 @@ const CryptoCard = ({
         {customButtons.map((button) => button)}
         <Link
           href={`/criptomonedas/${slug}/`}
-          className={`btn-primary ${theme} inline-flex items-center px-3 py-2 rounded-md font-bold`}
+          variant={"primary"}
         >
           {moreInformation}
         </Link>

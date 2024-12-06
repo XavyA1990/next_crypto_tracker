@@ -1,9 +1,9 @@
-import Link from "next/link";
+import Link from "../Link/Link";
 
 const Logo = ({ hasHref = false }) => {
   if (hasHref) {
     return (
-      <Link href="/">
+      <Link href="/" variant={"no-styles"}>
         <svg
           width="512"
           height="512"

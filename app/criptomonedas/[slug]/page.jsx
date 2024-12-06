@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
-import Button from "@/components/Button/Button";
 import CandleStickChart from "@/components/CandleStickChart/CandleStickChart";
 import Page from "@/components/Page/Page";
 import PageTitle from "@/components/PageTitle/PageTitle";
@@ -10,29 +9,16 @@ import Text from "@/components/Text/Text";
 import useTheme from "@/hooks/useTheme";
 import {
   fetchCryptocurrencyInfo,
-  fetchOneMonthData,
   fetchUserCryptoPreference,
-  postFavorites,
-  postVotes,
 } from "@/services/crypto";
 import { useAuthStore } from "@/store/globalStore";
-import {
-  ArrowTrendingDownIcon,
-  ArrowTrendingUpIcon,
-  HeartIcon,
-} from "@heroicons/react/24/outline";
-import {
-  BarsArrowDownIcon,
-  BarsArrowUpIcon,
-  HeartIcon as HeartIconSolid,
-} from "@heroicons/react/20/solid";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import Table from "@/components/Table/Table";
-import labels from "@/lib/labels/cryptoHistoricalTable.json";
-
-const { headers } = labels;
+import FavoritesButton from "@/components/FaviritesButton/FavoritesButton";
+import CommunityVotesButtons from "@/components/CommunityVotesButtons/CommunityVotesButtons";
+import CommunityVotesDisplay from "@/components/CommunityVotesDisplay/CommunityVotesDisplay";
+import CryptoMonthlyTable from "@/components/CryptoMonthlyTable/CryptoMonthlyTable";
+import Link from "@/components/Link/Link";
 
 const Criptomoneda = () => {
   const [cryptoInfo, setCryptoInfo] = useState({});
@@ -42,9 +28,7 @@ const Criptomoneda = () => {
   const [userVote, setUserVote] = useState("");
   const [voteStats, setVoteStats] = useState({});
   const [showVotes, setShowVotes] = useState(false);
-  const [oneMonthData, setOneMonthData] = useState([]);
   const path = usePathname();
-  const { theme, mounted } = useTheme();
   const slug = path.split("/")[2];
 
   useEffect(() => {
@@ -73,59 +57,6 @@ const Criptomoneda = () => {
     }
   }, [user, slug]);
 
-  useEffect(() => {
-    if (cryptoInfo?.symbol) {
-      fetchOneMonthData(cryptoInfo.symbol).then((data) => {
-        setOneMonthData(data.data);
-      });
-    }
-  }, [cryptoInfo]);
-
-  const handleFavorite = async () => {
-    const body = {
-      userId: user.id,
-      symbol: cryptoInfo.symbol,
-      name: cryptoInfo.name,
-      slug: cryptoInfo.slug,
-      isFavorite: !isFavorite,
-    };
-
-    setIsFavorite(!isFavorite);
-
-    postFavorites(body).then((res) => {
-      const { data } = res;
-      if (data) {
-        setIsFavorite(data.is_favorite);
-      }
-    });
-  };
-
-  const handleVotes = async (vote) => {
-    if (userVote && userVote === vote) {
-      return;
-    }
-
-    const body = {
-      userId: user.id,
-      symbol: cryptoInfo.symbol,
-      name: cryptoInfo.name,
-      slug: cryptoInfo.slug,
-      vote,
-    };
-
-    postVotes(body).then((res) => {
-      const { totals, vote } = res;
-      setVoteStats(totals);
-      setUserVote(vote);
-    });
-  };
-
-  const handleShowVotes = () => {
-    setShowVotes(!showVotes);
-  };
-
-  if (!mounted) return null;
-
   return (
     <Page>
       {loading && (
@@ -149,117 +80,43 @@ const Criptomoneda = () => {
               >
                 {user && user?.id && (
                   <div className="flex gap-4">
-                    <Button variant={"primary"} onClick={handleFavorite}>
-                      {!isFavorite ? (
-                        <HeartIcon className="h-5 w-5 " />
-                      ) : (
-                        <HeartIconSolid className="h-5 w-5" />
-                      )}
-                    </Button>
-                    <button
-                      disabled={userVote && userVote === "is_bullish"}
-                      className={`${
-                        userVote === "is_bearish" || userVote === null
-                          ? "bg-green-600 hover:bg-green-500"
-                          : "bg-gray-600"
-                      } px-3 py-2 rounded-md `}
-                      onClick={() => handleVotes("is_bullish")}
-                    >
-                      <ArrowTrendingUpIcon className="h-5 w-5" />
-                    </button>
-                    <button
-                      disabled={userVote && userVote === "is_bearish"}
-                      className={`${
-                        userVote === "is_bullish" || userVote === null
-                          ? "bg-red-600 hover:bg-red-500"
-                          : "bg-gray-600"
-                      } px-3 py-2 rounded-md `}
-                      onClick={() => handleVotes("is_bearish")}
-                    >
-                      <ArrowTrendingDownIcon className="h-5 w-5" />
-                    </button>
-                    {voteStats &&
-                      voteStats?.percentages?.bullish !== 0 &&
-                      voteStats?.percentages?.bearish !== 0 && (
-                        <Button variant={"primary"} onClick={handleShowVotes}>
-                          {!showVotes ? (
-                            <BarsArrowDownIcon className="h-5 w-5" />
-                          ) : (
-                            <BarsArrowUpIcon className="h-5 w-5" />
-                          )}
-                        </Button>
-                      )}
+                    <FavoritesButton
+                      symbol={cryptoInfo.symbol}
+                      name={cryptoInfo.name}
+                      slug={cryptoInfo.slug}
+                      isFavorite={isFavorite}
+                      setIsFavorite={setIsFavorite}
+                      userId={user.id}
+                    />
+                    <CommunityVotesButtons
+                      name={cryptoInfo.name}
+                      slug={cryptoInfo.slug}
+                      symbol={cryptoInfo.symbol}
+                      userId={user.id}
+                      userVote={userVote}
+                      setUserVote={setUserVote}
+                      voteStats={voteStats}
+                      setVoteStats={setVoteStats}
+                      showVotes={showVotes}
+                      setShowVotes={setShowVotes}
+                    />
                   </div>
                 )}
-                <Link
-                  target="_blank"
-                  href={cryptoInfo.website}
-                  className={`btn-primary ${theme} inline-flex items-center px-3 py-2 rounded-md font-bold`}
-                >
+                <Link target="_blank" href={cryptoInfo.website} variant={"primary"}>
                   Más información
                 </Link>
               </div>
             )}
           </div>
           {showVotes && user?.id && (
-            <div className="w-full flex mt-4 gap-4 flex-col">
-              <Text variant={"h3"} colorType={"normal-text"}>
-                Votos de la comunidad
-              </Text>
-              <div className="w-full bg-gray-200 rounded-full h-6 relative flex overflow-hidden">
-                <div
-                  className="bg-green-600 h-6"
-                  style={{
-                    width: `${voteStats.percentages?.bullish}%`,
-                  }}
-                ></div>
-                <div
-                  className="bg-red-600 h-6"
-                  style={{
-                    width: `${voteStats.percentages?.bearish}%`,
-                  }}
-                ></div>
-                <div className="absolute inset-0 flex items-center justify-center font-bold">
-                  {voteStats.percentages?.bullish >
-                  voteStats.percentages?.bearish
-                    ? `${voteStats.percentages?.bullish}%`
-                    : `${voteStats.percentages?.bearish}%`}
-                </div>
-              </div>
-              <Text colorType={"normal-text"}>
-                De acuerdo al{" "}
-                {voteStats.percentages?.bullish > voteStats.percentages?.bearish
-                  ? voteStats.percentages?.bullish
-                  : voteStats.percentages?.bearish}
-                % de los votantes,{" "}
-                <span className="font-semibold uppercase">
-                  {cryptoInfo.name}
-                </span>{" "}
-                tiene una tendencia{" "}
-                <span
-                  className={
-                    voteStats.percentages?.bullish >
-                    voteStats.percentages?.bearish
-                      ? "text-green-600 font-semibold"
-                      : "text-red-600 font-semibold"
-                  }
-                >
-                  {voteStats.percentages?.bullish >
-                  voteStats.percentages?.bearish
-                    ? "ALCISTA"
-                    : "BAJISTA"}
-                </span>
-                .
-              </Text>
-            </div>
+            <CommunityVotesDisplay
+              bullish={voteStats.percentages?.bullish}
+              bearish={voteStats.percentages?.bearish}
+              name={cryptoInfo.name}
+            />
           )}
           <CandleStickChart symbol={cryptoInfo.symbol} />
-          <Table
-            title={`Histórico mensual de ${cryptoInfo.name}`}
-            description={`La evolución de ${cryptoInfo.name}`}
-            headers={headers}
-            data={oneMonthData}
-          />
+          <CryptoMonthlyTable name={cryptoInfo.name} symbol={cryptoInfo.symbol} />
         </>
       )}
     </Page>

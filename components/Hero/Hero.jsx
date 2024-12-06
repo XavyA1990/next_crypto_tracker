@@ -1,8 +1,8 @@
 import React from "react";
 import Container from "../Container/Container";
 import Text from "../Text/Text";
-import Link from "next/link";
 import labels from "@/lib/labels/hero.json";
+import Link from "../Link/Link";
 
 const { cta, heroTitle, heroSubtitle, latestNews } = labels;
 
@@ -29,16 +29,10 @@ const Hero = () => {
             {heroSubtitle}
           </Text>
           <div className="mt-10 flex items-center justify-center gap-x-6">
-            <Link
-              href="/criptomonedas"
-              className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-            >
+            <Link variant={"white-fill"} href="/criptomonedas">
               {cta}
             </Link>
-            <Link
-              href="/noticias"
-              className="text-sm/6 font-semibold text-white"
-            >
+            <Link href="/noticias" variant={"no-fill"}>
               <Text variant={"span"} colorType={"text-title"}>
                 {latestNews} <span aria-hidden="true">→</span>
               </Text>
