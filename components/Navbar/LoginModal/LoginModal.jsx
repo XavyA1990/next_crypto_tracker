@@ -45,6 +45,7 @@ const LoginModal = () => {
                   variant={"dialogTitle"}
                   dialogTitleVariant={"h3"}
                   weight="font-semibold"
+                  colorType={"text-modal-title"}
                   customClasses={`text-base leading-6`}
                 >
                   {login}

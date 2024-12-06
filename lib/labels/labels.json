@@ -5,7 +5,9 @@
     "latestNews": "Últimas Noticias",
     "crypto": "Crypto",
     "aiGenerated": " -- Generado por IA",
-    "login": "Iniciar sesión"
+    "login": "Iniciar sesión",
+    "returnToHome": "Regresar al inicio",
+    "cryptoNotFound": "Criptomoneda no encontrada"
   },
   "cryptoCard": {
     "lastUpdate": "Última Actualización",
@@ -39,7 +41,6 @@
     "signInFacebook": "Iniciar sesión con Facebook",
     "signInGoogle": "Iniciar sesión con Google",
     "welcomeMessage": "Bienvenido a next crypto tracker, inicia sesión y mantente al tanto de tus inversiones en criptomonedas.",
-    "returnToHome": "Regresar al inicio",
     "unavailablePage": "Página no disponible",
     "unavailablePageMessage": "Inicia sesión para acceder a esta página"
   },
@@ -73,5 +74,10 @@
   },
   "profile": {
     "favoritesTitle": "Tus Favoritos"
-  } 
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "message": "Lo sentimos, la página que buscas no existe.",
+    "code": "404"
+  }
 }

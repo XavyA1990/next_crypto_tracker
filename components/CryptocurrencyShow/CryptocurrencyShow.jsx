@@ -19,13 +19,14 @@ import { usePathname } from "next/navigation";
 import { useAuthStore } from "@/store/globalStore";
 import labels from "@/lib/labels/labels";
 
-const { seeMore } = labels.commons;
+const { seeMore, cryptoNotFound, returnToHome } = labels.commons;
 
 const CryptocurrencyShow = () => {
   const [cryptoInfo, setCryptoInfo] = useState({});
   const [loading, setLoading] = useState(true);
   const user = useAuthStore((state) => state.user);
   const [isFavorite, setIsFavorite] = useState(false);
+  const [error, setError] = useState([]);
   const [userVote, setUserVote] = useState("");
   const [voteStats, setVoteStats] = useState({});
   const [showVotes, setShowVotes] = useState(false);
@@ -35,10 +36,15 @@ const CryptocurrencyShow = () => {
   useEffect(() => {
     fetchCryptocurrencyInfo(slug)
       .then((data) => {
+        if (!data) {
+          setError((prev) => [...prev, "Error fetching crypto info"]);
+          setLoading(false);
+          return;
+        }
         setCryptoInfo(data);
       })
       .catch((error) => {
-        console.error("Error fetching crypto info", error);
+        console.error("Error fetching crypto info");
       })
       .finally(() => {
         setLoading(false);
@@ -62,6 +68,26 @@ const CryptocurrencyShow = () => {
     return (
       <div className="flex items-center h-full justify-center absolute left-1/2 bottom-1/4">
         <Spinner />
+      </div>
+    );
+  }
+
+  if (error.length > 0) {
+    return (
+      <div className="flex flex-col items-center h-full justify-center mt-8">
+        <Text variant={"h2"} colorType={"normal-text"}>
+          {cryptoNotFound}
+        </Text>
+        <div className="mt-10 flex items-center justify-center gap-x-6">
+          <Link variant={"primary"} href="/">
+            {returnToHome}
+          </Link>
+          <Link href="/criptomonedas" variant={"no-fill"}>
+            <Text variant={"span"} colorType={"text-title"}>
+              {seeMore}<span aria-hidden="true"> →</span>
+            </Text>
+          </Link>
+        </div>
       </div>
     );
   }
@@ -116,7 +142,7 @@ const CryptocurrencyShow = () => {
         />
       )}
       <div className="px-3">
-      <CandleStickChart symbol={cryptoInfo.symbol} />
+        <CandleStickChart symbol={cryptoInfo.symbol} />
       </div>
       <CryptoMonthlyTable name={cryptoInfo.name} symbol={cryptoInfo.symbol} />
     </>

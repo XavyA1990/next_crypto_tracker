@@ -6,7 +6,7 @@ const { title, bullishLabel, bearishLabel, voteStatement } = labels.communityVot
 
 const CommunityVotesDisplay = ({ bullish, bearish, name }) => {
   return (
-    <div className="w-full flex mt-4 gap-4 flex-col">
+    <div className="w-full flex mt-4 gap-4 flex-col px-3 md:px-0">
       <Text variant={"h3"} colorType={"normal-text"}>
         {title}
       </Text>

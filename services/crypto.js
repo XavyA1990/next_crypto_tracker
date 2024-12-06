@@ -50,9 +50,6 @@ export const fetchCryptocurrencyInfo  = async (slug) => {
 
   try {
     const response = await localAPIFetcher(url);
-    if (!response.ok) {
-      throw new Error(`API request failed with status ${response.status}`);
-    }
 
     const data = await response.json();
 
@@ -61,7 +58,7 @@ export const fetchCryptocurrencyInfo  = async (slug) => {
     return cryptocurrencyInfo;
 
   } catch (error) {
-    console.error("🚀 ~ GET ~ error", error);
+    console.error("🚀 ~ GET ~ error", error.message);
     return { error: error.message };
   }
 };
@@ -72,9 +69,6 @@ export const fetchHistoricalData = async (symbol) => {
 
   try {
     const response = await localAPIFetcher(url);
-    if (!response.ok) {
-      throw new Error(`API request failed with status ${response.status}`);
-    }
 
     const data = await response.json();
 

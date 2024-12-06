@@ -35,11 +35,11 @@ const FearGreedIndicator = () => {
     >
       {!loading && (
         <>
-          <div className="flex gap-16 justify-center items-center flex-col">
+          <div className="flex gap-16 justify-center items-center flex-col px-3">
             <Text
               variant={"h3"}
               colorType={"text-title"}
-              sizeVariant={"text-5xl"}
+              sizeVariant={"text-4xl md:text-5xl"}
             >
               {title}
             </Text>
@@ -56,7 +56,7 @@ const FearGreedIndicator = () => {
                 colorType={"text-title"}
                 weight="font-bold"
                 customClasses={"mt-4 text-center"}
-                sizeVariant={"text-5xl"}
+                sizeVariant={"text-4xl md:text-5xl"}
               >
                 {fearGreedStats?.value_classification}
               </Text>

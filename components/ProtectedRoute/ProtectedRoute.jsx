@@ -11,9 +11,9 @@ import Page from "../Page/Page";
 import Button from "../Button/Button";
 import Container from "../Container/Container";
 
-const { unavailablePage, unavailablePageMessage, returnToHome } = labels.login;
+const { unavailablePage, unavailablePageMessage } = labels.login;
 
-const { login } = labels.commons
+const { login, returnToHome } = labels.commons
 
 const ProtectedRoute = ({ children }) => {
   const user = useAuthStore((state) => state.user);
@@ -78,7 +78,7 @@ const ProtectedRoute = ({ children }) => {
                     </div>
                   </div>
                 </div>
-                <div className="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse gap-4">
+                <div className="mt-5 sm:mt-4 flex sm:flex-row-reverse gap-4 ">
                   <Button
                     variant={"primary"}
                     onClick={() => toggleModalLogin()}
@@ -88,7 +88,7 @@ const ProtectedRoute = ({ children }) => {
                   <button
                     type="button"
                     onClick={goHome}
-                    className="mt-3 inline-flex w-full justify-center rounded-md bg-gray-300 px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
+                    className="md:mt-3 inline-flex justify-center rounded-md bg-gray-300 px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 mt-0 "
                   >
                     {returnToHome}
                   </button>

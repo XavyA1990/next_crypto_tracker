@@ -66,17 +66,15 @@ const CommunityVotesButtons = ({
       >
         <ArrowTrendingDownIcon className="h-5 w-5" />
       </button>
-      {voteStats &&
-        voteStats?.percentages?.bullish !== 0 &&
-        voteStats?.percentages?.bearish !== 0 && (
-          <Button variant={"primary"} onClick={handleShowVotes}>
-            {!showVotes ? (
-              <BarsArrowDownIcon className="h-5 w-5" />
-            ) : (
-              <BarsArrowUpIcon className="h-5 w-5" />
-            )}
-          </Button>
-        )}
+      {voteStats != {} && voteStats?.total_votes != 0 && (
+        <Button variant={"primary"} onClick={handleShowVotes}>
+          {!showVotes ? (
+            <BarsArrowDownIcon className="h-5 w-5" />
+          ) : (
+            <BarsArrowUpIcon className="h-5 w-5" />
+          )}
+        </Button>
+      )}
     </>
   );
 };
