@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { fetchHistoricalData } from "@/services/crypto";
 import useTheme from "@/hooks/useTheme";
 
-const CandleStickChart = ({ symbol }) => {
+const CandleStickChart = ({ symbol, width = "w-full" }) => {
   const chartContainerRef = useRef(null);
   const chartRef = useRef(null);
   const seriesRef = useRef(null);

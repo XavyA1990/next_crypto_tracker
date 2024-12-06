@@ -69,7 +69,7 @@ const Profile = () => {
           {favoritesTitle}
         </Text>
       </div>
-      <div className="flex w-full">
+      <div className="flex w-full px-3">
         <Text variant={"h3"} colorType={"normal-text"}>
           {user?.email}
         </Text>
@@ -94,7 +94,7 @@ const Profile = () => {
           ))}
         </div>
       )}
-      <div className="grid grid-cols-2 md:grid-cols-3 w-full gap-4 mt-8 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 w-full gap-4 mt-8 mb-8 px-3">
         {favorites.map((favorite, index) => {
           const isSelected = selectedCharts.some(
             (chart) => chart.symbol === favorite.symbol

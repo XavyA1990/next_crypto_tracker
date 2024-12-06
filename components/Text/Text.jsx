@@ -31,7 +31,7 @@ const Text = ({
       return (
         <h2
           className={`${
-            sizeVariant ? sizeVariant : "text-5xl"
+            sizeVariant ? sizeVariant : "md:text-5xl text-4xl"
           } ${weight} ${colorType} ${theme} ${customClasses}`}
         >
           {children}
@@ -41,7 +41,7 @@ const Text = ({
       return (
         <h3
           className={`${
-            sizeVariant ? sizeVariant : "text-4xl"
+            sizeVariant ? sizeVariant : "text-2xl md:text-4xl"
           } ${weight} ${colorType} ${theme} ${customClasses}`}
         >
           {children}

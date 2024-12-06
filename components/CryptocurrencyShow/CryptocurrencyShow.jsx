@@ -69,7 +69,7 @@ const CryptocurrencyShow = () => {
   return (
     <>
       <PageTitle title={`${cryptoInfo.name}`} imgSrc={cryptoInfo.logo} />
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 px-3">
         <Text variant={"h2"} colorType={"normal-text"}>
           {cryptoInfo.symbol}
         </Text>
@@ -115,7 +115,9 @@ const CryptocurrencyShow = () => {
           name={cryptoInfo.name}
         />
       )}
+      <div className="px-3">
       <CandleStickChart symbol={cryptoInfo.symbol} />
+      </div>
       <CryptoMonthlyTable name={cryptoInfo.name} symbol={cryptoInfo.symbol} />
     </>
   );
