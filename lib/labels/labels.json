@@ -60,5 +60,15 @@
     "darkMode": "Modo oscuro",
     "lightMode": "Modo claro",
     "openMainMenu": "Abrir menú principal"
+  },
+  "communityVotes": {
+    "title": "Votaciones de la comunidad",
+    "bullishLabel": "Alcista",
+    "bearishLabel": "Bajista",
+    "voteStatement": [
+      "De acuerdo al",
+      "% de los votantes,",
+      "tiene una tendencia"
+    ]
   }
 }
