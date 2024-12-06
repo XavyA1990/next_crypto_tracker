@@ -1,10 +1,12 @@
 import React from "react";
 import Container from "../Container/Container";
 import Text from "../Text/Text";
-import labels from "@/lib/labels/hero.json";
+import labels from "@/lib/labels/labels.json";
 import Link from "../Link/Link";
 
-const { cta, heroTitle, heroSubtitle, latestNews } = labels;
+const { cta, heroTitle, heroSubtitle } = labels.hero
+
+const { latestNews } = labels.commons;
 
 const Hero = () => {
   return (

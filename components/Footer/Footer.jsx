@@ -1,8 +1,8 @@
-import labels from "@/lib/labels/footer";
+import labels from "@/lib/labels/labels.json";
 import Text from "../Text/Text";
 import Container from "../Container/Container";
 
-const { disclaimer, trademark } = labels;
+const { disclaimer, trademark } = labels.footer;
 
 const YEAR = new Date().getFullYear();
 

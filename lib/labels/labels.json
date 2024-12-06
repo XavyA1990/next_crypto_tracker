@@ -1,6 +1,11 @@
 {
   "commons": {
-    "moreInformation": "Más Información"
+    "moreInformation": "Más Información",
+    "seeMore": "Ver Más",
+    "latestNews": "Últimas Noticias",
+    "crypto": "Crypto",
+    "aiGenerated": " -- Generado por IA",
+    "login": "Iniciar sesión"
   },
   "cryptoCard": {
     "lastUpdate": "Última Actualización",
@@ -18,5 +23,42 @@
     { "key": "volume", "label": "Volumen" },
     { "key": "closeTime", "label": "Hora de Cierre" },
     { "key": "priceIsHigh", "label": "Estado" }
-  ]
+  ],
+  "hero": {
+    "cta": "Empecemos",
+    "latestNews": "Últimas Noticias",
+    "heroTitle": "Encuentra tu proxima inversión",
+    "heroSubtitle": "Conoce las criptomonedas más populares y las últimas noticias del mercado."
+  },
+  "footer": {
+    "disclaimer": "Este sitio web no ofrece asesoramiento financiero. La información proporcionada es solo para fines informativos. No se debe considerar como una recomendación de inversión.",
+    "trademark": "© \"year\" Crypto Tracker desarrollado por Andres Contreras - Todos los derechos reservados"
+  },
+  "login": {
+    "cancel": "Cancelar",
+    "signInFacebook": "Iniciar sesión con Facebook",
+    "signInGoogle": "Iniciar sesión con Google",
+    "welcomeMessage": "Bienvenido a next crypto tracker, inicia sesión y mantente al tanto de tus inversiones en criptomonedas.",
+    "returnToHome": "Regresar al inicio",
+    "unavailablePage": "Página no disponible",
+    "unavailablePageMessage": "Inicia sesión para acceder a esta página"
+  },
+  "pagination": {
+    "prev": "Anterior",
+    "next": "Siguiente",
+    "showingPage": "Mostrando página",
+    "of": "de"
+  },
+  "fearAndGreedIndex": {
+    "title": "Indice de Miedo y Codicia"
+  },
+  "cryptoNewsRanking": {
+    "title": "Noticias de Criptomonedas con mejor ranking"
+  },
+  "navbar": {
+    "openUserMenu": "Abrir menú de usuario",
+    "darkMode": "Modo oscuro",
+    "lightMode": "Modo claro",
+    "openMainMenu": "Abrir menú principal"
+  }
 }

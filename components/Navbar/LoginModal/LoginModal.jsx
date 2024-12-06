@@ -7,12 +7,13 @@ import Button from "@/components/Button/Button";
 import FacebookIcon from "@/assets/icons/FacebookIcon";
 import GoogleIcon from "@/assets/icons/GoogleIcon";
 import Logo from "@/components/Logo/Logo";
-import useTheme from "@/hooks/useTheme";
-import labels from "@/lib/labels/modals";
+import labels from "@/lib/labels/labels.json";
 import Text from "@/components/Text/Text";
 import Container from "@/components/Container/Container";
 
-const { welcomeMessage, signInFacebook, signInGoogle, cancel, login } = labels;
+const { welcomeMessage, signInFacebook, signInGoogle, cancel } = labels.login;
+
+const { login } = labels.commons
 
 const LoginModal = () => {
   const isModalLoginOpen = useMenuStore((state) => state.isModalLoginOpen);

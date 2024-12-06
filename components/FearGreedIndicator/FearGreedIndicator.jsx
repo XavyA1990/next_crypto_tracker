@@ -5,9 +5,11 @@ import { useEffect, useState } from "react";
 import Container from "../Container/Container";
 import Text from "../Text/Text";
 import GaugeChart from "../GaugeChart/GaugeChart";
-import labels from "@/lib/labels/fearAndGreed.json";
+import labels from "@/lib/labels/labels.json";
 
-const { title, aiGenerated } = labels;
+const { title } = labels.fearAndGreedIndex;
+
+const { aiGenerated } = labels.commons;
 
 const FearGreedIndicator = () => {
   const [loading, setLoading] = useState(true);

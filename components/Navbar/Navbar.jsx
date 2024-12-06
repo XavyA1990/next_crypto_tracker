@@ -1,7 +1,7 @@
 "use client";
 
 import Button from "../Button/Button";
-import labels from "../../lib/labels/navbar";
+import labels from "../../lib/labels/labels.json";
 import Logo from "../Logo/Logo";
 import MobileMenu from "./MobileMenu/MobileMenu";
 import MobileMenuButton from "./MobileMenuButton/MobileMenuButton";
@@ -16,7 +16,9 @@ import LoginModal from "./LoginModal/LoginModal";
 import { MoonIcon, SunIcon } from "@heroicons/react/24/outline";
 import Container from "../Container/Container";
 
-const { login, lightMode, darkMode } = labels;
+const { lightMode, darkMode } = labels.navbar;
+
+const { login } = labels.commons
 
 const Navbar = () => {
   const { toggleTheme, isDarkMode } = useTheme();

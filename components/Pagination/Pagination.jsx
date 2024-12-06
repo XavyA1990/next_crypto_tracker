@@ -2,12 +2,12 @@
 import { memo } from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 import useTheme from "@/hooks/useTheme";
-import labels from "@/lib/labels/pagination";
+import labels from "@/lib/labels/labels.json";
 import usePageNumbers from "@/hooks/usePageNumbers";
 import Text from "../Text/Text";
 import Container from "../Container/Container";
 
-const { of, prev, next, showingPage } = labels;
+const { of, prev, next, showingPage } = labels.pagination;
 
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   const { mounted, theme } = useTheme();

@@ -1,17 +1,15 @@
-"use client";
-import useTheme from "@/hooks/useTheme";
-import { Button } from "@headlessui/react";
 import {
   ArrowTrendingDownIcon,
   ArrowTrendingUpIcon,
 } from "@heroicons/react/24/outline";
 import React from "react";
-import labels from "@/lib/labels/news";
+import labels from "@/lib/labels/labels.json";
 import Text from "../Text/Text";
 import Container from "../Container/Container";
 import Image from "../Image/Image";
+import Link from "../Link/Link";
 
-const { seeMore } = labels;
+const { seeMore } = labels.commons;
 
 const Card = ({
   imageSrc,
@@ -23,9 +21,7 @@ const Card = ({
   date,
   fullWidth = false,
 }) => {
-  const { mounted, theme } = useTheme();
 
-  if (!mounted) return null;
   return (
     <Container
     colorVariant={"primary"}
@@ -54,14 +50,12 @@ const Card = ({
         <Text colorType={"text-gray-500"} sizeVariant={"text-sm"}>{articleSource}</Text>
       </div>
       <div className="flex justify-end p-4">
-        <Button
-          as="a"
+        <Link
           target="_blank"
           href={newsUrl}
-          className={`btn-primary ${theme} inline-flex items-center px-3 py-2 rounded-md font-bold`}
         >
           {seeMore}
-        </Button>
+        </Link>
       </div>
     </Container>
   );

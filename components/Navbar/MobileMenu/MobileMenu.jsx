@@ -6,10 +6,10 @@ import privateRoutes from "../../../lib/routes/privateRoutes";
 import ProfileMobileItem from "./ProfileMobileItem/ProfileMobileItem";
 import { MoonIcon, SunIcon } from "@heroicons/react/24/outline";
 import useTheme from "@/hooks/useTheme";
-import labels from "@/lib/labels/navbar";
+import labels from "@/lib/labels/labels.json";
 import { useAuthStore } from "@/store/globalStore";
 
-const { darkMode, lightMode } = labels;
+const { darkMode, lightMode } = labels.navbar;
 
 const MobileMenu = () => {
   const { isDarkMode, toggleTheme, theme, mounted } = useTheme();

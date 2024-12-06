@@ -5,13 +5,15 @@ import { Dialog, DialogBackdrop, DialogPanel } from "@headlessui/react";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import labels from "@/lib/labels/modals";
+import labels from "@/lib/labels/labels.json";
 import Text from "../Text/Text";
 import Page from "../Page/Page";
 import Button from "../Button/Button";
 import Container from "../Container/Container";
 
-const { login, unavailablePage, unavailablePageMessage, returnToHome } = labels;
+const { unavailablePage, unavailablePageMessage, returnToHome } = labels.login;
+
+const { login } = labels.commons
 
 const ProtectedRoute = ({ children }) => {
   const user = useAuthStore((state) => state.user);

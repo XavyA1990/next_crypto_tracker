@@ -3,7 +3,10 @@
 import React, { useEffect, useState } from "react";
 import { fetchCryptoNewsRanking } from "@/services/crypto";
 import NewsCardLayout from "../CardLayout/NewsCardLayout";
+import labels from "@/lib/labels/labels.json";
 import Text from "../Text/Text";
+
+const { title } = labels.cryptoNewsRanking;
 
 const CryptoNewsRanking = () => {
   const [news, setNews] = useState([]);
@@ -30,7 +33,7 @@ const CryptoNewsRanking = () => {
             colorType={"text-title"}
             customClasses={"px-3 mb-8"}
           >
-            Noticias de Criptomonedas con mejor ranking
+            {title}
           </Text>
           <NewsCardLayout data={news} />
         </>
