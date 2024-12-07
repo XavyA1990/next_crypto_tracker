@@ -1,3 +1,6 @@
+import { formatDate } from "./date";
+import { formatLargeNumber } from "./numbers";
+
 export const processCryptoData = (cryptocurrencies) => {
   return cryptocurrencies.map((crypto) => {
     return {
@@ -40,4 +43,58 @@ export const calculateVoteStatistics = (voteTotals) => {
       bearish: bearishPercentage,
     },
   };
+};
+
+export const processedDataForTables = (data) => {
+  return data
+    .map((candle) => {
+      let priceIsHigh = null;
+
+      if (candle[4] > candle[1]) {
+        priceIsHigh = "up";
+      } else if (candle[4] < candle[1]) {
+        priceIsHigh = "down";
+      } else {
+        priceIsHigh = "flat";
+      }
+
+      return {
+        openTime: formatDate(candle[0]),
+        openPrice: formatLargeNumber(candle[1]),
+        highPrice: formatLargeNumber(candle[2]),
+        lowPrice: formatLargeNumber(candle[3]),
+        closePrice: formatLargeNumber(candle[4]),
+        volume: formatLargeNumber(candle[5]),
+        closedTime: formatDate(candle[6]),
+        numberOfTrades: formatLargeNumber(candle[8]),
+        priceIsHigh: priceIsHigh,
+      };
+    })
+    .reverse();
+};
+
+export const processedDataForAi = (data) => {
+  return data.map((candle) => {
+    let priceIsHigh = null;
+
+    if (candle[4] > candle[1]) {
+      priceIsHigh = "up";
+    } else if (candle[4] < candle[1]) {
+      priceIsHigh = "down";
+    } else {
+      priceIsHigh = "flat";
+    }
+
+    return {
+      openTime: formatDate(candle[0]),
+      openPrice: candle[1],
+      highPrice: candle[2],
+      lowPrice: candle[3],
+      closePrice: candle[4],
+      volume: candle[5],
+      closedTime: formatDate(candle[6]),
+      numberOfTrades: candle[8],
+      priceIsHigh: priceIsHigh,
+    };
+  });
 };

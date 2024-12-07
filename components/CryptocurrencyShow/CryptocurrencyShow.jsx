@@ -18,6 +18,7 @@ import Spinner from "../Spinner/Spinner";
 import { usePathname } from "next/navigation";
 import { useAuthStore } from "@/store/globalStore";
 import labels from "@/lib/labels/labels";
+import AiSuggestions from "../AiSuggestions/AiSuggestions";
 
 const { seeMore, cryptoNotFound, returnToHome } = labels.commons;
 
@@ -84,7 +85,8 @@ const CryptocurrencyShow = () => {
           </Link>
           <Link href="/criptomonedas" variant={"no-fill"}>
             <Text variant={"span"} colorType={"text-title"}>
-              {seeMore}<span aria-hidden="true"> →</span>
+              {seeMore}
+              <span aria-hidden="true"> →</span>
             </Text>
           </Link>
         </div>
@@ -128,9 +130,23 @@ const CryptocurrencyShow = () => {
                 />
               </div>
             )}
-            <Link target="_blank" href={cryptoInfo.website} variant={"primary"}>
-              {seeMore}
-            </Link>
+            <div className="flex gap-4">
+              {user && user?.id && (
+                <AiSuggestions
+                  info={cryptoInfo?.description}
+                  name={cryptoInfo?.name}
+                  symbol={cryptoInfo?.symbol}
+                  web={cryptoInfo?.website}
+                />
+              )}
+              <Link
+                target="_blank"
+                href={cryptoInfo.website}
+                variant={"primary"}
+              >
+                {seeMore}
+              </Link>
+            </div>
           </div>
         )}
       </div>

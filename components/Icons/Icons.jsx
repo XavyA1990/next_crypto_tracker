@@ -19,6 +19,7 @@ import {
   ChartBarSquareIcon as ChartBarSquareIconSolid,
   ChevronLeftIcon,
   ChevronRightIcon,
+  SparklesIcon,
 } from "@heroicons/react/20/solid";
 
 const Icons = ({ type, className }) => {
@@ -41,6 +42,7 @@ const Icons = ({ type, className }) => {
     chevronLeft: <ChevronLeftIcon className={className} />,
     chevronRight: <ChevronRightIcon className={className} />,
     exclamationTriangle: <ExclamationTriangleIcon className={className} />,
+    sparkles: <SparklesIcon className={className} />,
   };
   const IconComponent = iconMap[type];
 

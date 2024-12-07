@@ -13,7 +13,7 @@ import Icons from "../Icons/Icons";
 
 const { unavailablePage, unavailablePageMessage } = labels.login;
 
-const { login, returnToHome } = labels.commons
+const { login, returnToHome } = labels.commons;
 
 const ProtectedRoute = ({ children }) => {
   const user = useAuthStore((state) => state.user);
@@ -46,7 +46,7 @@ const ProtectedRoute = ({ children }) => {
           <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Container
-              colorVariant={"primary"}
+                colorVariant={"primary"}
                 customClasses={`modal-container-base`}
               >
                 <div className="sm:flex sm:items-start">
@@ -70,7 +70,6 @@ const ProtectedRoute = ({ children }) => {
                     </Text>
                     <div className="mt-2">
                       <Text
-
                         sizeVariant={"text-sm"}
                         colorType={"text-modal-description"}
                       >
