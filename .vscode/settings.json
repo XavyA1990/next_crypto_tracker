@@ -11,6 +11,8 @@
         "logomark",
         "NEXTAUTH",
         "nextjs",
+        "openai",
+        "OPENAI",
         "supabase",
         "tailwindcss",
         "zustand"

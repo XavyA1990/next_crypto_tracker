@@ -1,5 +1,6 @@
 import { translateText } from "@/services/translate";
 import { cmcFetcher } from "@/utils/fetchers/fetcher";
+import { sendAiRequest } from "@/utils/openAi/openAi";
 import { NextResponse } from "next/server";
 
 export async function GET(request) {
@@ -15,32 +16,9 @@ export async function GET(request) {
       value_classification
     );
 
-    let advice = "";
+    const prompt = `El índice de miedo y codicia de hoy es ${value}, clasificado como '${translatedValueClassification}'. Da un consejo breve.`;
 
-    switch (true) {
-      case value < 20:
-        advice =
-          "El mercado está en un estado de pánico. Los inversores están asustados y venden sus activos a precios bajos. Es un buen momento para comprar.";
-        break;
-      case value >= 20 && value < 40:
-        advice =
-          "El mercado está en un estado de miedo. Los inversores están nerviosos y venden sus activos a precios bajos. Es un buen momento para comprar.";
-        break;
-      case value >= 40 && value < 60:
-        advice =
-          "El mercado está en un estado neutral. Los inversores están indecisos y no saben si comprar o vender.";
-        break;
-      case value >= 60 && value < 80:
-        advice =
-          "El mercado está en un estado de codicia. Los inversores están eufóricos y compran activos a precios altos. Es un buen momento para vender.";
-        break;
-      case value <= 100:
-        advice =
-          "El mercado está en un estado de euforia. Los inversores están emocionados y compran activos a precios altos. Es un buen momento para vender.";
-        break;
-      default:
-        advice = "No se pudo obtener un consejo para este estado del mercado.";
-    }
+    const advice = await sendAiRequest(prompt);
 
     const parsedData = {
       value: value,

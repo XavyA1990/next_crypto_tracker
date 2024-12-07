@@ -63,11 +63,14 @@ const FearGreedIndicator = () => {
             </div>
           </div>
           <Text
-            colorType={"normal-text"}
+            colorType={"text-title"}
             customClasses={"mt-4 px-4 md:px-0"}
             sizeVariant={"text-xl"}
           >
-            &quot;{fearGreedStats?.advice}&quot; <br /> {aiGenerated}
+            &quot;{fearGreedStats?.advice}&quot; <br />
+            <Text variant={"span"} colorType={"normal-text"}>
+              {aiGenerated}
+            </Text>
           </Text>
         </>
       )}
