@@ -11,6 +11,7 @@ import {
   Bars3Icon,
   XMarkIcon,
   ExclamationTriangleIcon,
+  ArrowPathIcon,
 } from "@heroicons/react/24/outline";
 import {
   BarsArrowDownIcon,
@@ -43,6 +44,7 @@ const Icons = ({ type, className }) => {
     chevronRight: <ChevronRightIcon className={className} />,
     exclamationTriangle: <ExclamationTriangleIcon className={className} />,
     sparkles: <SparklesIcon className={className} />,
+    arrowPath: <ArrowPathIcon className={className} />,
   };
   const IconComponent = iconMap[type];
 
