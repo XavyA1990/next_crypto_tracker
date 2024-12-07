@@ -4,10 +4,10 @@ import MobileMenuItem from "./MobileMenuItem/MobileMenuItem";
 import UserInfo from "./UserInfo/UserInfo";
 import privateRoutes from "../../../lib/routes/privateRoutes";
 import ProfileMobileItem from "./ProfileMobileItem/ProfileMobileItem";
-import { MoonIcon, SunIcon } from "@heroicons/react/24/outline";
 import useTheme from "@/hooks/useTheme";
 import labels from "@/lib/labels/labels.json";
 import { useAuthStore } from "@/store/globalStore";
+import Icons from "@/components/Icons/Icons";
 
 const { darkMode, lightMode } = labels.navbar;
 
@@ -36,11 +36,10 @@ const MobileMenu = () => {
               onClick={toggleTheme}
             >
               <div className="flex gap-2 w-full items-center">
-                {isDarkMode ? (
-                  <SunIcon className="h-6 w-6" />
-                ) : (
-                  <MoonIcon className="h-6 w-6" />
-                )}
+                <Icons
+                  type={isDarkMode ? "sun" : "moon"}
+                  className={"h-6 w-6"}
+                />
                 <span>{isDarkMode ? lightMode : darkMode}</span>
               </div>
             </Button>

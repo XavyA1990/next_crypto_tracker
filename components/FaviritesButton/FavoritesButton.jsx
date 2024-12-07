@@ -1,10 +1,8 @@
 "use client";
 
-import React from "react";
 import Button from "../Button/Button";
-import { HeartIcon } from "@heroicons/react/24/outline";
-import { HeartIcon as HeartIconSolid } from "@heroicons/react/20/solid";
 import { postFavorites } from "@/services/crypto";
+import Icons from "../Icons/Icons";
 
 const FavoritesButton = ({
   symbol,
@@ -35,11 +33,7 @@ const FavoritesButton = ({
 
   return (
     <Button variant={"primary"} onClick={handleFavorite}>
-      {!isFavorite ? (
-        <HeartIcon className="h-5 w-5 " />
-      ) : (
-        <HeartIconSolid className="h-5 w-5" />
-      )}
+      <Icons type={isFavorite ? "heartSolid" : "heart"} className="h-5 w-5" />
     </Button>
   );
 };

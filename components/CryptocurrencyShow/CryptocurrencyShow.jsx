@@ -1,7 +1,7 @@
 "use client";
 
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import PageTitle from "../PageTitle/PageTitle";
 import Text from "../Text/Text";
 import FavoritesButton from "../FaviritesButton/FavoritesButton";

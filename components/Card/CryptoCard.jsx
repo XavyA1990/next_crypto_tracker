@@ -1,13 +1,9 @@
 import Link from "../Link/Link";
-import {
-  ArrowTrendingDownIcon,
-  ArrowTrendingUpIcon,
-} from "@heroicons/react/24/outline";
-import React from "react";
 import Text from "../Text/Text";
 import Container from "../Container/Container";
 import Image from "../Image/Image";
 import labels from "@/lib/labels/labels.json";
+import Icons from "../Icons/Icons";
 
 const {
   currentPrice,
@@ -17,7 +13,7 @@ const {
   lastUpdate,
 } = labels.cryptoCard;
 
-const { moreInformation } = labels.commons
+const { moreInformation } = labels.commons;
 
 const CryptoCard = ({
   name,
@@ -32,7 +28,6 @@ const CryptoCard = ({
   fullWidth = false,
   customButtons = [],
 }) => {
-
   return (
     <Container
       colorVariant={"primary"}
@@ -49,11 +44,14 @@ const CryptoCard = ({
       />
       <div className="px-4 py-5 flex-1">
         <div className="flex items-center mb-2">
-          {percentChange24h >= 0 ? (
-            <ArrowTrendingUpIcon className="w-6 h-6 text-green-500" />
-          ) : (
-            <ArrowTrendingDownIcon className="w-6 h-6 text-red-500" />
-          )}
+          <Icons
+            type={
+              percentChange24h >= 0 ? "arrowTrendingUp" : "arrowTrendingDown"
+            }
+            className={`w-6 h-6 ${
+              percentChange24h >= 0 ? "text-green-500" : "text-red-500"
+            }`}
+          />
           <Text
             variant={"h2"}
             sizeVariant={"text-xl"}
@@ -68,7 +66,7 @@ const CryptoCard = ({
           {currentPrice} ${price?.toFixed(2)}
         </Text>
         <Text colorType={"normal-text"}>
-          {change24h} {" "}
+          {change24h}{" "}
           <span
             className={
               percentChange24h >= 0 ? "text-green-500" : "text-red-500"
@@ -93,10 +91,7 @@ const CryptoCard = ({
         } p-4`}
       >
         {customButtons.map((button) => button)}
-        <Link
-          href={`/criptomonedas/${slug}/`}
-          variant={"primary"}
-        >
+        <Link href={`/criptomonedas/${slug}/`} variant={"primary"}>
           {moreInformation}
         </Link>
       </div>

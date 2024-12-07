@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Table from "../Table/Table";
 import labels from "@/lib/labels/labels.json";
 import { fetchOneMonthData } from "@/services/crypto";

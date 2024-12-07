@@ -13,8 +13,8 @@ import { getUser } from "@/services/auth";
 import { useEffect } from "react";
 import { useAuthStore, useMenuStore } from "@/store/globalStore";
 import LoginModal from "./LoginModal/LoginModal";
-import { MoonIcon, SunIcon } from "@heroicons/react/24/outline";
 import Container from "../Container/Container";
+import Icons from "../Icons/Icons";
 
 const { lightMode, darkMode } = labels.navbar;
 
@@ -70,11 +70,7 @@ const Navbar = () => {
                     onClick={toggleTheme}
                   >
                     <Container colorVariant={"none"} customClasses={`flex gap-2 w-full items-center normal-text`}>
-                      {isDarkMode ? (
-                        <SunIcon className="h-6 w-6" />
-                      ) : (
-                        <MoonIcon className="h-6 w-6" />
-                      )}
+                      <Icons type={isDarkMode ? "sun" : "moon"} className={"h-6 w-6"}/>
                       <span>{isDarkMode ? lightMode : darkMode}</span>
                     </Container>
                   </Button>

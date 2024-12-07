@@ -1,13 +1,9 @@
-import {
-  ArrowTrendingDownIcon,
-  ArrowTrendingUpIcon,
-} from "@heroicons/react/24/outline";
-import React from "react";
 import labels from "@/lib/labels/labels.json";
 import Text from "../Text/Text";
 import Container from "../Container/Container";
 import Image from "../Image/Image";
 import Link from "../Link/Link";
+import Icons from "../Icons/Icons";
 
 const { seeMore } = labels.commons;
 
@@ -30,11 +26,14 @@ const Card = ({
       <Image height={192} width={fullWidth ? 800 : 400} src={imageSrc} alt={title} className="w-full h-48 object-cover" />
       <div className="px-4 py-5 flex-1 overflow-y-auto">
         <div className="grid grid-flow-row grid-cols-5 justify-center ">
-          {sentiment.toLowerCase() === "positive" ? (
-            <ArrowTrendingUpIcon className="w-full h-8 text-green-500 col-span-1" />
-          ) : (
-            <ArrowTrendingDownIcon className="w-8 h-8 text-red-500 col-span-1" />
-          )}
+          <Icons
+            type={
+              sentiment.toLowerCase() === "positive" ? "arrowTrendingUp" : "arrowTrendingDown"
+            }
+            className={`w-6 h-6 col-span-1 ${
+              sentiment.toLowerCase() === "positive" ? "text-green-500" : "text-red-500"
+            }`}
+          />
           <Text
             variant={"h2"}
             colorType={"text-title"}

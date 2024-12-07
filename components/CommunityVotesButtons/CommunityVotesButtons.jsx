@@ -1,11 +1,6 @@
-import React from "react";
-import {
-  ArrowTrendingDownIcon,
-  ArrowTrendingUpIcon,
-} from "@heroicons/react/24/outline";
-import { BarsArrowDownIcon, BarsArrowUpIcon } from "@heroicons/react/20/solid";
 import Button from "../Button/Button";
 import { postVotes } from "@/services/crypto";
+import Icons from "../Icons/Icons";
 
 const CommunityVotesButtons = ({
   userId,
@@ -53,7 +48,7 @@ const CommunityVotesButtons = ({
         } px-3 py-2 rounded-md `}
         onClick={() => handleVotes("is_bullish")}
       >
-        <ArrowTrendingUpIcon className="h-5 w-5" />
+        <Icons type={"arrowTrendingUp"} className="h-5 w-5" />
       </button>
       <button
         disabled={userVote && userVote === "is_bearish"}
@@ -64,15 +59,11 @@ const CommunityVotesButtons = ({
         } px-3 py-2 rounded-md `}
         onClick={() => handleVotes("is_bearish")}
       >
-        <ArrowTrendingDownIcon className="h-5 w-5" />
+        <Icons type={"arrowTrendingDown"} className="h-5 w-5" />
       </button>
       {voteStats != {} && voteStats?.total_votes != 0 && (
         <Button variant={"primary"} onClick={handleShowVotes}>
-          {!showVotes ? (
-            <BarsArrowDownIcon className="h-5 w-5" />
-          ) : (
-            <BarsArrowUpIcon className="h-5 w-5" />
-          )}
+          <Icons type={!showVotes ? "barsArrowDown" : "barsArrowUp"} className="h-5 w-5" />
         </Button>
       )}
     </>

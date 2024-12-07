@@ -1,7 +1,6 @@
 "use client";
 
 import useTheme from "@/hooks/useTheme";
-import React from "react";
 import Gauge from "react-gauge-chart";
 
 const GaugeChart = ({

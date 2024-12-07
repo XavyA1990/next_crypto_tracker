@@ -2,8 +2,8 @@
 
 import useTheme from "@/hooks/useTheme";
 import { DisclosureButton } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import labels from "@/lib/labels/labels.json";
+import Icons from "@/components/Icons/Icons";
 
 const { openMainMenu } = labels.navbar;
 
@@ -20,14 +20,8 @@ const MobileMenuButton = () => {
       >
         <span className="absolute -inset-0.5" />
         <span className="sr-only">{openMainMenu}</span>
-        <Bars3Icon
-          aria-hidden="true"
-          className="block h-6 w-6 group-data-[open]:hidden"
-        />
-        <XMarkIcon
-          aria-hidden="true"
-          className="hidden h-6 w-6 group-data-[open]:block"
-        />
+        <Icons type="bars3" className="h-6 w-6 group-data-[open]:hidden" aria-hidden="true"/>
+        <Icons type="xMark" className="h-6 w-6 group-data-[open]:block hidden" aria-hidden="true"/>
       </DisclosureButton>
     </div>
   );

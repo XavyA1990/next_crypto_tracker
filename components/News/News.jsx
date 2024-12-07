@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import NewsCardLayout from "../CardLayout/NewsCardLayout";
 import Pagination from "../Pagination/Pagination";
 import { useNewsPaginationStore } from "@/store/globalStore";

@@ -1,11 +1,11 @@
 "use client";
 import { memo } from "react";
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 import useTheme from "@/hooks/useTheme";
 import labels from "@/lib/labels/labels.json";
 import usePageNumbers from "@/hooks/usePageNumbers";
 import Text from "../Text/Text";
 import Container from "../Container/Container";
+import Icons from "../Icons/Icons";
 
 const { of, prev, next, showingPage } = labels.pagination;
 
@@ -68,7 +68,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
               className={`relative inline-flex items-center rounded-l-md px-2 py-2 ring-1 ring-inset btn-with-border ${theme} focus:z-20 focus:outline-offset-0`}
             >
               <span className="sr-only">{prev}</span>
-              <ChevronLeftIcon aria-hidden="true" className="h-5 w-5" />
+              <Icons type={"chevronLeft"} className="h-5 w-5" aria-hidden="true"/>
             </button>
             {pageNumbers.map((page, index) => {
               return (
@@ -91,7 +91,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
               className={`relative inline-flex items-center rounded-r-md px-2 py-2 ring-1 ring-inset btn-with-border ${theme} focus:z-20 focus:outline-offset-0`}
             >
               <span className="sr-only">{next}</span>
-              <ChevronRightIcon aria-hidden="true" className="h-5 w-5" />
+              <Icons type={"chevronRight"} className="h-5 w-5" aria-hidden="true"/>
             </button>
           </nav>
         </div>

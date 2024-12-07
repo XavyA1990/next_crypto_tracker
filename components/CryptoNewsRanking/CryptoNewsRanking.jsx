@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { fetchCryptoNewsRanking } from "@/services/crypto";
 import NewsCardLayout from "../CardLayout/NewsCardLayout";
 import labels from "@/lib/labels/labels.json";

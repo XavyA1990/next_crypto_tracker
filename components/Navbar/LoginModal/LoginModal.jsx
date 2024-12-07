@@ -4,12 +4,11 @@ import { Dialog, DialogBackdrop } from "@headlessui/react";
 import { signIn } from "@/services/auth";
 import { useMenuStore } from "@/store/globalStore";
 import Button from "@/components/Button/Button";
-import FacebookIcon from "@/assets/icons/FacebookIcon";
-import GoogleIcon from "@/assets/icons/GoogleIcon";
 import Logo from "@/components/Logo/Logo";
 import labels from "@/lib/labels/labels.json";
 import Text from "@/components/Text/Text";
 import Container from "@/components/Container/Container";
+import Icons from "@/components/Icons/Icons";
 
 const { welcomeMessage, signInFacebook, signInGoogle, cancel } = labels.login;
 
@@ -66,14 +65,14 @@ const LoginModal = () => {
                 onClick={() => signIn("facebook")}
                 className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-100 sm:col-start-1 sm:mt-0 items-center gap-2"
               >
-                <FacebookIcon /> {signInFacebook}
+                <Icons type={"facebook"}/> {signInFacebook}
               </Button>
               <Button
                 options={{ withOutDefaultClass: true }}
                 onClick={() => signIn("google")}
                 className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-100 sm:col-start-2 sm:mt-0 items-center gap-2"
               >
-                <GoogleIcon /> {signInGoogle}
+                <Icons type={"google"}/> {signInGoogle}
               </Button>
               <Button
                 options={{ withOutDefaultClass: true }}

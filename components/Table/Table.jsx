@@ -1,8 +1,6 @@
-import React from "react";
 import Text from "../Text/Text";
-import { ArrowTrendingUpIcon, MinusIcon } from "@heroicons/react/24/outline";
-import { ArrowTrendingDownIcon } from "@heroicons/react/20/solid";
 import Spinner from "../Spinner/Spinner";
+import Icons from "../Icons/Icons";
 
 const Table = ({ headers, data, description, title }) => {
   return (
@@ -127,19 +125,26 @@ const Table = ({ headers, data, description, title }) => {
                       sizeVariant={"text-sm"}
                       customClasses="px-3 py-4 pr-3 sm:pl-0 text-center"
                     >
-                      {row.priceIsHigh === "up" ? (
-                        <span className="text-green-500 flex justify-center">
-                          <ArrowTrendingUpIcon className="w-6 h-6" />
-                        </span>
-                      ) : row.priceIsHigh === "down" ? (
-                        <span className="text-red-500 flex justify-center">
-                          <ArrowTrendingDownIcon className="w-6 h-6" />
-                        </span>
-                      ) : (
-                        <span className="text-gray-500 flex justify-center">
-                          <MinusIcon className="w-6 h-6" />
-                        </span>
-                      )}
+                      <span
+                        className={`flex justify-center ${
+                          row.priceIsHigh === "up"
+                            ? "text-green-500"
+                            : row.priceIsHigh === "down"
+                            ? "text-red-500"
+                            : "text-gray-500"
+                        }`}
+                      >
+                        <Icons
+                          type={
+                            row.priceIsHigh === "up"
+                              ? "arrowTrendingUp"
+                              : row.priceIsHigh === "down"
+                              ? "arrowTrendingDown"
+                              : "minus"
+                          }
+                          className="h-6 w-6"
+                        />
+                      </span>
                     </Text>
                   </tr>
                 ))}

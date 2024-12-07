@@ -1,17 +1,16 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import PageTitle from "../PageTitle/PageTitle";
 import Text from "../Text/Text";
 import CandleStickChart from "../CandleStickChart/CandleStickChart";
 import CryptoCard from "../Card/CryptoCard";
 import Button from "../Button/Button";
-import { ChartBarSquareIcon } from "@heroicons/react/24/outline";
-import { ChartBarSquareIcon as ChartBarSquareIconSolid } from "@heroicons/react/20/solid";
 import { useAuthStore } from "@/store/globalStore";
 import Spinner from "../Spinner/Spinner";
 import { fetchAllFavorites } from "@/services/crypto";
 import labels from "@/lib/labels/labels.json";
+import Icons from "../Icons/Icons";
 
 const { favoritesTitle } = labels.profile;
 
@@ -118,11 +117,7 @@ const Profile = () => {
                   variant={"primary"}
                   onClick={() => handleShowChart(favorite.symbol)}
                 >
-                  {!isSelected ? (
-                    <ChartBarSquareIcon className="h-5 w-5" />
-                  ) : (
-                    <ChartBarSquareIconSolid className="h-5 w-5" />
-                  )}
+                  <Icons type={isSelected ? "chartBarSquareSolid" : "chartBarSquare"} className={"h-5 w-5"}/>
                 </Button>,
               ]}
             />

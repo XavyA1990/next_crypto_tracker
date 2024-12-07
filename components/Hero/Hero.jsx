@@ -1,4 +1,3 @@
-import React from "react";
 import Container from "../Container/Container";
 import Text from "../Text/Text";
 import labels from "@/lib/labels/labels.json";

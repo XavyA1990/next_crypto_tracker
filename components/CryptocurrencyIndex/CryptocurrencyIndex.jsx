@@ -1,7 +1,7 @@
 "use client";
 
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Pagination from "../Pagination/Pagination";
 import CryptoCardLayout from "../CardLayout/CryptoCardLayout";
 import { useCryptoStore } from "@/store/globalStore";

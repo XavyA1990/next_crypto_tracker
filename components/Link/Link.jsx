@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import NextLink from "next/link";
 import useTheme from "@/hooks/useTheme";
 

@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { createChart } from "lightweight-charts";
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { fetchHistoricalData } from "@/services/crypto";
 import useTheme from "@/hooks/useTheme";
 
