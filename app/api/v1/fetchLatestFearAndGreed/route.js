@@ -2,6 +2,9 @@ import { translateText } from "@/services/translate";
 import { cmcFetcher } from "@/utils/fetchers/fetcher";
 import { sendAiRequest } from "@/utils/openAi/openAi";
 import { NextResponse } from "next/server";
+import labels from "@/lib/labels/labels.json";
+
+const { fearAndGreedIndexPrompt } = labels.ai;
 
 export async function GET(request) {
   try {
@@ -16,7 +19,12 @@ export async function GET(request) {
       value_classification
     );
 
-    const prompt = `El índice de miedo y codicia de hoy es ${value}, clasificado como '${translatedValueClassification}'. Da un consejo breve.`;
+    const replacements = {
+      "[value]": value,
+      "[translatedValueClassification]": translatedValueClassification,
+    }
+
+    const prompt = fearAndGreedIndexPrompt.replace(/\[value\]|\[translatedValueClassification\]/g, (match) => replacements[match]);
 
     const advice = await sendAiRequest(prompt);
 

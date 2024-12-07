@@ -1,6 +1,9 @@
 "use server";
 
 import OpenAI from "openai";
+import labels from "@/lib/labels/labels.json";
+
+const { system } = labels.ai;
 
 const openai = new OpenAI(process.env.OPENAI_API_KEY);
 
@@ -11,8 +14,7 @@ export const sendAiRequest = async (prompt) => {
       messages: [
         {
           role: "system",
-          content:
-            "Eres un asistente de inversiones que ayuda a los usuarios a invertir en el mercado de las criptomonedas.",
+          content: system,
         },
         {
           role: "user",

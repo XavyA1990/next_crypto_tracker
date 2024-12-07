@@ -79,5 +79,9 @@
     "title": "Página no encontrada",
     "message": "Lo sentimos, la página que buscas no existe.",
     "code": "404"
+  },
+  "ai": {
+    "fearAndGreedIndexPrompt":"El índice de miedo y codicia de hoy es [value], clasificado como '[translatedValueClassification]'. Da un consejo breve.",
+    "system": "Eres un asistente de inversiones que ayuda a los usuarios a invertir en el mercado de las criptomonedas."
   }
 }
