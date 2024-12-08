@@ -27,11 +27,9 @@ const News = () => {
     fetchNews(currentPage, setNews, setError, setLoading);
   }, [currentPage]);
 
-  if (loading) return <Spinner />;
-
   return (
     <>
-      <NewsCardLayout data={news} />
+      <NewsCardLayout data={news} loadingCount={10}/>
       <Pagination
         currentPage={currentPage}
         totalPages={totalPages}

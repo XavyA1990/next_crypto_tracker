@@ -26,18 +26,10 @@ const CryptoNewsRanking = () => {
   }, []);
   return (
     <div className="mt-16 relative isolate">
-      {!loading && (
-        <>
-          <Text
-            variant={"h3"}
-            colorType={"text-title"}
-            customClasses={"px-3 mb-8"}
-          >
-            {title}
-          </Text>
-          <NewsCardLayout data={news} />
-        </>
-      )}
+      <Text variant={"h3"} colorType={"text-title"} customClasses={"px-3 mb-8"}>
+        {title}
+      </Text>
+      <NewsCardLayout data={news} />
     </div>
   );
 };

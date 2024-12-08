@@ -1,6 +1,28 @@
 import Card from "../Card/NewsCard";
 
-const NewsCardLayout = ({ data }) => {
+const SkeletonCard = ({ fullWidth }) => (
+  <div
+    className={
+      fullWidth
+        ? "col-span-3 md:col-span-2"
+        : "col-span-3 sm:col-span-3 md:col-span-1"
+    }
+  >
+    <Card loading fullWidth={fullWidth} />
+  </div>
+);
+
+const NewsCardLayout = ({ data, loadingCount = 5 }) => {
+  
+  if (data.length === 0) {
+    return (
+      <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-auto gap-4 px-3 md:px-0">
+        {[...Array(10)].map((_, index) => (
+          <SkeletonCard key={index} fullWidth={index === 0 || index === loadingCount} />
+        ))}
+      </div>
+    );
+  }
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-auto gap-4 px-3 md:px-0">
@@ -22,7 +44,10 @@ const NewsCardLayout = ({ data }) => {
           );
         } else {
           return (
-            <div key={index} className="col-span-3 sm:col-span-3 md:col-span-1 ">
+            <div
+              key={index}
+              className="col-span-3 sm:col-span-3 md:col-span-1 "
+            >
               <Card
                 sentiment={item.sentiment}
                 newsUrl={item.news_url}
