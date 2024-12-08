@@ -4,6 +4,7 @@ import { formatDate } from "@/utils/processData/date";
 import { NextResponse } from "next/server";
 
 export async function GET(request) {
+  const lang = request.nextUrl.searchParams.get("lang");
   try {
     const url = "/v1/cryptocurrency/map?sort=cmc_rank&limit=5";
 
@@ -33,13 +34,23 @@ export async function GET(request) {
     if (news && Array.isArray(news)) {
       const translatedData = await Promise.all(
         news.map(async (item) => {
+          const bestRank = item.tickers
+            .map((ticker) => cryptoRankMap[ticker] || Infinity)
+            .reduce((min, rank) => Math.min(min, rank), Infinity);
+
+          if (lang === "en") {
+            const formattedDate = formatDate(item.date, "en-US");
+            return {
+              ...item,
+              date: formattedDate,
+              bestRank,
+            };
+          }
+
           const translatedTitle = await translateText(item.title);
           const translatedText = await translateText(item.text);
           const formattedDate = formatDate(item.date);
 
-          const bestRank = item.tickers
-            .map((ticker) => cryptoRankMap[ticker] || Infinity)
-            .reduce((min, rank) => Math.min(min, rank), Infinity);
 
           return {
             ...item,

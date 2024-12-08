@@ -1,4 +1,4 @@
-export const formatDate = (dateString) => {
+export const formatDate = (dateString, locale = "es-ES") => {
   const date = new Date(dateString);
   const options = {
     year: "numeric",
@@ -8,5 +8,5 @@ export const formatDate = (dateString) => {
     minute: "2-digit",
     second: "2-digit",
   };
-  return date.toLocaleDateString("es-ES", options);
+  return date.toLocaleDateString(locale, options);
 };

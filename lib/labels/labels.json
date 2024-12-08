@@ -60,6 +60,11 @@
     "cryptoNewsRanking": {
       "title": "Noticias de Criptomonedas con mejor ranking"
     },
+    "cryptoTable": {
+      "title": "Histórico mensual de ",
+      "subTitle": "La evolución de "
+
+    },
     "navbar": {
       "openUserMenu": "Abrir menú de usuario",
       "darkMode": "Modo oscuro",
@@ -76,7 +81,8 @@
       "voteStatement3": "tiene un"
     },
     "profile": {
-      "favoritesTitle": "Tus Favoritos"
+      "favoritesTitle": "Tus Favoritos",
+      "welcome": "Bienvenido"
     },
     "notFound": {
       "title": "Página no encontrada",
@@ -153,6 +159,10 @@
     "cryptoNewsRanking": {
       "title": "Top-Ranked Cryptocurrency News"
     },
+    "cryptoTable": {
+      "title": "Monthly Historical Data for ",
+      "subTitle": "The evolution of "
+    },
     "navbar": {
       "openUserMenu": "Open User Menu",
       "darkMode": "Dark Mode",
@@ -169,7 +179,8 @@
       "voteStatement3": "has a"
     },
     "profile": {
-      "favoritesTitle": "Your Favorites"
+      "favoritesTitle": "Your Favorites",
+      "welcome": "Welcome"
     },
     "notFound": {
       "title": "Page Not Found",

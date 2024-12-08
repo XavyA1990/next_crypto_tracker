@@ -16,7 +16,7 @@ import {
 } from "@/services/crypto";
 import Spinner from "../Spinner/Spinner";
 import { usePathname } from "next/navigation";
-import { useAuthStore } from "@/store/globalStore";
+import { useAuthStore, useLabelsStore } from "@/store/globalStore";
 import AiSuggestions from "../AiSuggestions/AiSuggestions";
 import Labels from "../Labels/Labels";
 
@@ -31,9 +31,10 @@ const CryptocurrencyShow = () => {
   const [showVotes, setShowVotes] = useState(false);
   const path = usePathname();
   const slug = path.split("/")[2];
+  const { currentLanguage } = useLabelsStore();
 
   useEffect(() => {
-    fetchCryptocurrencyInfo(slug)
+    fetchCryptocurrencyInfo(slug, currentLanguage)
       .then((data) => {
         if (!data) {
           setError((prev) => [...prev, "Error fetching crypto info"]);
@@ -48,7 +49,7 @@ const CryptocurrencyShow = () => {
       .finally(() => {
         setLoading(false);
       });
-  }, []);
+  }, [currentLanguage]);
 
   useEffect(() => {
     if (user && user.id) {
@@ -131,10 +132,8 @@ const CryptocurrencyShow = () => {
             <div className="flex gap-4">
               {user && user?.id && (
                 <AiSuggestions
-                  info={cryptoInfo?.description}
                   name={cryptoInfo?.name}
                   symbol={cryptoInfo?.symbol}
-                  web={cryptoInfo?.website}
                 />
               )}
               <Link

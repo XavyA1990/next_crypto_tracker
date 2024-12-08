@@ -53,10 +53,17 @@ const Profile = () => {
 
   return (
     <>
-      <PageTitle title={`Bienvenido ${user?.fullName}`} />
+      <PageTitle
+        title={
+          <>
+            <Labels labelFamily={"profile"} label={"welcome"} />{" "}
+            {user?.fullName}
+          </>
+        }
+      />
       <div className="flex w-full mb-5">
         <Text variant={"h2"} colorType={"normal-text"}>
-          <Labels labelFamily={"profile"} label={"title"} />
+          <Labels labelFamily={"profile"} label={"favoritesTitle"} />
         </Text>
       </div>
       <div className="flex w-full px-3">

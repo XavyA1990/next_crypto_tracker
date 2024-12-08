@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import NewsCardLayout from "../CardLayout/NewsCardLayout";
 import Pagination from "../Pagination/Pagination";
-import { useNewsPaginationStore } from "@/store/globalStore";
+import { useLabelsStore, useNewsPaginationStore } from "@/store/globalStore";
 import { fetchNews } from "@/services/news";
 
 const News = () => {
@@ -11,6 +11,7 @@ const News = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const {currentPage, totalPages, setCurrentPage } = useNewsPaginationStore();
+  const {currentLanguage} = useLabelsStore();
   
   const onPageChange = useCallback(
     (page) => {
@@ -20,8 +21,8 @@ const News = () => {
   );
 
   useEffect(() => {
-    fetchNews(currentPage, setNews, setError, setLoading);
-  }, [currentPage]);
+    fetchNews(currentPage, setNews, setError, setLoading, currentLanguage);
+  }, [currentPage, currentLanguage]);
 
   return (
     <>

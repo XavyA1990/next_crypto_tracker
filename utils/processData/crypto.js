@@ -45,7 +45,7 @@ export const calculateVoteStatistics = (voteTotals) => {
   };
 };
 
-export const processedDataForTables = (data) => {
+export const processedDataForTables = (data, lang = "es-ES") => {
   return data
     .map((candle) => {
       let priceIsHigh = null;
@@ -59,13 +59,13 @@ export const processedDataForTables = (data) => {
       }
 
       return {
-        openTime: formatDate(candle[0]),
+        openTime: formatDate(candle[0], lang),
         openPrice: formatLargeNumber(candle[1]),
         highPrice: formatLargeNumber(candle[2]),
         lowPrice: formatLargeNumber(candle[3]),
         closePrice: formatLargeNumber(candle[4]),
         volume: formatLargeNumber(candle[5]),
-        closedTime: formatDate(candle[6]),
+        closedTime: formatDate(candle[6], lang),
         numberOfTrades: formatLargeNumber(candle[8]),
         priceIsHigh: priceIsHigh,
       };

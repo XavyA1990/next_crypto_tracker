@@ -2,9 +2,7 @@
 
 import { localAPIFetcher } from "@/utils/fetchers/fetcher";
 
-
 export const fetchCryptoCurrencies = async () => {
-
   const url = `/fetchCryptoCurrencies`;
 
   try {
@@ -24,7 +22,6 @@ export const fetchCryptoCurrencies = async () => {
 };
 
 export const fetchCryptoCurrency = async (slug) => {
-
   const url = `/fetchCryptoCurrency?slug=${slug}`;
 
   try {
@@ -43,10 +40,8 @@ export const fetchCryptoCurrency = async (slug) => {
   }
 };
 
-
-export const fetchCryptocurrencyInfo  = async (slug) => {
-
-  const url = `/fetchCryptocurrencyMetaData?slug=${slug}`;
+export const fetchCryptocurrencyInfo = async (slug, lang) => {
+  const url = `/fetchCryptocurrencyMetaData?slug=${slug}&lang=${lang}`;
 
   try {
     const response = await localAPIFetcher(url);
@@ -56,7 +51,6 @@ export const fetchCryptocurrencyInfo  = async (slug) => {
     const cryptocurrencyInfo = data.data;
 
     return cryptocurrencyInfo;
-
   } catch (error) {
     console.error("🚀 ~ GET ~ error", error.message);
     return { error: error.message };
@@ -75,7 +69,6 @@ export const fetchHistoricalData = async (symbol) => {
     const formattedCandles = data.data;
 
     return formattedCandles;
-
   } catch (error) {
     console.error("🚀 ~ GET ~ error", error);
     return { error: error.message };
@@ -118,8 +111,8 @@ export const fetchAllFavorites = async (userId) => {
   return data;
 };
 
-export const fetchFearGreedStats = async () => {
-  const url = `/fetchLatestFearAndGreed`;
+export const fetchFearGreedStats = async (lang) => {
+  const url = `/fetchLatestFearAndGreed?lang=${lang}`;
   const res = await localAPIFetcher(url);
 
   const data = await res.json();
@@ -127,8 +120,8 @@ export const fetchFearGreedStats = async () => {
   return data;
 };
 
-export const fetchCryptoNewsRanking = async () => {
-  const url = `/fetchCryptoNewsRanking`;
+export const fetchCryptoNewsRanking = async (lang) => {
+  const url = `/fetchCryptoNewsRanking?lang=${lang}`;
   const res = await localAPIFetcher(url);
 
   const data = await res.json();
@@ -136,11 +129,11 @@ export const fetchCryptoNewsRanking = async () => {
   return data;
 };
 
-export const fetchOneMonthData = async (symbol) => {
-  const url = `/fetchCryptocurrencyOneMonthData?symbol=${symbol}`;
+export const fetchOneMonthData = async (symbol, lang) => {
+  const url = `/fetchCryptocurrencyOneMonthData?symbol=${symbol}&lang=${lang}`;
   const res = await localAPIFetcher(url);
 
   const data = await res.json();
 
   return data;
-}
+};

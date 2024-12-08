@@ -5,13 +5,13 @@ import { NextResponse } from "next/server";
 const apiKey = process.env.CMC_API_KEY;
 
 export async function GET(request) {
+  const lang = request.nextUrl.searchParams.get("lang");
   const slug = request.nextUrl.searchParams.get("slug");
   const url = `/v2/cryptocurrency/info?slug=${slug}`;
   try {
     const response = await cmcFetcher(url, true);
 
     const data = await response.json();
-
 
     if (!response.ok) {
       throw new Error(`API request failed with status ${response.status}`);
@@ -21,7 +21,10 @@ export async function GET(request) {
 
     const cryptocurrencyInfo = data.data[key];
 
-    const translatedDescription = await translateText(cryptocurrencyInfo.description);
+    const translatedDescription =
+      lang === "es"
+        ? await translateText(cryptocurrencyInfo.description)
+        : cryptocurrencyInfo.description;
 
     const parsedCryptoInfo = {
       id: cryptocurrencyInfo.id,
@@ -32,7 +35,7 @@ export async function GET(request) {
       logo: cryptocurrencyInfo.logo,
       website: cryptocurrencyInfo.urls.website[0],
     };
-    
+
     return NextResponse.json({ data: parsedCryptoInfo }, { status: 200 });
   } catch (error) {
     console.error("🚀 ~ GET ~ error", error.message);

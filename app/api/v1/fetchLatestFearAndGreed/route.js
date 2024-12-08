@@ -4,9 +4,9 @@ import { sendAiRequest } from "@/utils/openAi/openAi";
 import { NextResponse } from "next/server";
 import labels from "@/lib/labels/labels.json";
 
-const { fearAndGreedIndexPrompt } = labels.es.ai;
-
 export async function GET(request) {
+  const lang = request.nextUrl.searchParams.get("lang");
+  const { fearAndGreedIndexPrompt } = labels[lang]["ai"];
   try {
     const url = "/v3/fear-and-greed/latest";
     const response = await cmcFetcher(url, true);
@@ -21,16 +21,19 @@ export async function GET(request) {
 
     const replacements = {
       "[value]": value,
-      "[translatedValueClassification]": translatedValueClassification,
-    }
+      "[translatedValueClassification]": lang === "es" ? translatedValueClassification : value_classification,
+    };
 
-    const prompt = fearAndGreedIndexPrompt.replace(/\[value\]|\[translatedValueClassification\]/g, (match) => replacements[match]);
+    const prompt = fearAndGreedIndexPrompt.replace(
+      /\[value\]|\[translatedValueClassification\]/g,
+      (match) => replacements[match]
+    );
 
-    const advice = await sendAiRequest(prompt);
+    const advice = await sendAiRequest(prompt, lang);
 
     const parsedData = {
       value: value,
-      value_classification: translatedValueClassification,
+      value_classification: lang === "es" ? translatedValueClassification : value_classification,
       advice: advice,
     };
 

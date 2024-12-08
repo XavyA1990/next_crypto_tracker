@@ -3,11 +3,11 @@
 import OpenAI from "openai";
 import labels from "@/lib/labels/labels.json";
 
-const { system } = labels.es.ai;
 
 const openai = new OpenAI(process.env.OPENAI_API_KEY);
 
-export const sendAiRequest = async (prompt) => {
+export const sendAiRequest = async (prompt, lang = "es") => {
+  const { system } = labels[lang].ai;
   try {
     const response = await openai.chat.completions.create({
       model: "gpt-4o",

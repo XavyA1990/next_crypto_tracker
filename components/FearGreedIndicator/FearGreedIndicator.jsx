@@ -6,13 +6,15 @@ import Container from "../Container/Container";
 import Text from "../Text/Text";
 import GaugeChart from "../GaugeChart/GaugeChart";
 import Labels from "../Labels/Labels";
+import { useLabelsStore } from "@/store/globalStore";
 
 const FearGreedIndicator = () => {
   const [loading, setLoading] = useState(true);
   const [fearGreedStats, setFearGreedStats] = useState(null);
+  const {currentLanguage} = useLabelsStore();
 
   useEffect(() => {
-    fetchFearGreedStats()
+    fetchFearGreedStats(currentLanguage)
       .then((data) => {
         setFearGreedStats(data.data);
       })
@@ -22,7 +24,7 @@ const FearGreedIndicator = () => {
       .finally(() => {
         setLoading(false);
       });
-  }, []);
+  }, [currentLanguage]);
 
   return (
     <Container

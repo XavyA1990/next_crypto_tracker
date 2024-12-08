@@ -8,19 +8,20 @@ import Text from "../Text/Text";
 import Container from "../Container/Container";
 import { Dialog, DialogBackdrop } from "@headlessui/react";
 import Labels from "../Labels/Labels";
+import { useLabelsStore } from "@/store/globalStore";
 
-const AiSuggestions = ({ name, info, web, symbol }) => {
+const AiSuggestions = ({ name, symbol }) => {
   const [aiSuggestion, setAiSuggestion] = useState(null);
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
+  const { currentLanguage } = useLabelsStore();
 
   const handleAiSuggestionButton = () => {
     setLoading(true);
     const data = {
       name,
-      info,
-      web,
       symbol,
+      lang: currentLanguage,
     };
 
     sendAiCryptoSuggestionRequest(data)
