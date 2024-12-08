@@ -1,13 +1,11 @@
 "use client";
 import { memo } from "react";
 import useTheme from "@/hooks/useTheme";
-import labels from "@/lib/labels/labels.json";
 import usePageNumbers from "@/hooks/usePageNumbers";
 import Text from "../Text/Text";
 import Container from "../Container/Container";
 import Icons from "../Icons/Icons";
-
-const { of, prev, next, showingPage } = labels.pagination;
+import Labels from "../Labels/Labels";
 
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   const { mounted, theme } = useTheme();
@@ -40,21 +38,23 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
           disabled={currentPage === 1}
           className={`relative ml-3 inline-flex items-center rounded-md border btn-with-border ${theme} px-4 py-2 text-sm font-medium`}
         >
-          {prev}
+          <Labels labelFamily={"pagination"} label={"prev"} />
         </button>
         <button
           onClick={handleNext}
           disabled={currentPage === totalPages}
           className={`relative ml-3 inline-flex items-center rounded-md border btn-with-border ${theme} px-4 py-2 text-sm font-medium`}
         >
-          {next}
+          <Labels labelFamily={"pagination"} label={"next"} />
         </button>
       </div>
       <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
         <div>
           <Text colorType={"normal-text"} sizeVariant={"text-sm"}>
-            {showingPage} <span className="font-medium">{currentPage}</span>{" "}
-            {of} <span className="font-medium">{totalPages}</span>
+            <Labels labelFamily={"pagination"} label={"showingPage"} />{" "}
+            <span className="font-medium">{currentPage}</span>{" "}
+            <Labels labelFamily={"pagination"} label={"of"} />{" "}
+            <span className="font-medium">{totalPages}</span>
           </Text>
         </div>
         <div>
@@ -67,8 +67,14 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
               disabled={currentPage === 1}
               className={`relative inline-flex items-center rounded-l-md px-2 py-2 ring-1 ring-inset btn-with-border ${theme} focus:z-20 focus:outline-offset-0`}
             >
-              <span className="sr-only">{prev}</span>
-              <Icons type={"chevronLeft"} className="h-5 w-5" aria-hidden="true"/>
+              <span className="sr-only">
+                <Labels labelFamily={"pagination"} label={"prev"} />
+              </span>
+              <Icons
+                type={"chevronLeft"}
+                className="h-5 w-5"
+                aria-hidden="true"
+              />
             </button>
             {pageNumbers.map((page, index) => {
               return (
@@ -90,8 +96,14 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
               disabled={currentPage === totalPages}
               className={`relative inline-flex items-center rounded-r-md px-2 py-2 ring-1 ring-inset btn-with-border ${theme} focus:z-20 focus:outline-offset-0`}
             >
-              <span className="sr-only">{next}</span>
-              <Icons type={"chevronRight"} className="h-5 w-5" aria-hidden="true"/>
+              <span className="sr-only">
+                <Labels labelFamily={"pagination"} label={"next"} />
+              </span>
+              <Icons
+                type={"chevronRight"}
+                className="h-5 w-5"
+                aria-hidden="true"
+              />
             </button>
           </nav>
         </div>

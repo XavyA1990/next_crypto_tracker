@@ -1,91 +1,188 @@
 {
-  "commons": {
-    "moreInformation": "Más Información",
-    "seeMore": "Ver Más",
-    "latestNews": "Últimas Noticias",
-    "crypto": "Crypto",
-    "aiGenerated": " -- Generado por IA",
-    "login": "Iniciar sesión",
-    "returnToHome": "Regresar al inicio",
-    "cryptoNotFound": "Criptomoneda no encontrada"
+  "es": {
+    "commons": {
+      "moreInformation": "Más Información",
+      "seeMore": "Ver Más",
+      "latestNews": "Últimas Noticias",
+      "crypto": "Crypto",
+      "aiGenerated": " -- Generado por IA",
+      "login": "Iniciar sesión",
+      "returnToHome": "Regresar al inicio",
+      "cryptoNotFound": "Criptomoneda no encontrada"
+    },
+    "cryptoCard": {
+      "lastUpdate": "Última Actualización",
+      "volume24h": "Volumen 24h:",
+      "marketCap": "Capitalización de Mercado:",
+      "change24h": "Cambio 24h:",
+      "currentPrice": "Precio Actual:"
+    },
+    "cryptoIndex": {
+      "title": "Listado de Cryptos"
+    },
+    "headers": [
+      { "key": "openTime", "label": "Hora de Apertura" },
+      { "key": "openPrice", "label": "Precio de Apertura" },
+      { "key": "highPrice", "label": "Precio Máximo" },
+      { "key": "lowPrice", "label": "Precio Mínimo" },
+      { "key": "closePrice", "label": "Precio de Cierre" },
+      { "key": "volume", "label": "Volumen" },
+      { "key": "closeTime", "label": "Hora de Cierre" },
+      { "key": "priceIsHigh", "label": "Estado" }
+    ],
+    "hero": {
+      "cta": "Empecemos",
+      "latestNews": "Últimas Noticias",
+      "heroTitle": "Encuentra tu proxima inversión",
+      "heroSubtitle": "Conoce las criptomonedas más populares y las últimas noticias del mercado."
+    },
+    "footer": {
+      "disclaimer": "Este sitio web no ofrece asesoramiento financiero. La información proporcionada es solo para fines informativos. No se debe considerar como una recomendación de inversión.",
+      "trademark": "© \"year\" Crypto Tracker desarrollado por Andres Contreras - Todos los derechos reservados"
+    },
+    "login": {
+      "cancel": "Cancelar",
+      "signInFacebook": "Iniciar sesión con Facebook",
+      "signInGoogle": "Iniciar sesión con Google",
+      "welcomeMessage": "Bienvenido a next crypto tracker, inicia sesión y mantente al tanto de tus inversiones en criptomonedas.",
+      "unavailablePage": "Página no disponible",
+      "unavailablePageMessage": "Inicia sesión para acceder a esta página"
+    },
+    "pagination": {
+      "prev": "Anterior",
+      "next": "Siguiente",
+      "showingPage": "Mostrando página",
+      "of": "de"
+    },
+    "fearAndGreedIndex": {
+      "title": "Indice de Miedo y Codicia"
+    },
+    "cryptoNewsRanking": {
+      "title": "Noticias de Criptomonedas con mejor ranking"
+    },
+    "navbar": {
+      "openUserMenu": "Abrir menú de usuario",
+      "darkMode": "Modo oscuro",
+      "lightMode": "Modo claro",
+      "openMainMenu": "Abrir menú principal",
+      "language": "English"
+    },
+    "communityVotes": {
+      "title": "Votaciones de la comunidad",
+      "bullishLabel": "ALCISTA",
+      "bearishLabel": "BAJISTA",
+      "voteStatement1": "Según el",
+      "voteStatement2": "% de los votantes,",
+      "voteStatement3": "tiene un"
+    },
+    "profile": {
+      "favoritesTitle": "Tus Favoritos"
+    },
+    "notFound": {
+      "title": "Página no encontrada",
+      "message": "Lo sentimos, la página que buscas no existe.",
+      "code": "404"
+    },
+    "ai": {
+      "fearAndGreedIndexPrompt": "El índice de miedo y codicia de hoy es [value], clasificado como '[translatedValueClassification]'. Da un consejo breve.",
+      "system": "Eres un asistente de inversiones que ayuda a los usuarios a invertir en el mercado de las criptomonedas.",
+      "aiLabel": "IA Crypto",
+      "iaDialogTitle": "Análisis de Crypto IA",
+      "cryptoAdvicePromptDetailed": "Analiza la siguiente información histórica sobre [name] ([symbol]). Con base en los datos de precio (apertura, máximo, mínimo y cierre), volumen de operaciones, número de operaciones y la dirección del precio (indicada con 'priceIsHigh'), determina cuáles son las señales alcistas y bajistas para cada día. Explica las razones detrás de tu evaluación. Finalmente, ofrece una conclusión sobre las perspectivas a corto plazo de [name], considerando la tendencia reflejada en los datos: \n\n Datos históricos: [formatData] \n\n En función de estos datos, identifica claramente las señales de alza o baja, así como la fortaleza o debilidad del mercado en cada periodo, y determina la perspectiva global del activo.",
+      "cryptoAdvicePrompt": "Analiza la siguiente información histórica sobre [name] ([symbol]). Con base en los datos de precio (apertura, máximo, mínimo y cierre), volumen de operaciones, número de operaciones y la dirección del precio (indicada con 'priceIsHigh'), ofrece una predicción de la tendencia para los próximos 5 días. Presenta únicamente las conclusiones finales, sin detallar el análisis paso a paso. Indica la posible dirección del mercado (al alza o a la baja) y la fortaleza o debilidad de la tendencia a corto plazo, considerando los datos proporcionados: \n\n Datos históricos: [formatData]"
+    }
   },
-  "cryptoCard": {
-    "lastUpdate": "Última Actualización",
-    "volume24h": "Volumen 24h:",
-    "marketCap": "Capitalización de Mercado:",
-    "change24h": "Cambio 24h:",
-    "currentPrice": "Precio Actual:"
-  },
-  "headers": [
-    { "key": "openTime", "label": "Hora de Apertura" },
-    { "key": "openPrice", "label": "Precio de Apertura" },
-    { "key": "highPrice", "label": "Precio Máximo" },
-    { "key": "lowPrice", "label": "Precio Mínimo" },
-    { "key": "closePrice", "label": "Precio de Cierre" },
-    { "key": "volume", "label": "Volumen" },
-    { "key": "closeTime", "label": "Hora de Cierre" },
-    { "key": "priceIsHigh", "label": "Estado" }
-  ],
-  "hero": {
-    "cta": "Empecemos",
-    "latestNews": "Últimas Noticias",
-    "heroTitle": "Encuentra tu proxima inversión",
-    "heroSubtitle": "Conoce las criptomonedas más populares y las últimas noticias del mercado."
-  },
-  "footer": {
-    "disclaimer": "Este sitio web no ofrece asesoramiento financiero. La información proporcionada es solo para fines informativos. No se debe considerar como una recomendación de inversión.",
-    "trademark": "© \"year\" Crypto Tracker desarrollado por Andres Contreras - Todos los derechos reservados"
-  },
-  "login": {
-    "cancel": "Cancelar",
-    "signInFacebook": "Iniciar sesión con Facebook",
-    "signInGoogle": "Iniciar sesión con Google",
-    "welcomeMessage": "Bienvenido a next crypto tracker, inicia sesión y mantente al tanto de tus inversiones en criptomonedas.",
-    "unavailablePage": "Página no disponible",
-    "unavailablePageMessage": "Inicia sesión para acceder a esta página"
-  },
-  "pagination": {
-    "prev": "Anterior",
-    "next": "Siguiente",
-    "showingPage": "Mostrando página",
-    "of": "de"
-  },
-  "fearAndGreedIndex": {
-    "title": "Indice de Miedo y Codicia"
-  },
-  "cryptoNewsRanking": {
-    "title": "Noticias de Criptomonedas con mejor ranking"
-  },
-  "navbar": {
-    "openUserMenu": "Abrir menú de usuario",
-    "darkMode": "Modo oscuro",
-    "lightMode": "Modo claro",
-    "openMainMenu": "Abrir menú principal"
-  },
-  "communityVotes": {
-    "title": "Votaciones de la comunidad",
-    "bullishLabel": "Alcista",
-    "bearishLabel": "Bajista",
-    "voteStatement": [
-      "De acuerdo al",
-      "% de los votantes,",
-      "tiene una tendencia"
-    ]
-  },
-  "profile": {
-    "favoritesTitle": "Tus Favoritos"
-  },
-  "notFound": {
-    "title": "Página no encontrada",
-    "message": "Lo sentimos, la página que buscas no existe.",
-    "code": "404"
-  },
-  "ai": {
-    "fearAndGreedIndexPrompt":"El índice de miedo y codicia de hoy es [value], clasificado como '[translatedValueClassification]'. Da un consejo breve.",
-    "system": "Eres un asistente de inversiones que ayuda a los usuarios a invertir en el mercado de las criptomonedas.",
-    "aiLabel": "IA Crypto",
-    "iaDialogTitle": "Análisis de Crypto IA",
-    "cryptoAdvicePromptDetailed": "Analiza la siguiente información histórica sobre [name] ([symbol]). Con base en los datos de precio (apertura, máximo, mínimo y cierre), volumen de operaciones, número de operaciones y la dirección del precio (indicada con 'priceIsHigh'), determina cuáles son las señales alcistas y bajistas para cada día. Explica las razones detrás de tu evaluación. Finalmente, ofrece una conclusión sobre las perspectivas a corto plazo de [name], considerando la tendencia reflejada en los datos: \n\n Datos históricos: [formatData] \n\n En función de estos datos, identifica claramente las señales de alza o baja, así como la fortaleza o debilidad del mercado en cada periodo, y determina la perspectiva global del activo.",
-    "cryptoAdvicePrompt": "Analiza la siguiente información histórica sobre [name] ([symbol]). Con base en los datos de precio (apertura, máximo, mínimo y cierre), volumen de operaciones, número de operaciones y la dirección del precio (indicada con 'priceIsHigh'), ofrece una predicción de la tendencia para los próximos 5 días. Presenta únicamente las conclusiones finales, sin detallar el análisis paso a paso. Indica la posible dirección del mercado (al alza o a la baja) y la fortaleza o debilidad de la tendencia a corto plazo, considerando los datos proporcionados: \n\n Datos históricos: [formatData]"
+  "en": {
+    "commons": {
+      "moreInformation": "More Information",
+      "seeMore": "See More",
+      "latestNews": "Latest News",
+      "crypto": "Crypto",
+      "aiGenerated": " -- AI Generated",
+      "login": "Log In",
+      "returnToHome": "Return to Home",
+      "cryptoNotFound": "Cryptocurrency Not Found"
+    },
+    "cryptoCard": {
+      "lastUpdate": "Last Update",
+      "volume24h": "24h Volume:",
+      "marketCap": "Market Capitalization:",
+      "change24h": "24h Change:",
+      "currentPrice": "Current Price:"
+    },
+    "cryptoIndex": {
+      "title": "Crypto Listing"
+    },
+    "headers": [
+      { "key": "openTime", "label": "Open Time" },
+      { "key": "openPrice", "label": "Open Price" },
+      { "key": "highPrice", "label": "High Price" },
+      { "key": "lowPrice", "label": "Low Price" },
+      { "key": "closePrice", "label": "Close Price" },
+      { "key": "volume", "label": "Volume" },
+      { "key": "closeTime", "label": "Close Time" },
+      { "key": "priceIsHigh", "label": "Status" }
+    ],
+    "hero": {
+      "cta": "Get Started",
+      "latestNews": "Latest News",
+      "heroTitle": "Find Your Next Investment",
+      "heroSubtitle": "Discover the most popular cryptocurrencies and the latest market news."
+    },
+    "footer": {
+      "disclaimer": "This website does not offer financial advice. The information provided is for informational purposes only and should not be considered as investment advice.",
+      "trademark": "© \"year\" Crypto Tracker developed by Andres Contreras - All Rights Reserved"
+    },
+    "login": {
+      "cancel": "Cancel",
+      "signInFacebook": "Sign in with Facebook",
+      "signInGoogle": "Sign in with Google",
+      "welcomeMessage": "Welcome to Next Crypto Tracker, log in and stay updated on your cryptocurrency investments.",
+      "unavailablePage": "Page Unavailable",
+      "unavailablePageMessage": "Log in to access this page"
+    },
+    "pagination": {
+      "prev": "Previous",
+      "next": "Next",
+      "showingPage": "Showing page",
+      "of": "of"
+    },
+    "fearAndGreedIndex": {
+      "title": "Fear and Greed Index"
+    },
+    "cryptoNewsRanking": {
+      "title": "Top-Ranked Cryptocurrency News"
+    },
+    "navbar": {
+      "openUserMenu": "Open User Menu",
+      "darkMode": "Dark Mode",
+      "lightMode": "Light Mode",
+      "openMainMenu": "Open Main Menu",
+      "language": "Español"
+    },
+    "communityVotes": {
+      "title": "Community Votes",
+      "bullishLabel": "BULLISH",
+      "bearishLabel": "BEARISH",
+      "voteStatement1": "According to",
+      "voteStatement2": "% of voters,",
+      "voteStatement3": "has a"
+    },
+    "profile": {
+      "favoritesTitle": "Your Favorites"
+    },
+    "notFound": {
+      "title": "Page Not Found",
+      "message": "Sorry, the page you're looking for doesn't exist.",
+      "code": "404"
+    },
+    "ai": {
+      "fearAndGreedIndexPrompt": "Today's fear and greed index is [value], categorized as '[translatedValueClassification]'. Provide a brief piece of advice.",
+      "system": "You are an investment assistant helping users invest in the cryptocurrency market.",
+      "aiLabel": "AI Crypto",
+      "iaDialogTitle": "Crypto AI Analysis",
+      "cryptoAdvicePromptDetailed": "Analyze the following historical data about [name] ([symbol]). Based on the price data (open, high, low, and close), trading volume, number of transactions, and price direction (indicated by 'priceIsHigh'), identify the bullish and bearish signals for each day. Explain the reasoning behind your assessment. Finally, offer a conclusion about the short-term prospects of [name], considering the trend reflected in the data: \n\n Historical Data: [formatData] \n\n Based on this data, clearly identify bullish or bearish signals, the market's strength or weakness in each period, and determine the overall outlook for the asset.",
+      "cryptoAdvicePrompt": "Analyze the following historical data about [name] ([symbol]). Based on the price data (open, high, low, and close), trading volume, number of transactions, and price direction (indicated by 'priceIsHigh'), provide a trend prediction for the next 5 days. Present only the final conclusions without detailing the step-by-step analysis. Indicate the likely market direction (upward or downward) and the strength or weakness of the short-term trend, considering the data provided: \n\n Historical Data: [formatData]"
+    }
   }
 }

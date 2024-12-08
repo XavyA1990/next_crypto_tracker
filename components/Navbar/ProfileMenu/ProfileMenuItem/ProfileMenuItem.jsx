@@ -2,10 +2,11 @@ import { signOut } from "@/services/auth";
 import { MenuItem } from "@headlessui/react";
 import Link from "next/link";
 import PropTypes from "prop-types";
-import { useAuthStore } from "@/store/globalStore";
+import { useAuthStore, useLabelsStore } from "@/store/globalStore";
 
 const ProfileMenuItem = ({ route }) => {
   const { setUser } = useAuthStore();
+  const { currentLanguage } = useLabelsStore();
   const handleSignOut = async () => {
     setUser(null);
     await signOut();
@@ -17,7 +18,7 @@ const ProfileMenuItem = ({ route }) => {
         href={route.href !== "/cerrar-sesión" ? route.href : "#"}
         className="profile-menu-item"
       >
-        {route.name}
+        {route.name[currentLanguage]}
       </Link>
     </MenuItem>
   );

@@ -1,10 +1,16 @@
 [
   {
-    "name": "Perfil",
+    "name": {
+      "es": "Perfil",
+      "en": "Profile"
+    },
     "href": "/perfil"
   },
   {
-    "name": "Cerrar sesión",
+    "name": {
+      "es": "Cerrar Sesión",
+      "en": "Log Out"
+    },
     "href": "/cerrar-sesión"
   }
 ]

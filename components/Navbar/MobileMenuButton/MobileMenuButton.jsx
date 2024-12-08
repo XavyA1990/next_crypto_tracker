@@ -2,10 +2,8 @@
 
 import useTheme from "@/hooks/useTheme";
 import { DisclosureButton } from "@headlessui/react";
-import labels from "@/lib/labels/labels.json";
 import Icons from "@/components/Icons/Icons";
-
-const { openMainMenu } = labels.navbar;
+import Labels from "@/components/Labels/Labels";
 
 const MobileMenuButton = () => {
   const { theme, mounted } = useTheme();
@@ -19,7 +17,7 @@ const MobileMenuButton = () => {
         className={`group mobile-menu-button-base mobile-menu-button ${theme}`}
       >
         <span className="absolute -inset-0.5" />
-        <span className="sr-only">{openMainMenu}</span>
+        <span className="sr-only"><Labels labelFamily={"navbar"} label={"openMainMenu"}/></span>
         <Icons type="bars3" className="h-6 w-6 group-data-[open]:hidden" aria-hidden="true"/>
         <Icons type="xMark" className="h-6 w-6 group-data-[open]:block hidden" aria-hidden="true"/>
       </DisclosureButton>

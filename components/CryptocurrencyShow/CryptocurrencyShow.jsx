@@ -17,10 +17,8 @@ import {
 import Spinner from "../Spinner/Spinner";
 import { usePathname } from "next/navigation";
 import { useAuthStore } from "@/store/globalStore";
-import labels from "@/lib/labels/labels";
 import AiSuggestions from "../AiSuggestions/AiSuggestions";
-
-const { seeMore, cryptoNotFound, returnToHome } = labels.commons;
+import Labels from "../Labels/Labels";
 
 const CryptocurrencyShow = () => {
   const [cryptoInfo, setCryptoInfo] = useState({});
@@ -77,15 +75,15 @@ const CryptocurrencyShow = () => {
     return (
       <div className="flex flex-col items-center h-full justify-center mt-8">
         <Text variant={"h2"} colorType={"normal-text"}>
-          {cryptoNotFound}
+          <Labels labelFamily={"commons"} label={"cryptoNotFound"} />
         </Text>
         <div className="mt-10 flex items-center justify-center gap-x-6">
           <Link variant={"primary"} href="/">
-            {returnToHome}
+            <Labels labelFamily={"commons"} label={"returnToHome"} />
           </Link>
           <Link href="/criptomonedas" variant={"no-fill"}>
             <Text variant={"span"} colorType={"text-title"}>
-              {seeMore}
+              <Labels labelFamily={"commons"} label={"seeMore"} />
               <span aria-hidden="true"> →</span>
             </Text>
           </Link>
@@ -144,7 +142,7 @@ const CryptocurrencyShow = () => {
                 href={cryptoInfo.website}
                 variant={"primary"}
               >
-                {seeMore}
+                <Labels labelFamily={"commons"} label={"seeMore"} />
               </Link>
             </div>
           </div>

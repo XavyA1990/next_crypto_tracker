@@ -3,10 +3,8 @@
 import { useEffect, useState } from "react";
 import { fetchCryptoNewsRanking } from "@/services/crypto";
 import NewsCardLayout from "../CardLayout/NewsCardLayout";
-import labels from "@/lib/labels/labels.json";
 import Text from "../Text/Text";
-
-const { title } = labels.cryptoNewsRanking;
+import Labels from "../Labels/Labels";
 
 const CryptoNewsRanking = () => {
   const [news, setNews] = useState([]);
@@ -27,7 +25,7 @@ const CryptoNewsRanking = () => {
   return (
     <div className="mt-16 relative isolate">
       <Text variant={"h3"} colorType={"text-title"} customClasses={"px-3 mb-8"}>
-        {title}
+        <Labels labelFamily={"cryptoNewsRanking"} label={"title"} />
       </Text>
       <NewsCardLayout data={news} />
     </div>

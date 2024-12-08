@@ -5,14 +5,11 @@ import { signIn } from "@/services/auth";
 import { useMenuStore } from "@/store/globalStore";
 import Button from "@/components/Button/Button";
 import Logo from "@/components/Logo/Logo";
-import labels from "@/lib/labels/labels.json";
 import Text from "@/components/Text/Text";
 import Container from "@/components/Container/Container";
 import Icons from "@/components/Icons/Icons";
+import Labels from "@/components/Labels/Labels";
 
-const { welcomeMessage, signInFacebook, signInGoogle, cancel } = labels.login;
-
-const { login } = labels.commons
 
 const LoginModal = () => {
   const isModalLoginOpen = useMenuStore((state) => state.isModalLoginOpen);
@@ -47,14 +44,14 @@ const LoginModal = () => {
                   colorType={"text-modal-title"}
                   customClasses={`text-base leading-6`}
                 >
-                  {login}
+                  <Labels labelFamily={"commons"} label={"login"} />
                 </Text>
                 <div className="mt-2">
                   <Text
                     sizeVariant={"text-sm"}
                     colorType={"text-modal-description"}
                   >
-                    {welcomeMessage}
+                    <Labels labelFamily={"login"} label={"welcomeMessage"} />
                   </Text>
                 </div>
               </div>
@@ -65,21 +62,22 @@ const LoginModal = () => {
                 onClick={() => signIn("facebook")}
                 className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-100 sm:col-start-1 sm:mt-0 items-center gap-2"
               >
-                <Icons type={"facebook"}/> {signInFacebook}
+                <Icons type={"facebook"} />{" "}
+                <Labels labelFamily={"login"} label={"signInFacebook"} />
               </Button>
               <Button
                 options={{ withOutDefaultClass: true }}
                 onClick={() => signIn("google")}
                 className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-100 sm:col-start-2 sm:mt-0 items-center gap-2"
               >
-                <Icons type={"google"}/> {signInGoogle}
+                <Icons type={"google"} /> <Labels labelFamily={"login"} label={"signInGoogle"} />
               </Button>
               <Button
                 options={{ withOutDefaultClass: true }}
                 onClick={() => toggleModalLogin()}
                 className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-100 sm:col-start-1 sm:mt-0 items-center gap-4 col-span-2"
               >
-                {cancel}
+                <Labels labelFamily={"login"} label={"cancel"} />
               </Button>
             </div>
           </Container>

@@ -5,22 +5,26 @@ import UserInfo from "./UserInfo/UserInfo";
 import privateRoutes from "../../../lib/routes/privateRoutes";
 import ProfileMobileItem from "./ProfileMobileItem/ProfileMobileItem";
 import useTheme from "@/hooks/useTheme";
-import labels from "@/lib/labels/labels.json";
-import { useAuthStore } from "@/store/globalStore";
+import { useAuthStore, useLabelsStore } from "@/store/globalStore";
 import Icons from "@/components/Icons/Icons";
-
-const { darkMode, lightMode } = labels.navbar;
+import Labels from "@/components/Labels/Labels";
 
 const MobileMenu = () => {
   const { isDarkMode, toggleTheme, theme, mounted } = useTheme();
   const { user } = useAuthStore();
+  const { currentLanguage, setLanguage } = useLabelsStore();
+
+  const toggleLanguage = () => {
+    const newLanguage = currentLanguage === "es" ? "en" : "es";
+    setLanguage(newLanguage);
+  };
 
   if (!mounted) {
     return null;
   }
   return (
-    <DisclosurePanel className="md:hidden">
-      <div className="space-y-1 pb-3 pt-2">
+    <DisclosurePanel className="md:hidden pb-3">
+      <div className="space-y-1 pt-2">
         {routes.map((route) => (
           <MobileMenuItem key={route.href} route={route} />
         ))}
@@ -40,12 +44,27 @@ const MobileMenu = () => {
                   type={isDarkMode ? "sun" : "moon"}
                   className={"h-6 w-6"}
                 />
-                <span>{isDarkMode ? lightMode : darkMode}</span>
+                <span>
+                  {" "}
+                  {isDarkMode ? (
+                    <Labels labelFamily={"navbar"} label={"lightMode"} />
+                  ) : (
+                    <Labels labelFamily={"navbar"} label={"darkMode"} />
+                  )}
+                </span>
               </div>
             </Button>
           </div>
         </UserInfo>
       )}
+      <Button
+        className={`profile-mobile-button-base profile-mobile-button ${theme} w-full`}
+        onClick={toggleLanguage}
+      >
+        <div className="flex gap-2 w-full items-center">
+          <Labels labelFamily={"navbar"} label={"language"} />
+        </div>
+      </Button>
     </DisclosurePanel>
   );
 };

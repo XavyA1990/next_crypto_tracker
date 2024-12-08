@@ -1,14 +1,23 @@
 [
   {
-    "name": "Inicio",
+    "name": {
+      "es": "Inicio",
+      "en": "Home"
+    },
     "href": "/"
   },
   {
-    "name": "Noticias",
+    "name": {
+      "es": "Noticias",
+      "en": "News"
+    },
     "href": "/noticias"
   },
   {
-    "name": "Criptomonedas",
+    "name": {
+      "es": "Criptomonedas",
+      "en": "Cryptocurrencies"
+    },
     "href": "/criptomonedas"
   }
 ]

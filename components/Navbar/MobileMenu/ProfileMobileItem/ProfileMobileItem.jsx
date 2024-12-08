@@ -2,11 +2,13 @@
 
 import useTheme from "@/hooks/useTheme";
 import { signOut } from "@/services/auth";
-import { useAuthStore } from "@/store/globalStore";
+import { useAuthStore, useLabelsStore } from "@/store/globalStore";
 import { DisclosureButton } from "@headlessui/react";
 
 const ProfileMobileItem = ({ route }) => {
   const { theme, mounted } = useTheme();
+
+  const { currentLanguage } = useLabelsStore();
 
   const { setUser } = useAuthStore();
 
@@ -28,7 +30,7 @@ const ProfileMobileItem = ({ route }) => {
       href={route.href !== "/cerrar-sesión" ? route.href : "#"}
       className={`profile-mobile-button-base profile-mobile-button ${theme}`}
     >
-      {route.name}
+      {route.name[currentLanguage]}
     </DisclosureButton>
   );
 };

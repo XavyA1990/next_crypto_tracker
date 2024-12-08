@@ -4,16 +4,12 @@ import { useAuthStore, useMenuStore } from "@/store/globalStore";
 import { Dialog, DialogBackdrop } from "@headlessui/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import labels from "@/lib/labels/labels.json";
 import Text from "../Text/Text";
 import Page from "../Page/Page";
 import Button from "../Button/Button";
 import Container from "../Container/Container";
 import Icons from "../Icons/Icons";
-
-const { unavailablePage, unavailablePageMessage } = labels.login;
-
-const { login, returnToHome } = labels.commons;
+import Labels from "../Labels/Labels";
 
 const ProtectedRoute = ({ children }) => {
   const user = useAuthStore((state) => state.user);
@@ -66,14 +62,14 @@ const ProtectedRoute = ({ children }) => {
                       customClasses={`text-base leading-6`}
                       sizeVariant={"text-sm"}
                     >
-                      {unavailablePage}
+                      <Labels labelFamily={"login"} label={"unavailablePage"} />
                     </Text>
                     <div className="mt-2">
                       <Text
                         sizeVariant={"text-sm"}
                         colorType={"text-modal-description"}
                       >
-                        {unavailablePageMessage}
+                        <Labels labelFamily={"login"} label={"unavailablePageMessage"} />
                       </Text>
                     </div>
                   </div>
@@ -83,14 +79,14 @@ const ProtectedRoute = ({ children }) => {
                     variant={"primary"}
                     onClick={() => toggleModalLogin()}
                   >
-                    {login}
+                    <Labels labelFamily={"commons"} label={"login"} />
                   </Button>
                   <button
                     type="button"
                     onClick={goHome}
                     className="inline-flex justify-center rounded-md bg-gray-300 px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 mt-0 "
                   >
-                    {returnToHome}
+                    <Labels labelFamily={"commons"} label={"returnToHome"} />
                   </button>
                 </div>
               </Container>

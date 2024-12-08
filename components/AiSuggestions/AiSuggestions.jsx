@@ -3,14 +3,11 @@
 import { sendAiCryptoSuggestionRequest } from "@/services/ai";
 import Button from "../Button/Button";
 import Icons from "../Icons/Icons";
-import labels from "@/lib/labels/labels";
 import { useState } from "react";
 import Text from "../Text/Text";
 import Container from "../Container/Container";
 import { Dialog, DialogBackdrop } from "@headlessui/react";
-
-const { aiLabel, iaDialogTitle } = labels.ai;
-const { aiGenerated } = labels.commons;
+import Labels from "../Labels/Labels";
 
 const AiSuggestions = ({ name, info, web, symbol }) => {
   const [aiSuggestion, setAiSuggestion] = useState(null);
@@ -44,7 +41,7 @@ const AiSuggestions = ({ name, info, web, symbol }) => {
       <Button variant={"primary"} onClick={handleAiSuggestionButton}>
         {!loading ? (
           <>
-            {aiLabel}
+            <Labels labelFamily={"ai"} label={"aiLabel"} />
             <Icons type={"sparkles"} className={"w-5 h-5"} />
           </>
         ) : (
@@ -78,7 +75,7 @@ const AiSuggestions = ({ name, info, web, symbol }) => {
                     customClasses={`text-base leading-6`}
                     sizeVariant={"text-xl md:text-4xl"}
                   >
-                    {iaDialogTitle}
+                    <Labels labelFamily={"ai"} label={"iaDialogTitle"} />
                   </Text>
                   <div className="mt-2">
                     <Text
@@ -86,7 +83,7 @@ const AiSuggestions = ({ name, info, web, symbol }) => {
                       colorType={"text-modal-description"}
                     >
                       &quot;{aiSuggestion}&quot; <br />
-                      {aiGenerated}
+                      <Labels labelFamily={"commons"} label={"aiGenerated"} />
                     </Text>
                   </div>
                 </div>

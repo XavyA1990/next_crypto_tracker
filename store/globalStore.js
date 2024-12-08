@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
+import labels from "@/lib/labels/labels.json";
 
 export const useThemeStore = create()(
   persist(
@@ -109,6 +110,23 @@ export const useFavoritesStore = create()(
     }),
     {
       name: "favorites-storage",
+    }
+  )
+);
+
+export const useLabelsStore = create(
+  persist(
+    (set) => ({
+      currentLanguage: 'es',
+      labels: labels['es'],
+      setLanguage: (lang) =>
+        set({
+          currentLanguage: lang,
+          labels: labels[lang],
+        }),
+    }),
+    {
+      name: 'language-preference',
     }
   )
 );

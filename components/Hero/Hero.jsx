@@ -1,11 +1,7 @@
 import Container from "../Container/Container";
 import Text from "../Text/Text";
-import labels from "@/lib/labels/labels.json";
 import Link from "../Link/Link";
-
-const { cta, heroTitle, heroSubtitle } = labels.hero
-
-const { latestNews } = labels.commons;
+import Labels from "../Labels/Labels";
 
 const Hero = () => {
   return (
@@ -19,7 +15,7 @@ const Hero = () => {
             sizeVariant={"text-4xl sm:text-5xl"}
             customClasses={"text-balance tracking-tight"}
           >
-            {heroTitle}
+            <Labels labelFamily={"hero"} label={"heroTitle"} />
           </Text>
           <Text
             colorType={"text-title"}
@@ -27,15 +23,15 @@ const Hero = () => {
               "mx-auto mt-6 max-w-xl text-pretty text-lg/8 px-2 md:px-0"
             }
           >
-            {heroSubtitle}
+            <Labels labelFamily={"hero"} label={"heroSubtitle"} />
           </Text>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <Link variant={"white-fill"} href="/criptomonedas">
-              {cta}
+              <Labels labelFamily={"hero"} label={"cta"} />
             </Link>
             <Link href="/noticias" variant={"no-fill"}>
               <Text variant={"span"} colorType={"text-title"}>
-                {latestNews} <span aria-hidden="true">→</span>
+                <Labels labelFamily={"commons"} label={"latestNews"}/> <span aria-hidden="true">→</span>
               </Text>
             </Link>
           </div>

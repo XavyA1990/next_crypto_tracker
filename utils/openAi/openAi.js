@@ -3,7 +3,7 @@
 import OpenAI from "openai";
 import labels from "@/lib/labels/labels.json";
 
-const { system } = labels.ai;
+const { system } = labels.es.ai;
 
 const openai = new OpenAI(process.env.OPENAI_API_KEY);
 

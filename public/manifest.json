@@ -1,0 +1,27 @@
+{
+  "theme_color": "#f3f4f6",
+  "background_color": "#111827",
+  "icons": [
+    {
+      "purpose": "maskable",
+      "sizes": "512x512",
+      "src": "icon512_maskable.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "512x512",
+      "src": "icon512_rounded.png",
+      "type": "image/png"
+    }
+  ],
+  "orientation": "any",
+  "display": "standalone",
+  "description": "Aplicación que te permite estar al tanto del mercado de criptomonedas con las ultimas novedades",
+  "dir": "auto",
+  "lang": "es-ES",
+  "name": "Next Crypto Tracker",
+  "short_name": "Next Crypto",
+  "start_url": "http://localhost:3000/",
+  "scope": "http://localhost:3000/"
+}

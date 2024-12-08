@@ -1,11 +1,7 @@
+import Labels from "@/components/Labels/Labels";
 import Link from "@/components/Link/Link";
 import Page from "@/components/Page/Page";
 import Text from "@/components/Text/Text";
-import labels from "@/lib/labels/labels.json";
-
-const { returnToHome } = labels.commons;
-
-const { code, title, message } = labels.notFound;
 
 const NotFound = () => {
   return (
@@ -17,14 +13,14 @@ const NotFound = () => {
           colorType={"text-indigo-600"}
           sizeVariant={"text-4xl"}
         >
-          {code}
+          <Labels labelFamily="notFound" label="code" />
         </Text>
         <Text
           variant={"h1"}
           customClasses="mt-4 text-pretty font-semibold tracking-tight"
           colorType={"text-title"}
         >
-          {title}
+          <Labels labelFamily="notFound" label="title" />
         </Text>
         <Text
           variant={"p"}
@@ -33,7 +29,7 @@ const NotFound = () => {
           sizeVariant={"text-lg sm:text-xl/8"}
           customClasses="mt-6 text-pretty"
         >
-          {message}
+          <Labels labelFamily="notFound" label="message" />
         </Text>
         <div className="mt-10">
           <Link
@@ -41,7 +37,8 @@ const NotFound = () => {
             href="/"
             className="text-sm/7 font-semibold text-indigo-600"
           >
-            <span aria-hidden="true">&larr;</span> {returnToHome}
+            <span aria-hidden="true">&larr;</span>{" "}
+            <Labels labelFamily="commons" label="returnToHome" />
           </Link>
         </div>
       </main>

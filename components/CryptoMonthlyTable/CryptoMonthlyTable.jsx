@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import Table from "../Table/Table";
-import labels from "@/lib/labels/labels.json";
 import { fetchOneMonthData } from "@/services/crypto";
-const { headers } = labels;
+import { useLabelsStore } from "@/store/globalStore";
 
 const CryptoMonthlyTable = ({ name, symbol }) => {
 
   const [oneMonthData, setOneMonthData] = useState([]);
+  const { labels } = useLabelsStore();
 
   useEffect(() => {
     if (symbol) {
@@ -20,7 +20,7 @@ const CryptoMonthlyTable = ({ name, symbol }) => {
     <Table
       title={`Histórico mensual de ${name}`}
       description={`La evolución de ${name}`}
-      headers={headers}
+      headers={labels.headers}
       data={oneMonthData}
     />
   );

@@ -1,13 +1,11 @@
+import Labels from "../Labels/Labels";
 import Text from "../Text/Text";
-import labels from "@/lib/labels/labels.json";
-
-const { title, bullishLabel, bearishLabel, voteStatement } = labels.communityVotes;
 
 const CommunityVotesDisplay = ({ bullish, bearish, name }) => {
   return (
     <div className="w-full flex mt-4 gap-4 flex-col px-3 md:px-0">
       <Text variant={"h3"} colorType={"normal-text"}>
-        {title}
+        <Labels labelFamily={"communityVotes"} label={"title"} />
       </Text>
       <div className="w-full bg-gray-200 rounded-full h-6 relative flex overflow-hidden">
         <div
@@ -27,8 +25,11 @@ const CommunityVotesDisplay = ({ bullish, bearish, name }) => {
         </div>
       </div>
       <Text colorType={"normal-text"}>
-        {`${voteStatement[0]} ${bullish > bearish ? bullish : bearish}${voteStatement[1]} `}
-        <span className="font-semibold uppercase">{name}</span> {voteStatement[2]}{" "}
+        <Labels labelFamily={"communityVotes"} label={"voteStatement1"} />{" "}
+        {`${bullish > bearish ? bullish : bearish}`}
+        <Labels labelFamily={"communityVotes"} label={"voteStatement2"} /> {""}
+        <span className="font-semibold uppercase">{name}</span>{" "}
+        <Labels labelFamily={"communityVotes"} label={"voteStatement3"} />{" "}
         <span
           className={
             bullish > bearish
@@ -36,9 +37,10 @@ const CommunityVotesDisplay = ({ bullish, bearish, name }) => {
               : "text-red-600 font-semibold"
           }
         >
-          {bullish > bearish
-            ? bullishLabel.toUpperCase()
-            : bearishLabel.toUpperCase()}
+          <Labels
+            labelFamily={"communityVotes"}
+            label={bullish > bearish ? "bullishLabel" : "bearishLabel"}
+          />
         </span>
         .
       </Text>

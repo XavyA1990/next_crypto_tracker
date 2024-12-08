@@ -1,12 +1,10 @@
-import labels from "@/lib/labels/labels.json";
 import Text from "../Text/Text";
 import Container from "../Container/Container";
 import Image from "../Image/Image";
 import Link from "../Link/Link";
 import Icons from "../Icons/Icons";
 import NewsCardSkeleton from "../Skeleton/NewsCardSkeleton";
-
-const { seeMore } = labels.commons;
+import Labels from "../Labels/Labels";
 
 const Card = ({
   imageSrc,
@@ -71,7 +69,7 @@ const Card = ({
       </div>
       <div className="flex justify-end p-4">
         <Link target="_blank" href={newsUrl}>
-          {seeMore}
+          <Labels labelFamily={"commons"} label={"seeMore"} />
         </Link>
       </div>
     </Container>

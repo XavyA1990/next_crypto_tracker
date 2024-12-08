@@ -2,19 +2,9 @@ import Link from "../Link/Link";
 import Text from "../Text/Text";
 import Container from "../Container/Container";
 import Image from "../Image/Image";
-import labels from "@/lib/labels/labels.json";
 import Icons from "../Icons/Icons";
 import CryptoCardSkeleton from "../Skeleton/CryptoCardSkeleton";
-
-const {
-  currentPrice,
-  marketCap: marketCapLabel,
-  change24h,
-  volume24h: volume24hLabel,
-  lastUpdate,
-} = labels.cryptoCard;
-
-const { moreInformation } = labels.commons;
+import Labels from "../Labels/Labels";
 
 const CryptoCard = ({
   name,
@@ -30,9 +20,8 @@ const CryptoCard = ({
   customButtons = [],
   loading,
 }) => {
-
   if (loading) {
-    return <CryptoCardSkeleton fullWidth={fullWidth}/>;
+    return <CryptoCardSkeleton fullWidth={fullWidth} />;
   }
 
   return (
@@ -70,10 +59,11 @@ const CryptoCard = ({
           </Text>
         </div>
         <Text colorType={"normal-text"}>
-          {currentPrice} ${price?.toFixed(2)}
+          <Labels labelFamily={"cryptoCard"} label={"currentPrice"} /> $
+          {price?.toFixed(2)}
         </Text>
         <Text colorType={"normal-text"}>
-          {change24h}{" "}
+          <Labels labelFamily={"cryptoCard"} label={"change24h"} />{" "}
           <span
             className={
               percentChange24h >= 0 ? "text-green-500" : "text-red-500"
@@ -83,13 +73,16 @@ const CryptoCard = ({
           </span>
         </Text>
         <Text colorType={"normal-text"}>
-          {marketCapLabel} ${marketCap.toLocaleString()}
+          <Labels labelFamily={"cryptoCard"} label={"marketCap"} /> $
+          {marketCap.toLocaleString()}
         </Text>
         <Text colorType={"normal-text"}>
-          {volume24hLabel} ${volume24h.toLocaleString()}
+          <Labels labelFamily={"cryptoCard"} label={"volume24h"} /> $
+          {volume24h.toLocaleString()}
         </Text>
         <Text colorType={"text-gray-500"} sizeVariant={"text-sm"}>
-          {lastUpdate} {new Date(lastUpdated).toLocaleString()}
+          <Labels labelFamily={"cryptoCard"} label={"lastUpdate"} />
+          {new Date(lastUpdated).toLocaleString()}
         </Text>
       </div>
       <div
@@ -99,7 +92,7 @@ const CryptoCard = ({
       >
         {customButtons.map((button) => button)}
         <Link href={`/criptomonedas/${slug}/`} variant={"primary"}>
-          {moreInformation}
+          <Labels labelFamily={"commons"} label={"moreInformation"} />
         </Link>
       </div>
     </Container>

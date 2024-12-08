@@ -9,10 +9,8 @@ import CryptoCard from "../Card/CryptoCard";
 import Button from "../Button/Button";
 import { useAuthStore, useFavoritesStore } from "@/store/globalStore";
 import { fetchAllFavorites } from "@/services/crypto";
-import labels from "@/lib/labels/labels.json";
 import Icons from "../Icons/Icons";
-
-const { favoritesTitle } = labels.profile;
+import Labels from "../Labels/Labels";
 
 const Profile = () => {
   const { user } = useAuthStore();
@@ -58,7 +56,7 @@ const Profile = () => {
       <PageTitle title={`Bienvenido ${user?.fullName}`} />
       <div className="flex w-full mb-5">
         <Text variant={"h2"} colorType={"normal-text"}>
-          {favoritesTitle}
+          <Labels labelFamily={"profile"} label={"title"} />
         </Text>
       </div>
       <div className="flex w-full px-3">

@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 import labels from "@/lib/labels/labels";
 import { sendAiRequest } from "@/utils/openAi/openAi";
 
-const { cryptoAdvicePrompt } = labels.ai;
+const { cryptoAdvicePrompt } = labels.es.ai;
 
 const replaceTemplatePlaceholders = (template, replacements) => {
   return template

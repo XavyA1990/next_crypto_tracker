@@ -5,11 +5,7 @@ import { useEffect, useState } from "react";
 import Container from "../Container/Container";
 import Text from "../Text/Text";
 import GaugeChart from "../GaugeChart/GaugeChart";
-import labels from "@/lib/labels/labels.json";
-
-const { title } = labels.fearAndGreedIndex;
-
-const { aiGenerated } = labels.commons;
+import Labels from "../Labels/Labels";
 
 const FearGreedIndicator = () => {
   const [loading, setLoading] = useState(true);
@@ -42,7 +38,7 @@ const FearGreedIndicator = () => {
               sizeVariant={"text-4xl md:text-5xl"}
               customClasses={"px-4 md:px-0"}
             >
-              {title}
+              <Labels labelFamily={"fearAndGreedIndex"} label={"title"} />
             </Text>
             <div className=" flex-col items-center flex justify-center">
               <GaugeChart
@@ -70,7 +66,7 @@ const FearGreedIndicator = () => {
           >
             &quot;{fearGreedStats?.advice}&quot; <br />
             <Text variant={"span"} colorType={"normal-text"}>
-              {aiGenerated}
+              <Labels labelFamily={"commons"} label={"aiGenerated"} />
             </Text>
           </Text>
         </>

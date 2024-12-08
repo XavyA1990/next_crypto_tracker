@@ -1,10 +1,8 @@
 import { MenuButton } from "@headlessui/react";
-import labels from "@/lib/labels/labels.json";
 import useTheme from "@/hooks/useTheme";
 import { useAuthStore } from "@/store/globalStore";
 import Image from "@/components/Image/Image";
-
-const { openUserMenu } = labels.navbar;
+import Labels from "@/components/Labels/Labels";
 
 const ProfileMenuButton = () => {
   const { theme, mounted } = useTheme();
@@ -22,7 +20,7 @@ const ProfileMenuButton = () => {
         className={`profile-menu-button-base profile-menu-button ${theme}`}
       >
         <span className="absolute -inset-1.5" />
-        <span className="sr-only">{openUserMenu}</span>
+        <span className="sr-only"><Labels labelFamily={"navbar"} label={"openUserMenu"}/></span>
         <Image
           alt="user profile picture"
           src={avatarUrl}

@@ -4,14 +4,19 @@ import { Button, Menu, MenuItem, MenuItems } from "@headlessui/react";
 import privateRoutes from "../../../lib/routes/privateRoutes";
 import ProfileMenuItem from "./ProfileMenuItem/ProfileMenuItem";
 import ProfileMenuButton from "./ProfileMenuButton/ProfileMenuButton";
-import labels from "@/lib/labels/labels.json";
 import useTheme from "@/hooks/useTheme";
 import Icons from "@/components/Icons/Icons";
-
-const { darkMode, lightMode } = labels.navbar;
-
+import Labels from "@/components/Labels/Labels";
+import { useLabelsStore } from "@/store/globalStore";
 const ProfileMenu = () => {
   const { isDarkMode, toggleTheme } = useTheme();
+
+  const { currentLanguage, setLanguage } = useLabelsStore();
+
+  const toggleLanguage = () => {
+    const newLanguage = currentLanguage === "es" ? "en" : "es";
+    setLanguage(newLanguage);
+  };
 
   return (
     <Menu as="div" className="relative ml-3">
@@ -26,12 +31,29 @@ const ProfileMenu = () => {
           <ProfileMenuItem key={route.name} route={route} />
         ))}
         <MenuItem>
-          <Button className="profile-menu-item w-full" onClick={toggleTheme}>
-            <div className="flex gap-2 w-full items-center">
-              <Icons type={isDarkMode ? "sun" : "moon"} className={"h-6 w-6"} />
-              <span>{isDarkMode ? lightMode : darkMode}</span>
-            </div>
-          </Button>
+          <>
+            <Button className="profile-menu-item w-full" onClick={toggleTheme}>
+              <div className="flex gap-2 w-full items-center">
+                <Icons
+                  type={isDarkMode ? "sun" : "moon"}
+                  className={"h-6 w-6"}
+                />
+                <span>
+                  {isDarkMode ? (
+                    <Labels labelFamily={"navbar"} label={"lightMode"} />
+                  ) : (
+                    <Labels labelFamily={"navbar"} label={"darkMode"} />
+                  )}
+                </span>
+              </div>
+            </Button>
+            <Button
+              className="profile-menu-item"
+              onClick={toggleLanguage}
+            >
+              <Labels labelFamily={"navbar"} label={"language"} />
+            </Button>
+          </>
         </MenuItem>
       </MenuItems>
     </Menu>

@@ -116,7 +116,7 @@ body {
 /*user info*/
 
 .user-info-container-base {
-  @apply border-t pb-3 pt-4
+  @apply border-t pt-4
 }
 
 .user-name.light {

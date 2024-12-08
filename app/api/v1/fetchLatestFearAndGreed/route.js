@@ -4,7 +4,7 @@ import { sendAiRequest } from "@/utils/openAi/openAi";
 import { NextResponse } from "next/server";
 import labels from "@/lib/labels/labels.json";
 
-const { fearAndGreedIndexPrompt } = labels.ai;
+const { fearAndGreedIndexPrompt } = labels.es.ai;
 
 export async function GET(request) {
   try {
