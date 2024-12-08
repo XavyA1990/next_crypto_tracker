@@ -1,6 +1,5 @@
 "use client";
 
-import clsx from "clsx";
 import { Button as HeadlessUIButton } from "@headlessui/react";
 import useTheme from "@/hooks/useTheme";
 
@@ -12,14 +11,13 @@ const Button = ({ variant, children, onClick, className, options = false }) => {
     return null;
   }
 
+  const combinedClasses = `${!options.withOutDefaultClass ? classes : ""} ${className ? className : ""}`.trim();
+
   return (
     <HeadlessUIButton
       onClick={onClick}
       type="button"
-      className={clsx(
-        !options.withOutDefaultClass && classes,
-        className && className
-      )}
+      className={combinedClasses}
     >
       {children}
     </HeadlessUIButton>

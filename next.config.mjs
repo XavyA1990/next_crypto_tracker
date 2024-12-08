@@ -10,25 +10,25 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "lh3.googleusercontent.com",
-        port: '',
+        port: "",
         pathname: "/**",
-        search: ""
+        search: "",
       },
       {
         protocol: "https",
         hostname: "s2.coinmarketcap.com",
-        port: '',
+        port: "",
         pathname: "/**",
-        search: ""
+        search: "",
       },
       {
         protocol: "https",
         hostname: "crypto.snapi.dev",
-        port: '',
+        port: "",
         pathname: "/**",
-        search: ""
+        search: "",
       },
-    ]
+    ],
   },
 };
 
