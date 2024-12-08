@@ -4,18 +4,14 @@ import { useCallback, useEffect, useState } from "react";
 import NewsCardLayout from "../CardLayout/NewsCardLayout";
 import Pagination from "../Pagination/Pagination";
 import { useNewsPaginationStore } from "@/store/globalStore";
-import Spinner from "../Spinner/Spinner";
 import { fetchNews } from "@/services/news";
 
 const News = () => {
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const currentPage = useNewsPaginationStore((state) => state.currentPage);
-  const totalPages = useNewsPaginationStore((state) => state.totalPages);
-  const setCurrentPage = useNewsPaginationStore(
-    (state) => state.setCurrentPage
-  );
+  const {currentPage, totalPages, setCurrentPage } = useNewsPaginationStore();
+  
   const onPageChange = useCallback(
     (page) => {
       setCurrentPage(page);
@@ -29,7 +25,7 @@ const News = () => {
 
   return (
     <>
-      <NewsCardLayout data={news} loadingCount={10}/>
+      <NewsCardLayout data={news} loadingCount={10} finalCardDifferent/>
       <Pagination
         currentPage={currentPage}
         totalPages={totalPages}

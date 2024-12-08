@@ -3,6 +3,7 @@
 import Button from "../Button/Button";
 import { postFavorites } from "@/services/crypto";
 import Icons from "../Icons/Icons";
+import { useFavoritesStore } from "@/store/globalStore";
 
 const FavoritesButton = ({
   symbol,
@@ -12,6 +13,7 @@ const FavoritesButton = ({
   setIsFavorite,
   isFavorite,
 }) => {
+  const { setFavoritesLength, favoritesLength } = useFavoritesStore();
   const handleFavorite = async () => {
     const body = {
       userId: userId,
@@ -22,6 +24,7 @@ const FavoritesButton = ({
     };
 
     setIsFavorite(!isFavorite);
+    setFavoritesLength(favoritesLength + (!isFavorite ? 1 : -1));
 
     postFavorites(body).then((res) => {
       const { data } = res;

@@ -22,10 +22,8 @@ const { login } = labels.commons
 
 const Navbar = () => {
   const { toggleTheme, isDarkMode } = useTheme();
-
-  const setUser = useAuthStore((state) => state.setUser);
-  const user = useAuthStore((state) => state.user);
-  const toggleModalLogin = useMenuStore((state) => state.toggleModalLogin);
+  const { user, setUser } = useAuthStore();
+  const { toggleModalLogin } = useMenuStore();
 
   useEffect(() => {
     getUser()

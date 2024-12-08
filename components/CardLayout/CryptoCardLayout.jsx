@@ -1,6 +1,17 @@
 import CryptoCard from "../Card/CryptoCard";
 
-const CryptoCardLayout = ({ cryptocurrencies }) => {
+const CryptoCardLayout = ({ cryptocurrencies, loadingCount = 10 }) => {
+
+  if (cryptocurrencies.length === 0) {
+    return (
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 px-3 md:px-0">
+        {[...Array(loadingCount)].map((_, index) => (
+          <CryptoCard key={index} loading fullWidth={index === 0 || loadingCount - 1} />
+        ))}
+      </div>
+    );
+  }
+
   const lastCrypto = cryptocurrencies.length;
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 px-3 md:px-0">

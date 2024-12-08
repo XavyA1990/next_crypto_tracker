@@ -25,7 +25,7 @@ const { seeMore, cryptoNotFound, returnToHome } = labels.commons;
 const CryptocurrencyShow = () => {
   const [cryptoInfo, setCryptoInfo] = useState({});
   const [loading, setLoading] = useState(true);
-  const user = useAuthStore((state) => state.user);
+  const { user } = useAuthStore();
   const [isFavorite, setIsFavorite] = useState(false);
   const [error, setError] = useState([]);
   const [userVote, setUserVote] = useState("");

@@ -6,9 +6,12 @@ import Text from "@/components/Text/Text";
 import { useAuthStore } from "@/store/globalStore";
 
 const UserInfo = ({ children }) => {
-  const user = useAuthStore((state) => state.user);
+  const { user } = useAuthStore();
   return (
-    <Container colorVariant={"secondary"} customClasses={`user-info-container-base`}>
+    <Container
+      colorVariant={"secondary"}
+      customClasses={`user-info-container-base`}
+    >
       <div className="flex items-center px-4 sm:px-6">
         <div className="flex-shrink-0">
           <Image

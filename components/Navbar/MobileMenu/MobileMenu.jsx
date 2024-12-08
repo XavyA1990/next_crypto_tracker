@@ -13,7 +13,7 @@ const { darkMode, lightMode } = labels.navbar;
 
 const MobileMenu = () => {
   const { isDarkMode, toggleTheme, theme, mounted } = useTheme();
-  const user = useAuthStore((state) => state.user);
+  const { user } = useAuthStore();
 
   if (!mounted) {
     return null;

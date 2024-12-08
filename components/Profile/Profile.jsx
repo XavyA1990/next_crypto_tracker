@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
 import { useEffect, useState } from "react";
@@ -6,8 +7,7 @@ import Text from "../Text/Text";
 import CandleStickChart from "../CandleStickChart/CandleStickChart";
 import CryptoCard from "../Card/CryptoCard";
 import Button from "../Button/Button";
-import { useAuthStore } from "@/store/globalStore";
-import Spinner from "../Spinner/Spinner";
+import { useAuthStore, useFavoritesStore } from "@/store/globalStore";
 import { fetchAllFavorites } from "@/services/crypto";
 import labels from "@/lib/labels/labels.json";
 import Icons from "../Icons/Icons";
@@ -15,9 +15,9 @@ import Icons from "../Icons/Icons";
 const { favoritesTitle } = labels.profile;
 
 const Profile = () => {
-  const user = useAuthStore((state) => state.user);
+  const { user } = useAuthStore();
+  const { setFavoritesLength, favoritesLength } = useFavoritesStore();
   const [favorites, setFavorites] = useState([]);
-  const [lastCrypto, setLastCrypto] = useState(0);
   const [loading, setLoading] = useState(true);
   const [selectedCharts, setSelectedCharts] = useState([]);
 
@@ -27,13 +27,13 @@ const Profile = () => {
         .then((res) => {
           const { data } = res;
           setFavorites(data);
-          setLastCrypto(data.length);
+          setFavoritesLength(data.length);
         })
         .finally(() => {
           setLoading(false);
         });
     }
-  }, [user]);
+  }, [user, favoritesLength]);
 
   const handleShowChart = (symbol) => {
     const alreadySelected = selectedCharts.find(
@@ -53,13 +53,6 @@ const Profile = () => {
     }
   };
 
-  if (loading) {
-    return (
-      <div className="flex items-center h-full justify-center absolute left-1/2 bottom-1/4">
-        <Spinner />
-      </div>
-    );
-  }
   return (
     <>
       <PageTitle title={`Bienvenido ${user?.fullName}`} />
@@ -94,6 +87,14 @@ const Profile = () => {
         </div>
       )}
       <div className="grid grid-cols-1 md:grid-cols-3 w-full gap-4 mt-8 mb-8 px-3">
+        {loading &&
+          [...Array(favoritesLength)].map((_, index) => (
+            <CryptoCard
+              key={index}
+              loading
+              fullWidth={index === 0 || index === favoritesLength - 1}
+            />
+          ))}
         {favorites.map((favorite, index) => {
           const isSelected = selectedCharts.some(
             (chart) => chart.symbol === favorite.symbol
@@ -110,14 +111,17 @@ const Profile = () => {
               marketCap={favorite.quote.USD.market_cap}
               lastUpdated={favorite.quote.USD.last_updated}
               imageSrc={favorite.image}
-              fullWidth={index === lastCrypto - 1 || index === 0}
+              fullWidth={index === favoritesLength - 1 || index === 0}
               customButtons={[
                 <Button
                   key={favorite.id}
                   variant={"primary"}
                   onClick={() => handleShowChart(favorite.symbol)}
                 >
-                  <Icons type={isSelected ? "chartBarSquareSolid" : "chartBarSquare"} className={"h-5 w-5"}/>
+                  <Icons
+                    type={isSelected ? "chartBarSquareSolid" : "chartBarSquare"}
+                    className={"h-5 w-5"}
+                  />
                 </Button>,
               ]}
             />

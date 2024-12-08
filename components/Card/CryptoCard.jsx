@@ -4,6 +4,7 @@ import Container from "../Container/Container";
 import Image from "../Image/Image";
 import labels from "@/lib/labels/labels.json";
 import Icons from "../Icons/Icons";
+import CryptoCardSkeleton from "../Skeleton/CryptoCardSkeleton";
 
 const {
   currentPrice,
@@ -27,7 +28,13 @@ const CryptoCard = ({
   imageSrc,
   fullWidth = false,
   customButtons = [],
+  loading,
 }) => {
+
+  if (loading) {
+    return <CryptoCardSkeleton fullWidth={fullWidth}/>;
+  }
+
   return (
     <Container
       colorVariant={"primary"}

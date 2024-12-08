@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import { useAuthStore } from "@/store/globalStore";
 
 const ProfileMenuItem = ({ route }) => {
-  const setUser = useAuthStore((state) => state.setUser);
+  const { setUser } = useAuthStore();
   const handleSignOut = async () => {
     setUser(null);
     await signOut();

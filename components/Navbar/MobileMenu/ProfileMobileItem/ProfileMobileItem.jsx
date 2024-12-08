@@ -8,7 +8,7 @@ import { DisclosureButton } from "@headlessui/react";
 const ProfileMobileItem = ({ route }) => {
   const { theme, mounted } = useTheme();
 
-  const setUser = useAuthStore((state) => state.setUser);
+  const { setUser } = useAuthStore();
 
   if (!mounted) {
     return null;

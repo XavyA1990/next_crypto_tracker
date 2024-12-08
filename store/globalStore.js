@@ -88,7 +88,6 @@ export const useCryptoStore = create((set, get) => ({
   
   setCurrentPage: (currentPage) => {
     const { filteredCryptocurrencies, totalPages } = get();
-    // Asegurarse de que currentPage esté dentro de los límites
     if (currentPage < 1) currentPage = 1;
     if (currentPage > totalPages) currentPage = totalPages;
 
@@ -101,3 +100,15 @@ export const useCryptoStore = create((set, get) => ({
     set({ currentPage, paginatedCryptocurrencies });
   },
 }));
+
+export const useFavoritesStore = create()(
+  persist(
+    (set) => ({
+      favoritesLength: 0,
+      setFavoritesLength: (length) => set({ favoritesLength: length }),
+    }),
+    {
+      name: "favorites-storage",
+    }
+  )
+);

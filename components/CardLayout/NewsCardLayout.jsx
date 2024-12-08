@@ -12,13 +12,13 @@ const SkeletonCard = ({ fullWidth }) => (
   </div>
 );
 
-const NewsCardLayout = ({ data, loadingCount = 5 }) => {
+const NewsCardLayout = ({ data, loadingCount = 5, finalCardDifferent = false }) => {
   
   if (data.length === 0) {
     return (
       <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-auto gap-4 px-3 md:px-0">
-        {[...Array(10)].map((_, index) => (
-          <SkeletonCard key={index} fullWidth={index === 0 || index === loadingCount} />
+        {[...Array(loadingCount)].map((_, index) => (
+          <SkeletonCard key={index} fullWidth={index === 0 || (index === loadingCount - 1 && finalCardDifferent)} />
         ))}
       </div>
     );

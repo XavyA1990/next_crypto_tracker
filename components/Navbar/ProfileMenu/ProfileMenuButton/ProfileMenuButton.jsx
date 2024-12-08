@@ -9,7 +9,7 @@ const { openUserMenu } = labels.navbar;
 const ProfileMenuButton = () => {
   const { theme, mounted } = useTheme();
 
-  const user = useAuthStore((state) => state.user);
+  const { user } = useAuthStore();
   const { avatarUrl } = user;
 
   if (!mounted) {
@@ -23,7 +23,13 @@ const ProfileMenuButton = () => {
       >
         <span className="absolute -inset-1.5" />
         <span className="sr-only">{openUserMenu}</span>
-        <Image alt="user profile picture" src={avatarUrl} className="h-8 w-8 rounded-full" width={32} height={32}/>
+        <Image
+          alt="user profile picture"
+          src={avatarUrl}
+          className="h-8 w-8 rounded-full"
+          width={32}
+          height={32}
+        />
       </MenuButton>
     )
   );

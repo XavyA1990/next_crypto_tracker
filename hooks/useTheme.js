@@ -2,8 +2,7 @@ import { useThemeStore } from "@/store/globalStore";
 import { useState, useEffect } from "react";
 
 const useTheme = () => {
-  const isDarkMode = useThemeStore((state) => state.isDarkMode);
-  const toggleTheme = useThemeStore((state) => state.toggleTheme);
+  const {isDarkMode, toggleTheme} = useThemeStore();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
