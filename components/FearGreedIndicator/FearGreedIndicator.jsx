@@ -40,6 +40,7 @@ const FearGreedIndicator = () => {
               variant={"h3"}
               colorType={"text-title"}
               sizeVariant={"text-4xl md:text-5xl"}
+              customClasses={"px-4 md:px-0"}
             >
               {title}
             </Text>
