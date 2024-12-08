@@ -6,7 +6,7 @@ const CryptoCardLayout = ({ cryptocurrencies, loadingCount = 10 }) => {
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 px-3 md:px-0">
         {[...Array(loadingCount)].map((_, index) => (
-          <CryptoCard key={index} loading fullWidth={index === 0 || loadingCount - 1} />
+          <CryptoCard key={index} loading fullWidth={index === 0 || index === loadingCount - 1} />
         ))}
       </div>
     );
