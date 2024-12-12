@@ -28,13 +28,15 @@ const Card = ({
         "overflow-hidden rounded-lg shadow h-[504px] flex flex-col"
       }
     >
-      <Image
-        height={192}
-        width={fullWidth ? 800 : 400}
-        src={imageSrc}
-        alt={title}
-        className="w-full h-48 object-cover"
-      />
+      {imageSrc && (
+        <Image
+          height={192}
+          width={fullWidth ? 800 : 400}
+          src={imageSrc}
+          alt={title}
+          className="w-full h-48 object-cover"
+        />
+      )}
       <div className="px-4 py-5 flex-1 overflow-y-auto">
         <div className="grid grid-flow-row grid-cols-5 justify-center ">
           <Icons
