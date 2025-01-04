@@ -1,8 +1,2 @@
 User-agent: *
-Disallow: /perfil
-Disallow: /noticias
-Disallow: /criptomonedas
-Disallow: /api
-Allow: /manifest.json
-Allow: /icon512_maskable.png
-Allow: /icon512_rounded.png
+Disallow: /
