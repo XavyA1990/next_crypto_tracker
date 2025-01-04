@@ -9,8 +9,10 @@ export const translateText = async (text) => {
       },
       body: JSON.stringify({
         q: text,
-        source: "en",
+        source: "auto",
         target: "es",
+        format: "text",
+        api_key: "",
       }),
     });
 
