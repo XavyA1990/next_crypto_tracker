@@ -7,7 +7,6 @@ export async function GET(request) {
 
   try {
     const response = await binanceFetcher(url);
-    console.log("🚀 ~ GET ~ response:", response)
 
     const data = await response.json();
 
