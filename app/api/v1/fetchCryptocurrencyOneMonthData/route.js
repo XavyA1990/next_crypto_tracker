@@ -11,14 +11,17 @@ export async function GET(request) {
     const response = await binanceFetcher(url);
 
     const data = await response.json();
+    console.log("🚀 ~ GET ~ data:", data)
 
     const processedData = await processedDataForTables(
       data,
       lang === "en" || (lang === "es" && process.env.NODE_ENV === "production") ? "en-US" : "es-ES"
     );
+    console.log("🚀 ~ GET ~ processedData:", processedData)
 
     return NextResponse.json({ data: processedData }, { status: 200 });
   } catch (error) {
     console.error("🚀 ~ GET ~ error", error);
+    return NextResponse.json({ error: error }, { status: 500 });
   }
 }

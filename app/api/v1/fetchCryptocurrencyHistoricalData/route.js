@@ -7,6 +7,7 @@ export async function GET(request) {
 
   try {
     const response = await binanceFetcher(url);
+    console.log("🚀 ~ GET ~ response:", response)
 
     const data = await response.json();
 
@@ -21,5 +22,6 @@ export async function GET(request) {
     return NextResponse.json({ data: formattedCandles }, { status: 200 });
   } catch (error) {
     console.error("🚀 ~ GET ~ error", error);
+    return NextResponse.json({ error: error }, { status: 500 });
   }
 }
