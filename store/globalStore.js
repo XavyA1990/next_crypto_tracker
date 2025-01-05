@@ -117,8 +117,8 @@ export const useFavoritesStore = create()(
 export const useLabelsStore = create(
   persist(
     (set) => ({
-      currentLanguage: 'es',
-      labels: labels['es'],
+      currentLanguage: 'en',
+      labels: labels['en'],
       setLanguage: (lang) =>
         set({
           currentLanguage: lang,
