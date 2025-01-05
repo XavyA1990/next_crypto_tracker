@@ -38,7 +38,7 @@ export async function GET(request) {
             .map((ticker) => cryptoRankMap[ticker] || Infinity)
             .reduce((min, rank) => Math.min(min, rank), Infinity);
 
-          if (lang === "en") {
+          if (lang === "en" || (lang === "es" && process.env.NODE_ENV === "production")) {
             const formattedDate = formatDate(item.date, "en-US");
             return {
               ...item,

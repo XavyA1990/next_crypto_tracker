@@ -22,7 +22,7 @@ export async function GET(request) {
     const cryptocurrencyInfo = data.data[key];
 
     const translatedDescription =
-      lang === "es"
+      lang === "es" && process.env.NODE_ENV !== "production"
         ? await translateText(cryptocurrencyInfo.description)
         : cryptocurrencyInfo.description;
 

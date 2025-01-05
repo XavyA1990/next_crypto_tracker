@@ -15,13 +15,18 @@ export async function GET(request) {
 
     const { value_classification, value } = await data.data;
 
-    const translatedValueClassification = await translateText(
-      value_classification
-    );
+    let translatedValueClassification = value_classification;
+
+    if (process.env.NODE_ENV === "development") {
+      translatedValueClassification = await translateText(
+        value_classification
+      );
+    }
 
     const replacements = {
       "[value]": value,
-      "[translatedValueClassification]": lang === "es" ? translatedValueClassification : value_classification,
+      "[translatedValueClassification]":
+        lang === "es" ? translatedValueClassification : value_classification,
     };
 
     const prompt = fearAndGreedIndexPrompt.replace(
@@ -33,7 +38,8 @@ export async function GET(request) {
 
     const parsedData = {
       value: value,
-      value_classification: lang === "es" ? translatedValueClassification : value_classification,
+      value_classification:
+        lang === "es"  ? translatedValueClassification : value_classification,
       advice: advice,
     };
 

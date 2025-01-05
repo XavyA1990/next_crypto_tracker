@@ -15,7 +15,7 @@ export async function GET(request) {
     if (data && Array.isArray(data)) {
       const translatedData = await Promise.all(
         data.map(async (item) => {
-          if (lang === "en") {
+          if (lang === "en" || (lang === "es" && process.env.NODE_ENV === "production")) {
             const formattedDate = formatDate(item.date, "en-US");
             return {
               ...item,
