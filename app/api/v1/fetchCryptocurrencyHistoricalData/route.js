@@ -8,10 +8,6 @@ export async function GET(request) {
   try {
     const response = await binanceFetcher(url);
 
-    if (!response.ok) {
-      throw new Error(`API request failed with status ${response.status}`);
-    }
-
     const data = await response.json();
 
     const formattedCandles = data.map((candle) => ({

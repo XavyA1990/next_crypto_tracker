@@ -10,15 +10,11 @@ export async function GET(request) {
   try {
     const response = await binanceFetcher(url);
 
-    if (!response.ok) {
-      throw new Error(`API request failed with status ${response.status}`);
-    }
-
     const data = await response.json();
 
     const processedData = await processedDataForTables(
       data,
-      lang === "en" ? "en-US" : "es-ES"
+      lang === "en" || (lang === "es" && process.env.NODE_ENV === "production") ? "en-US" : "es-ES"
     );
 
     return NextResponse.json({ data: processedData }, { status: 200 });
