@@ -10,7 +10,11 @@ import routes from "../../lib/routes/routes.json";
 import useTheme from "@/hooks/useTheme";
 import { getUser } from "@/services/auth";
 import { useEffect } from "react";
-import { useAuthStore, useLabelsStore, useMenuStore } from "@/store/globalStore";
+import {
+  useAuthStore,
+  useLabelsStore,
+  useMenuStore,
+} from "@/store/globalStore";
 import LoginModal from "./LoginModal/LoginModal";
 import Container from "../Container/Container";
 import Icons from "../Icons/Icons";
@@ -23,7 +27,7 @@ const Navbar = () => {
   const { currentLanguage, setLanguage } = useLabelsStore();
 
   const toggleLanguage = () => {
-    const newLanguage = currentLanguage === 'es' ? 'en' : 'es';
+    const newLanguage = currentLanguage === "es" ? "en" : "es";
     setLanguage(newLanguage);
   };
 
@@ -88,19 +92,23 @@ const Navbar = () => {
                     </Container>
                   </Button>
                 </div>
-                <div className="flex-shrink-0 hidden md:block">
-                  <Button
-                    className="profile-menu-item w-full"
-                    onClick={toggleLanguage}
-                  >
-                    <Container
-                      colorVariant={"none"}
-                      customClasses={`flex gap-2 w-full items-center normal-text`}
+                {process.env.NODE_ENV === "development" && (
+                  <div className="flex-shrink-0 hidden md:block">
+                    <Button
+                      className="profile-menu-item w-full"
+                      onClick={toggleLanguage}
                     >
-                      <span><Labels labelFamily={"navbar"} label={"language"}/></span>
-                    </Container>
-                  </Button>
-                </div>
+                      <Container
+                        colorVariant={"none"}
+                        customClasses={`flex gap-2 w-full items-center normal-text`}
+                      >
+                        <span>
+                          <Labels labelFamily={"navbar"} label={"language"} />
+                        </span>
+                      </Container>
+                    </Button>
+                  </div>
+                )}
               </>
             ) : (
               <div className="hidden md:ml-4 md:flex md:flex-shrink-0 md:items-center">

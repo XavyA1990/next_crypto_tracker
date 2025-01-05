@@ -57,14 +57,16 @@ const MobileMenu = () => {
           </div>
         </UserInfo>
       )}
-      <Button
-        className={`profile-mobile-button-base profile-mobile-button ${theme} w-full`}
-        onClick={toggleLanguage}
-      >
-        <div className="flex gap-2 w-full items-center">
-          <Labels labelFamily={"navbar"} label={"language"} />
-        </div>
-      </Button>
+      {process.env.NODE_ENV === "development" && (
+        <Button
+          className={`profile-mobile-button-base profile-mobile-button ${theme} w-full`}
+          onClick={toggleLanguage}
+        >
+          <div className="flex gap-2 w-full items-center">
+            <Labels labelFamily={"navbar"} label={"language"} />
+          </div>
+        </Button>
+      )}
     </DisclosurePanel>
   );
 };

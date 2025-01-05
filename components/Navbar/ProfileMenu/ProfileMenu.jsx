@@ -47,12 +47,11 @@ const ProfileMenu = () => {
                 </span>
               </div>
             </Button>
-            <Button
-              className="profile-menu-item"
-              onClick={toggleLanguage}
-            >
-              <Labels labelFamily={"navbar"} label={"language"} />
-            </Button>
+            {process.env.NODE_ENV === "development" && (
+              <Button className="profile-menu-item" onClick={toggleLanguage}>
+                <Labels labelFamily={"navbar"} label={"language"} />
+              </Button>
+            )}
           </>
         </MenuItem>
       </MenuItems>
