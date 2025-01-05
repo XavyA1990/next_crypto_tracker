@@ -1,4 +1,4 @@
-const LIBRE_TRANSLATE_URL = "https://libretranslate.com/translate";
+const LIBRE_TRANSLATE_URL = "http://127.0.0.1:5000/translate";
 
 export const translateText = async (text) => {
   try {
@@ -11,7 +11,6 @@ export const translateText = async (text) => {
         q: text,
         source: "en",
         target: "es",
-        api_key: process.env.LIBRE_TRANSLATE_API_KEY,
       }),
     });
 
