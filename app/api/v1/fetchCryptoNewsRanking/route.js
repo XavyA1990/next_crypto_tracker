@@ -48,9 +48,7 @@ export async function GET(request) {
           }
 
           const translatedTitle = await translateText(item.title);
-          console.log("🚀 ~ news.map ~ translatedTitle:", translatedTitle)
           const translatedText = await translateText(item.text);
-          console.log("🚀 ~ news.map ~ translatedText:", translatedText)
           const formattedDate = formatDate(item.date);
 
 

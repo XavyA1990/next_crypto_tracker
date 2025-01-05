@@ -11,6 +11,7 @@ export const translateText = async (text) => {
         q: text,
         source: "en",
         target: "es",
+        api_key: process.env.LIBRE_TRANSLATE_API_KEY,
       }),
     });
 
