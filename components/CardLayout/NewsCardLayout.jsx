@@ -14,7 +14,7 @@ const SkeletonCard = ({ fullWidth }) => (
 
 const NewsCardLayout = ({ data, loadingCount = 5, finalCardDifferent = false }) => {
   
-  if (data.length === 0) {
+  if (data?.length === 0) {
     return (
       <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-auto gap-4 px-3 md:px-0">
         {[...Array(loadingCount)].map((_, index) => (
