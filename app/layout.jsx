@@ -17,7 +17,6 @@ const geistMono = localFont({
 export const metadata = {
   title: "Next Crypto Tracker",
   description: "descubre las mejores criptomonedas y noticias",
-  themeColor: "#f3f4f6",
 };
 
 export default function RootLayout({ children }) {
