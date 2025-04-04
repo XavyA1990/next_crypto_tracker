@@ -17,11 +17,17 @@ const geistMono = localFont({
 export const metadata = {
   title: "Next Crypto Tracker",
   description: "descubre las mejores criptomonedas y noticias",
+  themeColor: "#f3f4f6",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="apple-touch-icon" href="/icon512_rounded.png" />
+        <meta name="theme-color" content="#f3f4f6" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
       >
