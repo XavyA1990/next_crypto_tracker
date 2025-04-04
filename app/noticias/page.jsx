@@ -13,7 +13,7 @@ const Noticias = () => {
     <Page>
       <PageTitle
         title={
-          <div className="flex gap-4">
+          <div className="">
             <Labels labelFamily={"commons"} label={"latestNews"} />{" "}
             <Labels labelFamily={"commons"} label={"crypto"} />
           </div>
