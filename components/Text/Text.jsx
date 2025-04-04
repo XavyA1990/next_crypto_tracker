@@ -21,7 +21,7 @@ const Text = ({
       return (
         <h1
           className={`${
-            sizeVariant ? sizeVariant : "text-6xl md:text-7xl"
+            sizeVariant ? sizeVariant : "text-5xl md:text-7xl"
           }  ${colorType} py-5 ${weight} pb-10 ${theme} ${customClasses}`}
         >
           {children}
